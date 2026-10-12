@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O Círculo dos Curiosos: histórias de educação fiscal</title>
+<meta name="description" content="Dez histórias de educação fiscal para ouvir, ler e acompanhar em Libras, com audiodescrição.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="css/estilo.css">
+<script>
+  /* Aplica as preferências antes de desenhar a página */
+  (function () {
+    var r = document.documentElement;
+    r.classList.add("js");
+    function ler(k) { try { return localStorage.getItem("historias:" + k); } catch (e) { return null; } }
+    var t = ler("tamanho"); if (t && t !== "0") r.setAttribute("data-tamanho", t);
+    var e = ler("escuro");
+    if (e === "1" || (e === null && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches)) r.setAttribute("data-tema", "escuro");
+    if (ler("contraste") === "1") r.setAttribute("data-contraste", "alto");
+    if (ler("espaco") === "1") r.setAttribute("data-espaco", "amplo");
+    if (ler("libras") === "1") r.setAttribute("data-libras", "sim");
+  })();
+</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envoltorio">
+    <a class="marca" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24.0" cy="6.0" r="4.6" style="fill:var(--coral)"/><circle cx="34.6" cy="9.4" r="4.6" style="fill:var(--azul)"/><circle cx="41.1" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="41.1" cy="29.6" r="4.6" style="fill:var(--laranja)"/><circle cx="34.6" cy="38.6" r="4.6" style="fill:var(--rosa)"/><circle cx="24.0" cy="42.0" r="4.6" style="fill:var(--roxo)"/><circle cx="13.4" cy="38.6" r="4.6" style="fill:var(--azul)"/><circle cx="6.9" cy="29.6" r="4.6" style="fill:var(--coral)"/><circle cx="6.9" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="13.4" cy="9.4" r="4.6" style="fill:var(--laranja)"/><circle cx="22.5" cy="22.5" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M27 27 31 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O Círculo dos Curiosos</a>
+    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li></ul></nav>
+  </div>
+</header>
+<div class="barra-opcoes sem-js-oculto">
+  <div class="envoltorio">
+    <fieldset class="opcoes">
+      <legend>Para ler melhor:</legend>
+      <button type="button" class="botao-opcao" id="texto-menor" aria-label="Diminuir o texto">A−</button>
+      <button type="button" class="botao-opcao" id="texto-maior" aria-label="Aumentar o texto">A+</button>
+      <button type="button" class="botao-opcao" id="alto-contraste" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        Contraste
+      </button>
+      <button type="button" class="botao-opcao" id="modo-escuro" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        Escuro
+      </button>
+      <button type="button" class="botao-opcao" id="espacamento" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Espaçar linhas
+      </button>
+    </fieldset>
+  </div>
+</div>
+
+<main id="conteudo" tabindex="-1">
+  <div class="envoltorio">
+
+    <section class="abertura" aria-labelledby="titulo-site">
+      <div>
+        <h1 id="titulo-site"><span class="linha">O Círculo</span> <span class="linha">dos Curiosos</span></h1>
+        <svg class="braille" viewBox="0 0 540 28.8" aria-hidden="true" focusable="false"><circle class="c0" cx="4.4" cy="4.4" r="3.4"/><circle class="vazio" cx="4.4" cy="14.4" r="3.4"/><circle class="vazio" cx="4.4" cy="24.4" r="3.4"/><circle class="c0" cx="14.4" cy="4.4" r="3.4"/><circle class="vazio" cx="14.4" cy="14.4" r="3.4"/><circle class="vazio" cx="14.4" cy="24.4" r="3.4"/><circle class="vazio" cx="31.4" cy="4.4" r="3.4"/><circle class="vazio" cx="31.4" cy="14.4" r="3.4"/><circle class="c1" cx="31.4" cy="24.4" r="3.4"/><circle class="c1" cx="41.4" cy="4.4" r="3.4"/><circle class="vazio" cx="41.4" cy="14.4" r="3.4"/><circle class="vazio" cx="41.4" cy="24.4" r="3.4"/><circle class="c2" cx="58.4" cy="4.4" r="3.4"/><circle class="c2" cx="58.4" cy="14.4" r="3.4"/><circle class="c2" cx="58.4" cy="24.4" r="3.4"/><circle class="vazio" cx="68.4" cy="4.4" r="3.4"/><circle class="c2" cx="68.4" cy="14.4" r="3.4"/><circle class="vazio" cx="68.4" cy="24.4" r="3.4"/><circle class="c3" cx="85.4" cy="4.4" r="3.4"/><circle class="vazio" cx="85.4" cy="14.4" r="3.4"/><circle class="vazio" cx="85.4" cy="24.4" r="3.4"/><circle class="c3" cx="95.4" cy="4.4" r="3.4"/><circle class="vazio" cx="95.4" cy="14.4" r="3.4"/><circle class="vazio" cx="95.4" cy="24.4" r="3.4"/><circle class="c4" cx="112.4" cy="4.4" r="3.4"/><circle class="vazio" cx="112.4" cy="14.4" r="3.4"/><circle class="c4" cx="112.4" cy="24.4" r="3.4"/><circle class="vazio" cx="122.4" cy="4.4" r="3.4"/><circle class="vazio" cx="122.4" cy="14.4" r="3.4"/><circle class="c4" cx="122.4" cy="24.4" r="3.4"/><circle class="c5" cx="139.4" cy="4.4" r="3.4"/><circle class="c5" cx="139.4" cy="14.4" r="3.4"/><circle class="c5" cx="139.4" cy="24.4" r="3.4"/><circle class="vazio" cx="149.4" cy="4.4" r="3.4"/><circle class="vazio" cx="149.4" cy="14.4" r="3.4"/><circle class="vazio" cx="149.4" cy="24.4" r="3.4"/><circle class="c0" cx="166.4" cy="4.4" r="3.4"/><circle class="vazio" cx="166.4" cy="14.4" r="3.4"/><circle class="c0" cx="166.4" cy="24.4" r="3.4"/><circle class="vazio" cx="176.4" cy="4.4" r="3.4"/><circle class="c0" cx="176.4" cy="14.4" r="3.4"/><circle class="vazio" cx="176.4" cy="24.4" r="3.4"/><circle class="c1" cx="220.4" cy="4.4" r="3.4"/><circle class="vazio" cx="220.4" cy="14.4" r="3.4"/><circle class="vazio" cx="220.4" cy="24.4" r="3.4"/><circle class="c1" cx="230.4" cy="4.4" r="3.4"/><circle class="c1" cx="230.4" cy="14.4" r="3.4"/><circle class="vazio" cx="230.4" cy="24.4" r="3.4"/><circle class="c2" cx="247.4" cy="4.4" r="3.4"/><circle class="vazio" cx="247.4" cy="14.4" r="3.4"/><circle class="c2" cx="247.4" cy="24.4" r="3.4"/><circle class="vazio" cx="257.4" cy="4.4" r="3.4"/><circle class="c2" cx="257.4" cy="14.4" r="3.4"/><circle class="vazio" cx="257.4" cy="24.4" r="3.4"/><circle class="vazio" cx="274.4" cy="4.4" r="3.4"/><circle class="c3" cx="274.4" cy="14.4" r="3.4"/><circle class="c3" cx="274.4" cy="24.4" r="3.4"/><circle class="c3" cx="284.4" cy="4.4" r="3.4"/><circle class="vazio" cx="284.4" cy="14.4" r="3.4"/><circle class="vazio" cx="284.4" cy="24.4" r="3.4"/><circle class="c4" cx="328.4" cy="4.4" r="3.4"/><circle class="vazio" cx="328.4" cy="14.4" r="3.4"/><circle class="vazio" cx="328.4" cy="24.4" r="3.4"/><circle class="c4" cx="338.4" cy="4.4" r="3.4"/><circle class="vazio" cx="338.4" cy="14.4" r="3.4"/><circle class="vazio" cx="338.4" cy="24.4" r="3.4"/><circle class="c5" cx="355.4" cy="4.4" r="3.4"/><circle class="vazio" cx="355.4" cy="14.4" r="3.4"/><circle class="c5" cx="355.4" cy="24.4" r="3.4"/><circle class="vazio" cx="365.4" cy="4.4" r="3.4"/><circle class="vazio" cx="365.4" cy="14.4" r="3.4"/><circle class="c5" cx="365.4" cy="24.4" r="3.4"/><circle class="c0" cx="382.4" cy="4.4" r="3.4"/><circle class="c0" cx="382.4" cy="14.4" r="3.4"/><circle class="c0" cx="382.4" cy="24.4" r="3.4"/><circle class="vazio" cx="392.4" cy="4.4" r="3.4"/><circle class="c0" cx="392.4" cy="14.4" r="3.4"/><circle class="vazio" cx="392.4" cy="24.4" r="3.4"/><circle class="vazio" cx="409.4" cy="4.4" r="3.4"/><circle class="c1" cx="409.4" cy="14.4" r="3.4"/><circle class="vazio" cx="409.4" cy="24.4" r="3.4"/><circle class="c1" cx="419.4" cy="4.4" r="3.4"/><circle class="vazio" cx="419.4" cy="14.4" r="3.4"/><circle class="vazio" cx="419.4" cy="24.4" r="3.4"/><circle class="c2" cx="436.4" cy="4.4" r="3.4"/><circle class="vazio" cx="436.4" cy="14.4" r="3.4"/><circle class="c2" cx="436.4" cy="24.4" r="3.4"/><circle class="vazio" cx="446.4" cy="4.4" r="3.4"/><circle class="c2" cx="446.4" cy="14.4" r="3.4"/><circle class="vazio" cx="446.4" cy="24.4" r="3.4"/><circle class="vazio" cx="463.4" cy="4.4" r="3.4"/><circle class="c3" cx="463.4" cy="14.4" r="3.4"/><circle class="c3" cx="463.4" cy="24.4" r="3.4"/><circle class="c3" cx="473.4" cy="4.4" r="3.4"/><circle class="vazio" cx="473.4" cy="14.4" r="3.4"/><circle class="vazio" cx="473.4" cy="24.4" r="3.4"/><circle class="c4" cx="490.4" cy="4.4" r="3.4"/><circle class="vazio" cx="490.4" cy="14.4" r="3.4"/><circle class="c4" cx="490.4" cy="24.4" r="3.4"/><circle class="vazio" cx="500.4" cy="4.4" r="3.4"/><circle class="c4" cx="500.4" cy="14.4" r="3.4"/><circle class="vazio" cx="500.4" cy="24.4" r="3.4"/><circle class="vazio" cx="517.4" cy="4.4" r="3.4"/><circle class="c5" cx="517.4" cy="14.4" r="3.4"/><circle class="c5" cx="517.4" cy="24.4" r="3.4"/><circle class="c5" cx="527.4" cy="4.4" r="3.4"/><circle class="vazio" cx="527.4" cy="14.4" r="3.4"/><circle class="vazio" cx="527.4" cy="24.4" r="3.4"/></svg>
+        <p class="braille-legenda">“Círculo dos Curiosos” escrito em braile.</p>
+        <p class="lead">Dez crianças, dez histórias e uma pergunta: como funciona o dinheiro que cuida da nossa cidade? Ouça, leia e acompanhe em Libras. Histórias criadas pelos estudantes da EMEF Hugo Gerdau a partir de <a href="pesquisa.html">uma pesquisa</a>.</p>
+        
+      <div class="escolhas sem-js-oculto">
+        <div class="escolha">
+          <input type="checkbox" id="libras-junto" aria-describedby="libras-explica">
+          <label for="libras-junto">Libras junto com o áudio</label>
+          <p id="libras-explica" class="explica">O avatar do VLibras traduz cada frase enquanto a história toca. Quando ele demora mais que a fala, o áudio espera.</p>
+          <p id="libras-aviso" class="explica alerta" hidden></p>
+        </div>
+        <div class="escolha">
+          <input type="checkbox" id="seguir-ouvindo">
+          <label for="seguir-ouvindo">Tocar a próxima história sozinha</label>
+        </div>
+      </div>
+      </div>
+      <div class="roda"><div class="roda-fotos" role="img" aria-label="As dez crianças do Círculo dos Curiosos em roda: Lia, Theo, Bia, Ravi, Nina, Caio, Sofia, Miguel, Yara e Tomás."><div class="roda-centro"><svg class="roda-lupa" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="45" cy="45" r="24" fill="none" stroke="currentColor" stroke-width="9"/><path d="M63 63 L80 80" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg></div><img class="roda-rosto cor-coral" src="imagens/personagens/lia-rosto.webp" alt="" width="260" height="260" style="--a:0deg; --i:0"><img class="roda-rosto cor-laranja" src="imagens/personagens/theo-rosto.webp" alt="" width="260" height="260" style="--a:36deg; --i:1"><img class="roda-rosto cor-rosa" src="imagens/personagens/bia-rosto.webp" alt="" width="260" height="260" style="--a:72deg; --i:2"><img class="roda-rosto cor-roxo" src="imagens/personagens/ravi-rosto.webp" alt="" width="260" height="260" style="--a:108deg; --i:3"><img class="roda-rosto cor-verde" src="imagens/personagens/nina-rosto.webp" alt="" width="260" height="260" style="--a:144deg; --i:4"><img class="roda-rosto cor-azul" src="imagens/personagens/caio-rosto.webp" alt="" width="260" height="260" style="--a:180deg; --i:5"><img class="roda-rosto cor-azul" src="imagens/personagens/sofia-rosto.webp" alt="" width="260" height="260" style="--a:216deg; --i:6"><img class="roda-rosto cor-laranja" src="imagens/personagens/miguel-rosto.webp" alt="" width="260" height="260" style="--a:252deg; --i:7"><img class="roda-rosto cor-coral" src="imagens/personagens/yara-rosto.webp" alt="" width="260" height="260" style="--a:288deg; --i:8"><img class="roda-rosto cor-verde" src="imagens/personagens/tomas-rosto.webp" alt="" width="260" height="260" style="--a:324deg; --i:9"></div></div>
+    </section>
+
+    <section class="secao cor-verde" id="personagens" aria-labelledby="h-personagens">
+      <h2 class="titulo-secao" id="h-personagens">Conheça a turma</h2>
+      <p class="descricao">O Círculo dos Curiosos é um grupo de dez amigos que investiga perguntas sobre a escola, o bairro e a cidade.</p>
+      <ul class="personagens"><li><div class="personagem cor-coral"><img class="foto-personagem" src="imagens/personagens/lia.webp" alt="Lia, menina de cabelo castanho cacheado, camiseta amarela e jardineira, com a mão no queixo, escrevendo num caderno. Atrás, um quadro com a pergunta “Por quê?”." width="375" height="483" loading="lazy"><div class="personagem-texto"><h3>Lia<span class="idade">9 anos</span></h3><p>Muito curiosa, sempre pergunta “por quê?”.</p></div></div></li><li><div class="personagem cor-laranja"><img class="foto-personagem" src="imagens/personagens/theo.webp" alt="Theo, menino de cabelo preto e óculos, camiseta verde, fazendo contas num caderno ao lado de uma calculadora. Atrás, um quadro-negro com contas e formas geométricas." width="399" height="479" loading="lazy"><div class="personagem-texto"><h3>Theo<span class="idade">10 anos</span></h3><p>Gosta de matemática e adora fazer contas.</p></div></div></li><li><div class="personagem cor-rosa"><img class="foto-personagem" src="imagens/personagens/bia.webp" alt="Bia, menina de cabelo castanho ondulado com uma presilha azul, blusa roxa, desenhando com lápis de cor." width="368" height="537" loading="lazy"><div class="personagem-texto"><h3>Bia<span class="idade">8 anos</span></h3><p>Criativa, gosta de desenhar e inventar histórias.</p></div></div></li><li><div class="personagem cor-roxo"><img class="foto-personagem" src="imagens/personagens/ravi.webp" alt="Ravi, menino de cabelo preto, moletom azul-escuro e fones no pescoço, usando um notebook com adesivo de foguete. Na estante, um robozinho." width="404" height="535" loading="lazy"><div class="personagem-texto"><h3>Ravi<span class="idade">10 anos</span></h3><p>Apaixonado por tecnologia, pesquisa as informações.</p></div></div></li><li><div class="personagem cor-verde"><img class="foto-personagem" src="imagens/personagens/nina.webp" alt="Nina, menina ruiva com uma coroa de folhas, segurando um vaso com uma planta. Atrás, um cartaz: “Cuidar da natureza é cuidar do futuro!”." width="376" height="504" loading="lazy"><div class="personagem-texto"><h3>Nina<span class="idade">9 anos</span></h3><p>Gosta da natureza e se preocupa com o meio ambiente.</p></div></div></li><li><div class="personagem cor-azul"><img class="foto-personagem" src="imagens/personagens/caio.webp" alt="Caio, menino de cabelo castanho e camiseta azul, sentado na cadeira de rodas numa quadra, girando uma bola de basquete no dedo." width="395" height="509" loading="lazy"><div class="personagem-texto"><h3>Caio<span class="idade">10 anos</span></h3><p>Usuário de cadeira de rodas, divertido e muito interessado em esportes.</p></div></div></li><li><div class="personagem cor-azul"><img class="foto-personagem" src="imagens/personagens/sofia.webp" alt="Sofia, menina de cabelo preto com franja, olhando uma flor com uma lupa, ao lado de um caderno aberto." width="368" height="465" loading="lazy"><div class="personagem-texto"><h3>Sofia<span class="idade">9 anos</span></h3><p>Observadora, percebe detalhes que os outros deixam passar.</p></div></div></li><li><div class="personagem cor-laranja"><img class="foto-personagem" src="imagens/personagens/miguel.webp" alt="Miguel, menino de cabelo cacheado e camiseta laranja com um sol, sorrindo e gesticulando enquanto conversa na sala de aula." width="359" height="465" loading="lazy"><div class="personagem-texto"><h3>Miguel<span class="idade">11 anos</span></h3><p>Comunicativo, gosta de conversar com todo mundo.</p></div></div></li><li><div class="personagem cor-coral"><img class="foto-personagem" src="imagens/personagens/yara.webp" alt="Yara, menina de pele negra e cabelo cacheado, blusa roxa, sorrindo e fazendo um sinal com as mãos. Atrás, um cartaz com mãos em Libras e a frase “Eu posso me comunicar de muitas formas!”." width="520" height="472" loading="lazy"><div class="personagem-texto"><h3>Yara<span class="idade">9 anos</span></h3><p>Criança com deficiência auditiva, comunicativa e apaixonada por histórias e desafios.</p></div></div></li><li><div class="personagem cor-verde"><img class="foto-personagem" src="imagens/personagens/tomas.webp" alt="Tomás, menino de cabelo castanho, óculos escuros e camiseta verde, tocando um globo terrestre e pequenos objetos na mesa. Atrás, um quadro: “Ouvir, sentir, descobrir, aprender!”." width="520" height="464" loading="lazy"><div class="personagem-texto"><h3>Tomás<span class="idade">10 anos</span></h3><p>Criança com deficiência visual, curioso, excelente em memória; descobre as coisas pelos sons e pelo toque.</p></div></div></li></ul>
+    </section>
+
+    <section class="secao cor-azul" id="historias" aria-labelledby="h-historias">
+      <h2 class="titulo-secao" id="h-historias">As dez histórias</h2>
+      <p class="descricao">Comece pela primeira: cada história continua a anterior. Aperte <strong>Ouvir</strong> e, se quiser, <strong>Ler o texto</strong> para acompanhar a frase que está tocando.</p>
+      <ol class="lista">
+<li>
+<article class="historia cor-azul" id="historia-1" aria-labelledby="titulo-historia-1" data-titulo="História 1: A pergunta que ninguém esperava" data-duracao="109.25">
+  <div class="numero" aria-hidden="true">1</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-1">A pergunta que ninguém esperava</h3>
+    <p class="resumo">A quadra ganhou pintura nova e uma rampa. Mas quem paga por tudo isso? Assim nasce o Círculo dos Curiosos.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 1: A pergunta que ninguém esperava">
+      <source src="audios/historia-1.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-1.m4a">Baixe o arquivo de História 1: A pergunta que ninguém esperava</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 1: A pergunta que ninguém esperava"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 49 s</span><span class="so-leitor">Duração: 1 minuto e 49 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-1"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 1: A pergunta que ninguém esperava</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="109" step="1" value="0" aria-label="Posição em História 1: A pergunta que ninguém esperava">
+        <span class="tempo" aria-hidden="true">0:00 / 1:49</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-1">Velocidade</label>
+        <select id="vel-historia-1" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-1.m4a" download>Baixar áudio<span class="so-leitor"> de História 1: A pergunta que ninguém esperava</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-1" role="region" aria-label="Texto de História 1: A pergunta que ninguém esperava" tabindex="0" hidden><p><span class="trecho" data-inicio="1.1" data-fim="2.06">História um.</span> <span class="trecho" data-inicio="2.06" data-fim="4.49">A pergunta que ninguém esperava.</span> <span class="trecho" data-inicio="4.48" data-fim="6.18">Era a hora do recreio.</span> <span class="trecho" data-inicio="6.1" data-fim="14.19">Lia estava sentada com seus amigos perto da escola, quando percebeu que algumas crianças estavam discutindo sobre a reforma da quadra.</span> <span class="trecho" data-inicio="14.1" data-fim="15.14">Vocês viram?</span> <span class="trecho" data-inicio="15.15" data-fim="17.9">A quadra ganhou uma nova pintura.</span> <span class="trecho" data-inicio="17.91" data-fim="20.17">Colocaram uma rampa também.</span> <span class="trecho" data-inicio="20.1" data-fim="23.18">Tomás passou a mão pelo corrimão da rampa.</span> <span class="trecho" data-inicio="23.1" data-fim="24.24">E ficou bem firme.</span> <span class="trecho" data-inicio="24.2" data-fim="27.19">Dá pra perceber pelo jeito que ela foi construída.</span></p><p><span class="trecho" data-inicio="27.1" data-fim="29.16">Theo fez uma pergunta.</span> <span class="trecho" data-inicio="29.1" data-fim="31.18">Mas quem paga por tudo isso?</span> <span class="trecho" data-inicio="31.1" data-fim="33.17">Todos ficaram em silêncio.</span> <span class="trecho" data-inicio="33.1" data-fim="37.14">Minha mãe? As crianças riram.</span> <span class="trecho" data-inicio="37.1" data-fim="39.16">Talvez seja o prefeito.</span> <span class="trecho" data-inicio="39.1" data-fim="43.15">Mas de onde vem o dinheiro do prefeito?</span> <span class="trecho" data-inicio="43.1" data-fim="45.14">Ninguém respondeu.</span> <span class="trecho" data-inicio="45.1" data-fim="47.16">Ravi pegou seu tablet.</span> <span class="trecho" data-inicio="47.1" data-fim="49.19">Essa é uma pergunta para investigar.</span> <span class="trecho" data-inicio="49.1" data-fim="51.1">Sofia sorriu.</span> <span class="trecho" data-inicio="51.1" data-fim="53.19">Então temos nossa primeira missão.</span> <span class="trecho" data-inicio="53.1" data-fim="56.9">Yara fez um sinal para os amigos e apontou para o grupo.</span> <span class="trecho" data-inicio="56.82" data-fim="59.23">Vamos descobrir juntos?</span> <span class="trecho" data-inicio="59.18" data-fim="62.05">As dez crianças fizeram um círculo.</span></p><p><span class="trecho" data-inicio="61.98" data-fim="64.04">O Círculo dos Curiosos.</span> <span class="trecho" data-inicio="63.98" data-fim="72.62">A partir daquele dia, sempre que aparecesse uma pergunta difícil sobre a escola, o bairro ou a cidade, eles investigariam juntos.</span> <span class="trecho" data-inicio="72.54" data-fim="76.1">A primeira pergunta ficou escrita no caderno de Lia.</span> <span class="trecho" data-inicio="76.02" data-fim="81.01">Como funciona o dinheiro que ajuda a cuidar da nossa cidade?</span> <span class="trecho" data-inicio="80.94" data-fim="87.02">Tomás acrescentou: E talvez a resposta tenha alguma coisa a ver com cidadania.</span> <span class="trecho" data-inicio="86.94" data-fim="91.02">Cidadania? Isso também vamos descobrir.</span></p><p><span class="trecho" data-inicio="90.94" data-fim="96.01">E assim começou a primeira investigação do Círculo dos Curiosos.</span> <span class="trecho" data-inicio="95.94" data-fim="97.96">Hora de pensar.</span> <span class="trecho" data-inicio="97.94" data-fim="100.03">O que você entende por cidadania?</span> <span class="trecho" data-inicio="99.94" data-fim="104.01">Quem ajuda a cuidar dos espaços que todos usamos?</span> <span class="trecho" data-inicio="103.94" data-fim="108.02">Que coisas da nossa cidade você gostaria de entender melhor?</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-1.webp" alt="História em quadrinhos “A pergunta que ninguém esperava”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="878" height="878" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-1.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    <details class="pensar"><summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg> Hora de pensar</summary><ul><li>O que você entende por cidadania?</li><li>Quem ajuda a cuidar dos espaços que todos usamos?</li><li>Que coisas da nossa cidade você gostaria de entender melhor?</li></ul></details>
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-coral" id="historia-2" aria-labelledby="titulo-historia-2" data-titulo="História 2: O dinheiro que vai e volta" data-duracao="80.04">
+  <div class="numero" aria-hidden="true">2</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-2">O dinheiro que vai e volta</h3>
+    <p class="resumo">Theo chega com uma folha cheia de números e descobre de onde vem o dinheiro dos serviços públicos.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 2: O dinheiro que vai e volta">
+      <source src="audios/historia-2.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-2.m4a">Baixe o arquivo de História 2: O dinheiro que vai e volta</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 2: O dinheiro que vai e volta"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 20 s</span><span class="so-leitor">Duração: 1 minuto e 20 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-2"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 2: O dinheiro que vai e volta</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="80" step="1" value="0" aria-label="Posição em História 2: O dinheiro que vai e volta">
+        <span class="tempo" aria-hidden="true">0:00 / 1:20</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-2">Velocidade</label>
+        <select id="vel-historia-2" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-2.m4a" download>Baixar áudio<span class="so-leitor"> de História 2: O dinheiro que vai e volta</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-2" role="region" aria-label="Texto de História 2: O dinheiro que vai e volta" tabindex="0" hidden><p><span class="trecho" data-inicio="0.82" data-fim="1.9">História dois.</span> <span class="trecho" data-inicio="1.89" data-fim="3.9">O dinheiro que vai e volta.</span> <span class="trecho" data-inicio="3.82" data-fim="6.9">No dia seguinte, o grupo se reuniu novamente.</span> <span class="trecho" data-inicio="6.82" data-fim="9.9">Theo chegou com uma folha cheia de números.</span> <span class="trecho" data-inicio="9.82" data-fim="10.92">Descobri uma coisa!</span> <span class="trecho" data-inicio="10.82" data-fim="12.82">Conta, conta!</span> <span class="trecho" data-inicio="12.82" data-fim="17.89">O dinheiro que o governo usa para oferecer serviços públicos vem de diferentes fontes.</span> <span class="trecho" data-inicio="17.82" data-fim="19.89">Uma delas são os tributos.</span> <span class="trecho" data-inicio="19.82" data-fim="23.9">Tributos? É um nome que vamos precisar entender melhor.</span> <span class="trecho" data-inicio="23.82" data-fim="29.92">O governo arrecada recursos e depois utiliza esses recursos para financiar ações e serviços públicos.</span></p><p><span class="trecho" data-inicio="29.82" data-fim="32.49">Nina pensou na escola.</span> <span class="trecho" data-inicio="32.46" data-fim="35.75">Então parte desses recursos pode ajudar na educação?</span> <span class="trecho" data-inicio="35.66" data-fim="41.87">Pode. E também pode ajudar em coisas que usamos na cidade, como espaços públicos e serviços.</span> <span class="trecho" data-inicio="41.78" data-fim="43.61">Tomás ficou pensativo.</span> <span class="trecho" data-inicio="43.54" data-fim="46.44">Então, aquele dinheiro não serve para uma pessoa só?</span> <span class="trecho" data-inicio="46.34" data-fim="49.22">Exatamente. Descobrimos o segredo.</span> <span class="trecho" data-inicio="49.14" data-fim="51.13">Todos olharam para ele.</span> <span class="trecho" data-inicio="51.06" data-fim="54.27">Dinheiro público é para atender necessidades públicas.</span> <span class="trecho" data-inicio="54.18" data-fim="58.49">O grupo comemorou, mas Lia ainda tinha uma pergunta.</span></p><p><span class="trecho" data-inicio="58.42" data-fim="61.33">Se existem tributos, o que são eles?</span> <span class="trecho" data-inicio="61.26" data-fim="63.22">Todos se entreolharam.</span> <span class="trecho" data-inicio="63.25" data-fim="65.12">Ravi fechou o tablet.</span> <span class="trecho" data-inicio="65.06" data-fim="68.13">Parece que temos outra investigação.</span> <span class="trecho" data-inicio="68.06" data-fim="69.67">Hora de pensar.</span> <span class="trecho" data-inicio="69.62" data-fim="71.89">O que são recursos públicos?</span> <span class="trecho" data-inicio="71.82" data-fim="75.9">Cite três coisas que podem ser importantes para a população.</span> <span class="trecho" data-inicio="75.82" data-fim="79.34">Por que é importante cuidar daquilo que é de todos?</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-2.webp" alt="História em quadrinhos “O dinheiro que vai e volta”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="878" height="878" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-2.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    <details class="pensar"><summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg> Hora de pensar</summary><ul><li>O que são recursos públicos?</li><li>Cite três coisas que podem ser importantes para a população.</li><li>Por que é importante cuidar daquilo que é de todos?</li></ul></details>
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-verde" id="historia-3" aria-labelledby="titulo-historia-3" data-titulo="História 3: Afinal, o que são impostos?" data-duracao="83.14">
+  <div class="numero" aria-hidden="true">3</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-3">Afinal, o que são impostos?</h3>
+    <p class="resumo">Uma caixa com dez moedas ajuda a entender a diferença entre tributo e imposto.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 3: Afinal, o que são impostos?">
+      <source src="audios/historia-3.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-3.m4a">Baixe o arquivo de História 3: Afinal, o que são impostos?</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 3: Afinal, o que são impostos?"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 23 s</span><span class="so-leitor">Duração: 1 minuto e 23 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-3"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 3: Afinal, o que são impostos?</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="83" step="1" value="0" aria-label="Posição em História 3: Afinal, o que são impostos?">
+        <span class="tempo" aria-hidden="true">0:00 / 1:23</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-3">Velocidade</label>
+        <select id="vel-historia-3" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-3.m4a" download>Baixar áudio<span class="so-leitor"> de História 3: Afinal, o que são impostos?</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-3" role="region" aria-label="Texto de História 3: Afinal, o que são impostos?" tabindex="0" hidden><p><span class="trecho" data-inicio="1.49" data-fim="2.88">História três.</span> <span class="trecho" data-inicio="2.92" data-fim="5.54">Afinal, o que são impostos?</span> <span class="trecho" data-inicio="5.49" data-fim="9.56">Naquele dia, Theo levou uma pequena caixa de papelão.</span> <span class="trecho" data-inicio="9.49" data-fim="11.58">Hoje vamos fazer uma experiência.</span> <span class="trecho" data-inicio="11.49" data-fim="14.56">Ele colocou dez moedas dentro da caixa.</span> <span class="trecho" data-inicio="14.49" data-fim="18.59">Imaginem que essa caixa representa os recursos arrecadados pelo poder público.</span> <span class="trecho" data-inicio="18.49" data-fim="20.47">E as moedas?</span> <span class="trecho" data-inicio="20.49" data-fim="22.57">São apenas uma representação.</span> <span class="trecho" data-inicio="22.49" data-fim="26.58">Tributo é uma categoria de pagamento obrigatório prevista em lei.</span> <span class="trecho" data-inicio="26.49" data-fim="30.58">Existem diferentes tipos de tributos, e os impostos são um deles.</span></p><p><span class="trecho" data-inicio="30.49" data-fim="32.57">Então todo imposto é tributo?</span> <span class="trecho" data-inicio="32.49" data-fim="35.07">Sim, mas nem todo tributo é imposto.</span> <span class="trecho" data-inicio="34.99" data-fim="36.55">Parece pegadinha.</span> <span class="trecho" data-inicio="36.49" data-fim="38.02">Todos riram.</span> <span class="trecho" data-inicio="37.99" data-fim="45.08">O importante é entender que impostos e outros tributos fazem parte do sistema usado pelo poder público para arrecadar recursos.</span> <span class="trecho" data-inicio="44.99" data-fim="47.07">E por que precisamos deles?</span> <span class="trecho" data-inicio="46.99" data-fim="49.07">Theo apontou para a escola.</span> <span class="trecho" data-inicio="48.99" data-fim="56.67">Porque o poder público precisa de recursos para financiar suas responsabilidades e serviços.</span> <span class="trecho" data-inicio="56.6" data-fim="62.19">Então quando estudamos educação fiscal, estamos tentando entender como tudo isso funciona.</span></p><p><span class="trecho" data-inicio="62.1" data-fim="64.1">Tomás sorriu.</span> <span class="trecho" data-inicio="64.1" data-fim="67.21">Quanto mais a gente entende, melhor a gente consegue fazer perguntas.</span> <span class="trecho" data-inicio="67.1" data-fim="69.17">Lia escreveu no caderno.</span> <span class="trecho" data-inicio="69.1" data-fim="72.18">Conhecer é o primeiro passo para participar.</span> <span class="trecho" data-inicio="72.1" data-fim="73.45">Hora de pensar.</span> <span class="trecho" data-inicio="73.47" data-fim="75.16">O que é um tributo?</span> <span class="trecho" data-inicio="75.1" data-fim="78.18">Qual é a relação entre impostos e tributos?</span> <span class="trecho" data-inicio="78.1" data-fim="82.19">Por que é importante entender como os recursos públicos são arrecadados?</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-3.webp" alt="História em quadrinhos “Afinal, o que são impostos?”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1076" height="717" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-3.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    <details class="pensar"><summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg> Hora de pensar</summary><ul><li>O que é um tributo?</li><li>Qual é a relação entre impostos e tributos?</li><li>Por que é importante entender como os recursos públicos são arrecadados?</li></ul></details>
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-roxo" id="historia-4" aria-labelledby="titulo-historia-4" data-titulo="História 4: A viagem de uma moeda" data-duracao="98.62">
+  <div class="numero" aria-hidden="true">4</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-4">A viagem de uma moeda</h3>
+    <p class="resumo">Bia imagina o caminho de uma moeda até virar rua, escola, hospital e praça.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 4: A viagem de uma moeda">
+      <source src="audios/historia-4.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-4.m4a">Baixe o arquivo de História 4: A viagem de uma moeda</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 4: A viagem de uma moeda"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 39 s</span><span class="so-leitor">Duração: 1 minuto e 39 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-4"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 4: A viagem de uma moeda</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="99" step="1" value="0" aria-label="Posição em História 4: A viagem de uma moeda">
+        <span class="tempo" aria-hidden="true">0:00 / 1:38</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-4">Velocidade</label>
+        <select id="vel-historia-4" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-4.m4a" download>Baixar áudio<span class="so-leitor"> de História 4: A viagem de uma moeda</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-4" role="region" aria-label="Texto de História 4: A viagem de uma moeda" tabindex="0" hidden><p><span class="trecho" data-inicio="1.52" data-fim="3.03">História quatro.</span> <span class="trecho" data-inicio="3.06" data-fim="5.12">A viagem de uma moeda.</span> <span class="trecho" data-inicio="5.06" data-fim="9.58">Na semana seguinte, Bia apareceu com uma moeda.</span> <span class="trecho" data-inicio="9.52" data-fim="13.57">Vamos imaginar que uma moeda possa viajar.</span> <span class="trecho" data-inicio="13.52" data-fim="25.61">Como assim? Uma moeda sai do bolso de alguém, participa de uma compra e parte dos recursos relacionados à atividade econômica pode chegar ao poder público por meio da arrecadação de tributos.</span> <span class="trecho" data-inicio="25.52" data-fim="28.56">Tomás entrou na brincadeira.</span> <span class="trecho" data-inicio="28.52" data-fim="35.24">E depois os recursos arrecadados são utilizados para financiar despesas e políticas públicas.</span></p><p><span class="trecho" data-inicio="35.16" data-fim="41.36">Então a moeda pode acabar ajudando a financiar uma escola?</span> <span class="trecho" data-inicio="41.32" data-fim="53.06">Em uma explicação bem simplificada, podemos pensar nos recursos públicos dessa maneira, mas isso não significa que uma moeda específica seja separada e enviada diretamente para uma escola.</span> <span class="trecho" data-inicio="53.08" data-fim="56.58">Todos imaginaram a pequena moeda viajando.</span> <span class="trecho" data-inicio="56.59" data-fim="63.13">Ela passava por ruas, escolas, hospitais, praças e muitos outros lugares.</span> <span class="trecho" data-inicio="63.23" data-fim="73.55">E justamente por envolver recursos de todos, precisamos acompanhar como eles são utilizados.</span></p><p><span class="trecho" data-inicio="73.56" data-fim="75.98">Lia percebeu algo importante.</span> <span class="trecho" data-inicio="75.99" data-fim="80.93">Então a história não termina quando o dinheiro é arrecadado?</span> <span class="trecho" data-inicio="80.86" data-fim="84.27">Começa outra parte: saber como ele é usado.</span> <span class="trecho" data-inicio="84.2" data-fim="86.22">Hora de pensar.</span> <span class="trecho" data-inicio="86.2" data-fim="89.98">Por que os recursos públicos precisam ser planejados?</span> <span class="trecho" data-inicio="89.9" data-fim="93.98">Por que é importante acompanhar a utilização desses recursos?</span> <span class="trecho" data-inicio="93.9" data-fim="97.97">Que serviço público você gostaria de conhecer melhor?</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-4.webp" alt="História em quadrinhos “A viagem de uma moeda”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1076" height="717" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-4.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    <details class="pensar"><summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg> Hora de pensar</summary><ul><li>Por que os recursos públicos precisam ser planejados?</li><li>Por que é importante acompanhar a utilização desses recursos?</li><li>Que serviço público você gostaria de conhecer melhor?</li></ul></details>
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-laranja" id="historia-5" aria-labelledby="titulo-historia-5" data-titulo="História 5: Cadê a nota?" data-duracao="88.96">
+  <div class="numero" aria-hidden="true">5</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-5">Cadê a nota?</h3>
+    <p class="resumo">Miguel vai à loja com a mãe e descobre para que serve a nota fiscal.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 5: Cadê a nota?">
+      <source src="audios/historia-5.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-5.m4a">Baixe o arquivo de História 5: Cadê a nota?</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 5: Cadê a nota?"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 29 s</span><span class="so-leitor">Duração: 1 minuto e 29 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-5"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 5: Cadê a nota?</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="89" step="1" value="0" aria-label="Posição em História 5: Cadê a nota?">
+        <span class="tempo" aria-hidden="true">0:00 / 1:28</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-5">Velocidade</label>
+        <select id="vel-historia-5" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-5.m4a" download>Baixar áudio<span class="so-leitor"> de História 5: Cadê a nota?</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-5" role="region" aria-label="Texto de História 5: Cadê a nota?" tabindex="0" hidden><p><span class="trecho" data-inicio="2.06" data-fim="3.71">História cinco.</span> <span class="trecho" data-inicio="3.77" data-fim="5.1">Cadê a nota?</span> <span class="trecho" data-inicio="5.06" data-fim="9.14">Na saída da escola, Miguel acompanhou sua mãe até uma loja.</span> <span class="trecho" data-inicio="9.06" data-fim="13.13">Depois da compra, ela recebeu um pequeno documento.</span> <span class="trecho" data-inicio="14.06" data-fim="16.1">Mãe, o que é isso?</span> <span class="trecho" data-inicio="16.06" data-fim="17.15">É a nota fiscal.</span> <span class="trecho" data-inicio="17.06" data-fim="20.14">No dia seguinte, ele contou tudo aos amigos.</span> <span class="trecho" data-inicio="20.06" data-fim="27.11">A nota fiscal registra informações sobre uma operação de compra e venda.</span> <span class="trecho" data-inicio="27.06" data-fim="35.54">Ela também é importante para o cumprimento das obrigações tributárias e para a transparência das operações.</span></p><p><span class="trecho" data-inicio="35.46" data-fim="42.03">Então pedir a nota é uma atitude da cidadania?</span> <span class="trecho" data-inicio="42.02" data-fim="43.6">Pode ser uma atitude importante.</span> <span class="trecho" data-inicio="43.5" data-fim="49.81">E também ajuda o consumidor a ter registro da compra.</span> <span class="trecho" data-inicio="49.78" data-fim="54.51">Então aquela folha que parece tão simples pode ter bastante importância?</span> <span class="trecho" data-inicio="54.42" data-fim="58.07">Pode mesmo! Yara fez um sinal de aprovação.</span> <span class="trecho" data-inicio="58.09" data-fim="62.49">Miguel levantou a nota fiscal como se fosse um mapa.</span> <span class="trecho" data-inicio="62.42" data-fim="67.47">Senhoras e senhores, encontramos mais uma pista.</span> <span class="trecho" data-inicio="67.42" data-fim="68.73">Todos riram.</span> <span class="trecho" data-inicio="68.79" data-fim="75.47">No caderno, Lia escreveu: Uma compra também pode ensinar cidadania.</span></p><p><span class="trecho" data-inicio="75.42" data-fim="77.44">Hora de pensar.</span> <span class="trecho" data-inicio="77.42" data-fim="80.47">Para que serve uma nota fiscal?</span> <span class="trecho" data-inicio="80.42" data-fim="83.5">Por que é importante registrar uma compra?</span> <span class="trecho" data-inicio="83.42" data-fim="87.49">Você já percebeu quando alguém pede uma nota fiscal?</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-5.webp" alt="História em quadrinhos “Cadê a nota?”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1076" height="717" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-5.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    <details class="pensar"><summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg> Hora de pensar</summary><ul><li>Para que serve uma nota fiscal?</li><li>Por que é importante registrar uma compra?</li><li>Você já percebeu quando alguém pede uma nota fiscal?</li></ul></details>
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-rosa" id="historia-6" aria-labelledby="titulo-historia-6" data-titulo="História 6: O segredo escondido" data-duracao="70.38">
+  <div class="numero" aria-hidden="true">6</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-6">O segredo escondido</h3>
+    <p class="resumo">Alguém esconde as vendas para não pagar tributos. Por que isso prejudica todo mundo?</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 6: O segredo escondido">
+      <source src="audios/historia-6.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-6.m4a">Baixe o arquivo de História 6: O segredo escondido</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 6: O segredo escondido"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 10 s</span><span class="so-leitor">Duração: 1 minuto e 10 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-6"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 6: O segredo escondido</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="70" step="1" value="0" aria-label="Posição em História 6: O segredo escondido">
+        <span class="tempo" aria-hidden="true">0:00 / 1:10</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-6">Velocidade</label>
+        <select id="vel-historia-6" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-6.m4a" download>Baixar áudio<span class="so-leitor"> de História 6: O segredo escondido</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-6" role="region" aria-label="Texto de História 6: O segredo escondido" tabindex="0" hidden><p><span class="trecho" data-inicio="1.3" data-fim="2.4">História seis.</span> <span class="trecho" data-inicio="2.4" data-fim="3.93">O segredo escondido.</span> <span class="trecho" data-inicio="3.93" data-fim="14.38">Certo dia, as crianças ouviram uma conversa sobre alguém que fazia vendas e não registrava algumas delas para esconder parte de sua atividade.</span> <span class="trecho" data-inicio="14.3" data-fim="15.38">Isso é errado?</span> <span class="trecho" data-inicio="15.3" data-fim="25.39">Quando alguém intencionalmente esconde operações ou informações para deixar de cumprir uma obrigação tributária, podemos estar diante de sonegação fiscal.</span> <span class="trecho" data-inicio="25.3" data-fim="29.38">Então é diferente de simplesmente esquecer alguma coisa?</span></p><p><span class="trecho" data-inicio="29.3" data-fim="37.36">Sim, é importante diferenciar um erro de uma ação intencional para esconder informações.</span> <span class="trecho" data-inicio="37.3" data-fim="39.32">Lia ficou séria.</span> <span class="trecho" data-inicio="39.3" data-fim="41.4">Mas por que isso prejudica todo mundo?</span> <span class="trecho" data-inicio="41.3" data-fim="51.38">Porque os recursos que deveriam ser arrecadados podem deixar de entrar nos cofres públicos, afetando a capacidade de financiar ações e serviços públicos.</span> <span class="trecho" data-inicio="51.3" data-fim="54.36">Tomás pensou por alguns segundos.</span> <span class="trecho" data-inicio="54.3" data-fim="58.38">Então uma escolha individual pode ter consequência coletiva?</span></p><p><span class="trecho" data-inicio="59.3" data-fim="62.21">Exatamente. O grupo ficou em silêncio.</span> <span class="trecho" data-inicio="62.2" data-fim="69.39">Eles haviam descoberto que cidadania também significava pensar nas consequências das próprias escolhas.</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-6.webp" alt="História em quadrinhos “O segredo escondido”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1076" height="717" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-6.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-azul" id="historia-7" aria-labelledby="titulo-historia-7" data-titulo="História 7: Isso é de quem?" data-duracao="62.51">
+  <div class="numero" aria-hidden="true">7</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-7">Isso é de quem?</h3>
+    <p class="resumo">Uma lixeira quebrada no recreio ensina a cuidar do que é de todos.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 7: Isso é de quem?">
+      <source src="audios/historia-7.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-7.m4a">Baixe o arquivo de História 7: Isso é de quem?</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 7: Isso é de quem?"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 3 s</span><span class="so-leitor">Duração: 1 minuto e 3 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-7"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 7: Isso é de quem?</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="63" step="1" value="0" aria-label="Posição em História 7: Isso é de quem?">
+        <span class="tempo" aria-hidden="true">0:00 / 1:02</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-7">Velocidade</label>
+        <select id="vel-historia-7" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-7.m4a" download>Baixar áudio<span class="so-leitor"> de História 7: Isso é de quem?</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-7" role="region" aria-label="Texto de História 7: Isso é de quem?" tabindex="0" hidden><p><span class="trecho" data-inicio="1.46" data-fim="2.91">História sete.</span> <span class="trecho" data-inicio="2.96" data-fim="4.51">Isso é de quem?</span> <span class="trecho" data-inicio="5.46" data-fim="8.55">Durante o recreio, Bia encontrou uma lixeira quebrada.</span> <span class="trecho" data-inicio="9.46" data-fim="11.54">Alguém precisa consertar isso.</span> <span class="trecho" data-inicio="12.46" data-fim="13.55">Mas não é nossa.</span> <span class="trecho" data-inicio="14.46" data-fim="15.53">É nossa, sim.</span> <span class="trecho" data-inicio="16.46" data-fim="18.52">Todos olharam para ela.</span> <span class="trecho" data-inicio="19.46" data-fim="21.57">Não quero dizer que seja propriedade particular nossa.</span> <span class="trecho" data-inicio="22.46" data-fim="25.57">Quero dizer que é um bem que faz parte do espaço público que usamos.</span> <span class="trecho" data-inicio="26.46" data-fim="29.55">Se todo mundo pensar, não é meu, ninguém cuida.</span> <span class="trecho" data-inicio="29.46" data-fim="38.53">As crianças decidiram organizar uma pequena campanha na escola para incentivar o cuidado com os espaços coletivos.</span></p><p><span class="trecho" data-inicio="38.46" data-fim="42.55">Podemos criar mensagens que também sejam acessíveis para todos.</span> <span class="trecho" data-inicio="42.46" data-fim="46.52">E podemos fazer uma apresentação usando Libras.</span> <span class="trecho" data-inicio="46.46" data-fim="51.52">Também precisamos pensar na acessibilidade dos espaços.</span> <span class="trecho" data-inicio="51.46" data-fim="54.86">Lia sorriu. Agora entendi.</span> <span class="trecho" data-inicio="54.9" data-fim="60.91">Educação fiscal também tem a ver com cuidar do que é de todos.</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-7.webp" alt="História em quadrinhos “Isso é de quem?”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1076" height="717" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-7.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-coral" id="historia-8" aria-labelledby="titulo-historia-8" data-titulo="História 8: O favor" data-duracao="52.48">
+  <div class="numero" aria-hidden="true">8</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-8">O favor</h3>
+    <p class="resumo">Ravi descobre que corrupção não é só pegar dinheiro escondido.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 8: O favor">
+      <source src="audios/historia-8.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-8.m4a">Baixe o arquivo de História 8: O favor</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 8: O favor"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">52 s</span><span class="so-leitor">Duração: 52 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-8"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 8: O favor</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="52" step="1" value="0" aria-label="Posição em História 8: O favor">
+        <span class="tempo" aria-hidden="true">0:00 / 0:52</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-8">Velocidade</label>
+        <select id="vel-historia-8" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-8.m4a" download>Baixar áudio<span class="so-leitor"> de História 8: O favor</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-8" role="region" aria-label="Texto de História 8: O favor" tabindex="0" hidden><p><span class="trecho" data-inicio="1.58" data-fim="3.43">História oito.</span> <span class="trecho" data-inicio="3.54" data-fim="6.67">O favor. Ravi chegou ao recreio preocupado.</span> <span class="trecho" data-inicio="6.58" data-fim="13.67">Ouviu uma história sobre uma pessoa que oferecia um presente para conseguir uma vantagem que não deveria ter.</span> <span class="trecho" data-inicio="13.58" data-fim="15.61">Isso é corrupção.</span> <span class="trecho" data-inicio="15.58" data-fim="23.67">Pode ser uma situação de corrupção quando alguém oferece ou recebe uma vantagem indevida relacionada ao exercício de uma função ou poder.</span> <span class="trecho" data-inicio="23.58" data-fim="26.67">Então corrupção não é só pegar dinheiro escondido?</span> <span class="trecho" data-inicio="26.58" data-fim="31.64">Não, pode envolver diferentes formas de vantagem indevida.</span></p><p><span class="trecho" data-inicio="31.58" data-fim="35.65">E prejudica outras pessoas e o interesse coletivo.</span> <span class="trecho" data-inicio="35.58" data-fim="39.65">Então ser honesto não é apenas uma questão de regra?</span> <span class="trecho" data-inicio="39.58" data-fim="43.66">É também uma questão de responsabilidade com os outros.</span> <span class="trecho" data-inicio="43.58" data-fim="51.63">As crianças perceberam que pequenas atitudes de honestidade fazem parte de uma cultura de cidadania.</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-8.webp" alt="História em quadrinhos “O favor”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1229" height="820" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-8.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-verde" id="historia-9" aria-labelledby="titulo-historia-9" data-titulo="História 9: Os detetives da cidadania" data-duracao="69.67">
+  <div class="numero" aria-hidden="true">9</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-9">Os detetives da cidadania</h3>
+    <p class="resumo">Uma parte do pátio fica sempre vazia. O grupo investiga e descobre um problema de acessibilidade.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 9: Os detetives da cidadania">
+      <source src="audios/historia-9.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-9.m4a">Baixe o arquivo de História 9: Os detetives da cidadania</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 9: Os detetives da cidadania"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 10 s</span><span class="so-leitor">Duração: 1 minuto e 10 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-9"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 9: Os detetives da cidadania</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="70" step="1" value="0" aria-label="Posição em História 9: Os detetives da cidadania">
+        <span class="tempo" aria-hidden="true">0:00 / 1:09</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-9">Velocidade</label>
+        <select id="vel-historia-9" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-9.m4a" download>Baixar áudio<span class="so-leitor"> de História 9: Os detetives da cidadania</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-9" role="region" aria-label="Texto de História 9: Os detetives da cidadania" tabindex="0" hidden><p><span class="trecho" data-inicio="1.2" data-fim="2.62">História nove.</span> <span class="trecho" data-inicio="2.66" data-fim="5.25">Os detetives da cidadania.</span> <span class="trecho" data-inicio="5.2" data-fim="9.28">Agora, o Círculo dos Curiosos tinha uma missão de verdade.</span> <span class="trecho" data-inicio="9.2" data-fim="15.28">A escola precisava descobrir por que determinada área do pátio estava sendo pouco utilizada.</span> <span class="trecho" data-inicio="15.2" data-fim="21.28">As crianças fizeram perguntas, observaram e conversaram com os outros estudantes.</span> <span class="trecho" data-inicio="21.2" data-fim="24.29">Descobriram que havia um problema de acessibilidade.</span> <span class="trecho" data-inicio="24.2" data-fim="29.25">É preciso melhorar a acessibilidade daquele espaço.</span> <span class="trecho" data-inicio="29.2" data-fim="34.28">Também precisamos verificar se as informações disponíveis são acessíveis.</span></p><p><span class="trecho" data-inicio="34.2" data-fim="38.29">Podemos pensar em formas de comunicação que alcancem mais estudantes.</span> <span class="trecho" data-inicio="38.2" data-fim="45.27">Ravi pesquisou informações, Theo organizou os dados e Nina pensou nas questões ambientais.</span> <span class="trecho" data-inicio="45.2" data-fim="49.28">No final, o grupo apresentou suas descobertas à escola.</span> <span class="trecho" data-inicio="49.2" data-fim="55.23">Fiscalizar não significa ficar procurando culpados.</span> <span class="trecho" data-inicio="55.2" data-fim="60.28">Significa também acompanhar, perguntar, buscar informações e participar.</span> <span class="trecho" data-inicio="60.2" data-fim="65.29">O Círculo dos Curiosos havia aprendido uma das partes mais importantes da cidadania.</span></p><p><span class="trecho" data-inicio="65.2" data-fim="68.26">Quem participa ajuda a transformar.</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-9.webp" alt="História em quadrinhos “Os detetives da cidadania”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1076" height="717" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-9.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-roxo" id="historia-10" aria-labelledby="titulo-historia-10" data-titulo="História 10: O círculo continua" data-duracao="127.59">
+  <div class="numero" aria-hidden="true">10</div>
+  <div class="corpo">
+    <h3 id="titulo-historia-10">O círculo continua</h3>
+    <p class="resumo">O último encontro do grupo. Ou será o começo de novas perguntas?</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 10: O círculo continua">
+      <source src="audios/historia-10.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/historia-10.m4a">Baixe o arquivo de História 10: O círculo continua</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 10: O círculo continua"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">2 min 8 s</span><span class="so-leitor">Duração: 2 minutos e 8 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-historia-10"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 10: O círculo continua</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="128" step="1" value="0" aria-label="Posição em História 10: O círculo continua">
+        <span class="tempo" aria-hidden="true">0:00 / 2:07</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-historia-10">Velocidade</label>
+        <select id="vel-historia-10" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/historia-10.m4a" download>Baixar áudio<span class="so-leitor"> de História 10: O círculo continua</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-historia-10" role="region" aria-label="Texto de História 10: O círculo continua" tabindex="0" hidden><p><span class="trecho" data-inicio="1.49" data-fim="2.89">História dez.</span> <span class="trecho" data-inicio="2.95" data-fim="4.98">O círculo continua.</span> <span class="trecho" data-inicio="4.93" data-fim="9.85">No último encontro, as dez crianças sentaram-se novamente em círculo.</span> <span class="trecho" data-inicio="9.77" data-fim="13.24">No centro estava o primeiro caderno de Lia.</span> <span class="trecho" data-inicio="13.17" data-fim="15.79">Ela abriu na primeira página.</span> <span class="trecho" data-inicio="15.73" data-fim="18.2">A pergunta estava lá.</span> <span class="trecho" data-inicio="18.17" data-fim="23.24">Como funciona o dinheiro que ajuda a cuidar da nossa cidade?</span> <span class="trecho" data-inicio="23.17" data-fim="26.62">Agora eles tinham muitas respostas.</span> <span class="trecho" data-inicio="26.57" data-fim="54.15">Tinham aprendido sobre educação fiscal, tinham descoberto o que são tributos e impostos, tinham entendido a importância da nota fiscal, tinham conversado sobre recursos públicos, tinham aprendido sobre sonegação e corrupção, tinham descoberto que cuidar do patrimônio público também é cidadania e tinham percebido que fiscalizar significa acompanhar, perguntar e participar.</span></p><p><span class="trecho" data-inicio="54.07" data-fim="56.2">Então terminamos?</span> <span class="trecho" data-inicio="56.17" data-fim="58.24">Tomás balançou a cabeça.</span> <span class="trecho" data-inicio="58.17" data-fim="60.17">Acho que não.</span> <span class="trecho" data-inicio="60.17" data-fim="64.26">Por quê? Porque agora temos mais perguntas.</span> <span class="trecho" data-inicio="64.17" data-fim="66.19">Todos sorriram.</span> <span class="trecho" data-inicio="66.17" data-fim="69.24">Então o Círculo dos Curiosos continua.</span> <span class="trecho" data-inicio="69.17" data-fim="72.23">Yara fez um sinal para os amigos.</span> <span class="trecho" data-inicio="72.17" data-fim="74.25">Caio aproximou sua cadeira.</span> <span class="trecho" data-inicio="74.17" data-fim="76.23">Nina chamou os outros.</span> <span class="trecho" data-inicio="76.17" data-fim="79.27">E as dez crianças juntaram as mãos no centro do círculo.</span> <span class="trecho" data-inicio="79.17" data-fim="85.86">Eles descobriram que a educação fiscal não era apenas aprender sobre dinheiro.</span> <span class="trecho" data-inicio="85.85" data-fim="94.5">Era aprender sobre cidadania, responsabilidade, ética, transparência, participação e cuidado com aquilo que pertence a todos.</span></p><p><span class="trecho" data-inicio="94.49" data-fim="98.09">E talvez essa fosse a maior descoberta de todas.</span> <span class="trecho" data-inicio="98.09" data-fim="105.25">Uma cidade melhor começa quando as pessoas aprendem a cuidar dela juntas.</span> <span class="trecho" data-inicio="105.3" data-fim="106.85">Hora de pensar.</span> <span class="trecho" data-inicio="106.9" data-fim="109.56">O que você aprendeu sobre educação fiscal?</span> <span class="trecho" data-inicio="109.53" data-fim="112.71">Como você pode cuidar melhor dos espaços públicos?</span> <span class="trecho" data-inicio="112.7" data-fim="118.08">Que pergunta você gostaria de investigar sobre a sua escola ou a sua cidade?</span> <span class="trecho" data-inicio="118.0" data-fim="128.38">Fim? Não. Porque todo bom investigador sabe que uma resposta pode ser o começo de uma nova pergunta.</span></p><p class="aviso">Texto feito a partir do áudio.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-10.webp" alt="História em quadrinhos “O círculo continua”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1229" height="820" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-10.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    <details class="pensar"><summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg> Hora de pensar</summary><ul><li>O que você aprendeu sobre educação fiscal?</li><li>Como você pode cuidar melhor dos espaços públicos?</li><li>Que pergunta você gostaria de investigar sobre a sua escola ou a sua cidade?</li></ul></details>
+  </div>
+</article>
+</li>
+      </ol>
+    </section>
+
+    <section class="secao cor-roxo" id="audiodescricao" aria-labelledby="h-audiodescricao">
+      <h2 class="titulo-secao" id="h-audiodescricao">Histórias com audiodescrição</h2>
+      <p class="descricao">Na audiodescrição, uma voz conta o que aparece nas imagens: onde as crianças estão, o que fazem e o que está escrito nos cartazes. Ajuda quem não enxerga ou enxerga pouco, e todo mundo que gosta de imaginar a cena.</p>
+      <ul class="lista">
+<li>
+<article class="historia cor-roxo" id="audiodescricao-1" aria-labelledby="titulo-audiodescricao-1" data-titulo="História 1 com audiodescrição" data-duracao="164.26">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-1">História 1: A pergunta que ninguém esperava</h3>
+    <p class="resumo">A história um com a descrição das imagens: a quadra, a rampa e as dez crianças formando uma roda.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 1 com audiodescrição">
+      <source src="audios/20260928-104915.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/20260928-104915.mp3">Baixe o arquivo de História 1 com audiodescrição</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 1 com audiodescrição"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">2 min 44 s</span><span class="so-leitor">Duração: 2 minutos e 44 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-1"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 1 com audiodescrição</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="164" step="1" value="0" aria-label="Posição em História 1 com audiodescrição">
+        <span class="tempo" aria-hidden="true">0:00 / 2:44</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-1">Velocidade</label>
+        <select id="vel-audiodescricao-1" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/20260928-104915.mp3" download>Baixar áudio<span class="so-leitor"> de História 1 com audiodescrição</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-1" role="region" aria-label="Texto de História 1 com audiodescrição" tabindex="0" hidden><p><span class="trecho" data-inicio="1.17" data-fim="2.14">História um.</span> <span class="trecho" data-inicio="2.14" data-fim="4.61">A pergunta que ninguém esperava.</span> <span class="trecho" data-inicio="4.53" data-fim="6.32">Era a hora do recreio.</span> <span class="trecho" data-inicio="6.25" data-fim="9.5">Lia está sentada próxima à escola com seus amigos.</span> <span class="trecho" data-inicio="9.41" data-fim="14.05">Ao fundo, crianças brincam na quadra, que recebeu uma nova pintura.</span> <span class="trecho" data-inicio="13.97" data-fim="17.93">Caio está ao lado de Lia, utilizando sua cadeira de rodas.</span> <span class="trecho" data-inicio="17.85" data-fim="18.92">Vocês viram?</span> <span class="trecho" data-inicio="18.85" data-fim="21.13">A quadra ganhou uma nova pintura.</span> <span class="trecho" data-inicio="21.05" data-fim="23.63">E colocaram uma rampa também.</span> <span class="trecho" data-inicio="23.57" data-fim="27.02">Tomás está junto à rampa e passa a mão pelo corrimão.</span> <span class="trecho" data-inicio="26.93" data-fim="30.09">Ele observa a construção utilizando o tato.</span></p><p><span class="trecho" data-inicio="30.01" data-fim="31.17">E ficou bem firme.</span> <span class="trecho" data-inicio="31.14" data-fim="34.26">Dá para perceber pelo jeito que ela foi construída.</span> <span class="trecho" data-inicio="34.17" data-fim="37.04">Theo está sentado próximo ao grupo.</span> <span class="trecho" data-inicio="36.97" data-fim="40.47">Ele apoia uma das mãos no rosto demonstrando o que está pensando.</span> <span class="trecho" data-inicio="40.37" data-fim="42.45">Mas quem paga por tudo isso?</span> <span class="trecho" data-inicio="42.37" data-fim="45.21">Todos ficaram em silêncio.</span> <span class="trecho" data-inicio="45.17" data-fim="48.11">Minha mãe? As crianças riram.</span> <span class="trecho" data-inicio="48.05" data-fim="52.32">Bia participa da conversa e levanta uma possibilidade.</span> <span class="trecho" data-inicio="52.25" data-fim="55.04">Talvez seja o prefeito.</span> <span class="trecho" data-inicio="55.01" data-fim="57.65">Mas de onde vem o dinheiro do prefeito?</span> <span class="trecho" data-inicio="57.57" data-fim="62.66">Ravi segura um tablet enquanto os amigos continuam pensando sobre a pergunta.</span></p><p><span class="trecho" data-inicio="62.57" data-fim="64.61">Ninguém respondeu.</span> <span class="trecho" data-inicio="64.57" data-fim="66.63">Ravi pegou seu tablet.</span> <span class="trecho" data-inicio="67.57" data-fim="71.61">Essa é uma pergunta para investigar?</span> <span class="trecho" data-inicio="71.57" data-fim="75.64">Sofia participa da conversa e sorri para os colegas.</span> <span class="trecho" data-inicio="75.57" data-fim="77.66">Então temos a nossa primeira missão.</span> <span class="trecho" data-inicio="77.57" data-fim="82.65">Yara faz um sinal para chamar a atenção dos amigos e aponta para o grupo.</span> <span class="trecho" data-inicio="82.57" data-fim="84.63">Vamos descobrir juntos?</span> <span class="trecho" data-inicio="84.57" data-fim="89.62">As dez crianças estão reunidas, formando um círculo.</span> <span class="trecho" data-inicio="89.57" data-fim="92.63">As dez crianças fizeram um círculo.</span> <span class="trecho" data-inicio="92.57" data-fim="95.59">O Círculo dos Curiosos.</span> <span class="trecho" data-inicio="95.57" data-fim="98.63">A imagem mostra o caderno de Lia.</span></p><p><span class="trecho" data-inicio="98.57" data-fim="102.67">Nele está escrita a primeira pergunta que orientará a investigação do grupo.</span> <span class="trecho" data-inicio="102.57" data-fim="110.66">A partir daquele dia, sempre que aparecesse uma pergunta difícil sobre a escola, o bairro ou a cidade, eles investigariam juntos.</span> <span class="trecho" data-inicio="110.57" data-fim="114.78">A primeira pergunta ficou escrita no caderno de Lia.</span> <span class="trecho" data-inicio="114.79" data-fim="119.64">Como funciona o dinheiro que ajuda a cuidar da nossa cidade?</span> <span class="trecho" data-inicio="119.57" data-fim="123.66">Tomás está junto ao grupo e acrescenta uma ideia à investigação.</span></p><p><span class="trecho" data-inicio="123.57" data-fim="127.65">E talvez a resposta tenha alguma coisa a ver com cidadania.</span> <span class="trecho" data-inicio="127.57" data-fim="130.64">Cidadania? Isso também vamos descobrir.</span> <span class="trecho" data-inicio="130.57" data-fim="133.48">As crianças permanecem reunidas na escola.</span> <span class="trecho" data-inicio="133.47" data-fim="136.65">Assim começa a primeira investigação do grupo.</span> <span class="trecho" data-inicio="136.57" data-fim="141.45">E assim começou a primeira investigação do Círculo dos Curiosos.</span> <span class="trecho" data-inicio="141.37" data-fim="144.73">Hora de pensar.</span> <span class="trecho" data-inicio="144.81" data-fim="146.9">O que você entende por cidadania?</span> <span class="trecho" data-inicio="146.81" data-fim="150.09">Quem ajuda a cuidar dos espaços que todos usamos?</span> <span class="trecho" data-inicio="150.01" data-fim="154.09">Que coisas da sua cidade você gostaria de entender melhor?</span></p><p class="aviso">Texto feito a partir do áudio. Inclui a descrição das imagens.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-1.webp" alt="História em quadrinhos “A pergunta que ninguém esperava”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="878" height="878" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-1.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    <details class="pensar"><summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg> Hora de pensar</summary><ul><li>O que você entende por cidadania?</li><li>Quem ajuda a cuidar dos espaços que todos usamos?</li><li>Que coisas da sua cidade você gostaria de entender melhor?</li></ul></details>
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-laranja" id="audiodescricao-7" aria-labelledby="titulo-audiodescricao-7" data-titulo="História 7 com audiodescrição" data-duracao="260.71">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-7">História 7: Isso é de quem?</h3>
+    <p class="resumo">A história sete com a descrição das imagens: a lixeira quebrada e os cartazes da campanha.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 7 com audiodescrição">
+      <source src="audios/20260928-111255.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/20260928-111255.mp3">Baixe o arquivo de História 7 com audiodescrição</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 7 com audiodescrição"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">4 min 21 s</span><span class="so-leitor">Duração: 4 minutos e 21 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-7"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 7 com audiodescrição</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="261" step="1" value="0" aria-label="Posição em História 7 com audiodescrição">
+        <span class="tempo" aria-hidden="true">0:00 / 4:20</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-7">Velocidade</label>
+        <select id="vel-audiodescricao-7" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/20260928-111255.mp3" download>Baixar áudio<span class="so-leitor"> de História 7 com audiodescrição</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-7" role="region" aria-label="Texto de História 7 com audiodescrição" tabindex="0" hidden><p><span class="trecho" data-inicio="0.0" data-fim="1.45">História sete.</span> <span class="trecho" data-inicio="1.5" data-fim="3.05">Isso é de quem?</span> <span class="trecho" data-inicio="3.0" data-fim="8.08">Durante o recreio, Bia está próxima a uma lixeira verde que parece quebrada.</span> <span class="trecho" data-inicio="8.0" data-fim="10.75">Ela se abaixa e observa o objeto.</span> <span class="trecho" data-inicio="10.77" data-fim="15.07">Ao fundo aparecem árvores, bancos e outras crianças.</span> <span class="trecho" data-inicio="15.0" data-fim="18.09">Durante o recreio, Bia encontrou uma lixeira quebrada.</span> <span class="trecho" data-inicio="18.0" data-fim="21.05">Alguém precisa consertar isso.</span> <span class="trecho" data-inicio="22.0" data-fim="27.88">Um menino de óculos está perto da lixeira e conversa com a Bia.</span> <span class="trecho" data-inicio="27.9" data-fim="30.82">Ele abre os braços enquanto fala.</span> <span class="trecho" data-inicio="30.76" data-fim="32.11">Mas não é nossa.</span></p><p><span class="trecho" data-inicio="32.12" data-fim="38.68">Uma menina de cabelos cacheados e uma coroa de folhas verdes conversa com o colega.</span> <span class="trecho" data-inicio="38.68" data-fim="42.11">Ela estende uma das mãos enquanto responde.</span> <span class="trecho" data-inicio="42.04" data-fim="43.29">É nossa, sim.</span> <span class="trecho" data-inicio="43.32" data-fim="48.14">O grupo de crianças está reunido no pátio da escola.</span> <span class="trecho" data-inicio="48.19" data-fim="53.77">Todos estão voltados para a menina que acabou de falar.</span> <span class="trecho" data-inicio="53.72" data-fim="56.12">Todos olham para ela.</span> <span class="trecho" data-inicio="56.2" data-fim="60.63">A menina explica sua ideia aos colegas.</span> <span class="trecho" data-inicio="60.71" data-fim="64.24">Ela gesticula com uma das mãos.</span> <span class="trecho" data-inicio="64.2" data-fim="68.19">Não quero dizer que seja propriedade particular nossa.</span></p><p><span class="trecho" data-inicio="68.18" data-fim="73.52">Quero dizer que é um bem que faz parte do espaço público que usamos.</span> <span class="trecho" data-inicio="73.54" data-fim="79.08">Caio está sentado em sua cadeira de rodas e conversa com o grupo.</span> <span class="trecho" data-inicio="79.1" data-fim="82.58">Ele levanta uma das mãos enquanto fala.</span> <span class="trecho" data-inicio="82.52" data-fim="89.62">Se todo mundo pensar “não é meu”, ninguém cuida.</span> <span class="trecho" data-inicio="89.62" data-fim="93.57">As crianças estão reunidas ao redor de uma mesa.</span> <span class="trecho" data-inicio="93.5" data-fim="99.45">Sobre a mesa há folhas, desenhos e materiais para uma campanha.</span> <span class="trecho" data-inicio="99.48" data-fim="103.48">Os estudantes conversam e trabalham juntos.</span> <span class="trecho" data-inicio="103.42" data-fim="113.55">As crianças decidiram organizar uma pequena campanha na escola para incentivar o cuidado com os espaços coletivos.</span></p><p><span class="trecho" data-inicio="113.5" data-fim="116.83">Tomás está sentado segurando um tablet.</span> <span class="trecho" data-inicio="116.85" data-fim="124.26">Ao seu lado há um cartaz com símbolos relacionados à acessibilidade e à comunicação.</span> <span class="trecho" data-inicio="124.3" data-fim="126.75">Ele aponta para o cartaz.</span> <span class="trecho" data-inicio="126.7" data-fim="131.0">Podemos criar mensagens que também sejam acessíveis para todos.</span> <span class="trecho" data-inicio="130.92" data-fim="138.79">Yara está diante de um cartaz que apresenta desenhos relacionados à Libras.</span> <span class="trecho" data-inicio="138.82" data-fim="143.66">Ela movimenta as mãos enquanto conversa com os colegas.</span> <span class="trecho" data-inicio="143.6" data-fim="146.59">Podemos fazer uma apresentação usando Libras.</span></p><p><span class="trecho" data-inicio="146.5" data-fim="156.85">Caio está sentado em sua cadeira de rodas e aponta para uma placa com símbolo internacional de acessibilidade.</span> <span class="trecho" data-inicio="156.9" data-fim="159.91">Ao lado da placa há uma rampa.</span> <span class="trecho" data-inicio="159.86" data-fim="163.94">Também precisamos pensar na acessibilidade dos espaços.</span> <span class="trecho" data-inicio="163.86" data-fim="168.37">Lia está sentada diante de um caderno aberto.</span> <span class="trecho" data-inicio="168.32" data-fim="176.02">Ela apoia uma das mãos no rosto e olha para o texto escrito no caderno.</span> <span class="trecho" data-inicio="175.98" data-fim="178.02">Agora entendi.</span> <span class="trecho" data-inicio="178.02" data-fim="181.37">No caderno está escrito: educação fiscal.</span> <span class="trecho" data-inicio="181.3" data-fim="186.8">Educação fiscal também tem a ver com cuidar do que é de todos.</span></p><p><span class="trecho" data-inicio="186.74" data-fim="196.03">As crianças estão reunidas, de costas, olhando para vários cartazes expostos no espaço da escola.</span> <span class="trecho" data-inicio="195.98" data-fim="204.63">Os cartazes apresentam mensagens sobre cuidado, respeito ao espaço público e acessibilidade.</span> <span class="trecho" data-inicio="204.58" data-fim="208.26">Um cartaz diz: Jogue lixo no lixo.</span> <span class="trecho" data-inicio="208.22" data-fim="212.42">Outro diz: Respeite o espaço público.</span> <span class="trecho" data-inicio="212.38" data-fim="219.61">No cartaz do centro está escrito: Juntos fazemos a diferença.</span> <span class="trecho" data-inicio="219.58" data-fim="226.23">Outro cartaz traz a mensagem: Acessibilidade é direito de todos.</span></p><p><span class="trecho" data-inicio="226.18" data-fim="230.52">O último diz: Cuidar também é educação fiscal.</span> <span class="trecho" data-inicio="230.46" data-fim="242.33">No alto da cena está escrito: Cuidar do que é de todos também é cidadania.</span> <span class="trecho" data-inicio="242.34" data-fim="243.67">Hora de pensar.</span> <span class="trecho" data-inicio="243.68" data-fim="247.87">Por que cuidar dos espaços públicos é importante?</span> <span class="trecho" data-inicio="247.8" data-fim="255.27">Como a educação fiscal se relaciona com o uso e a preservação desses espaços?</span> <span class="trecho" data-inicio="255.22" data-fim="260.6">Que espaços da sua cidade e da sua escola você gostaria de cuidar melhor?</span></p><p class="aviso">Texto feito a partir do áudio. Inclui a descrição das imagens.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-7.webp" alt="História em quadrinhos “Isso é de quem?”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1076" height="717" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-7.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    <details class="pensar"><summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg> Hora de pensar</summary><ul><li>Por que cuidar dos espaços públicos é importante?</li><li>Como a educação fiscal se relaciona com o uso e a preservação desses espaços?</li><li>Que espaços da sua cidade e da sua escola você gostaria de cuidar melhor?</li></ul></details>
+  </div>
+</article>
+</li>
+<li>
+<article class="historia cor-rosa" id="audiodescricao-9" aria-labelledby="titulo-audiodescricao-9" data-titulo="História 9 com audiodescrição" data-duracao="220.94">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-9">História 9: Os detetives da cidadania</h3>
+    <p class="resumo">A história nove com a descrição das imagens: o pátio, a rampa e a apresentação para a escola.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: História 9 com audiodescrição">
+      <source src="audios/20260928-113350.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/20260928-113350.mp3">Baixe o arquivo de História 9 com audiodescrição</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: História 9 com audiodescrição"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">3 min 41 s</span><span class="so-leitor">Duração: 3 minutos e 41 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-9"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de História 9 com audiodescrição</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="221" step="1" value="0" aria-label="Posição em História 9 com audiodescrição">
+        <span class="tempo" aria-hidden="true">0:00 / 3:40</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-9">Velocidade</label>
+        <select id="vel-audiodescricao-9" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/20260928-113350.mp3" download>Baixar áudio<span class="so-leitor"> de História 9 com audiodescrição</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-9" role="region" aria-label="Texto de História 9 com audiodescrição" tabindex="0" hidden><p><span class="trecho" data-inicio="0.08" data-fim="1.31">História nove.</span> <span class="trecho" data-inicio="1.32" data-fim="3.55">Os detetives da cidadania.</span> <span class="trecho" data-inicio="3.48" data-fim="9.67">Um grupo de estudantes está reunido no pátio da escola, observando uma área do espaço escolar.</span> <span class="trecho" data-inicio="9.58" data-fim="13.67">As crianças estão de costas, algumas carregam mochilas ao fundo.</span> <span class="trecho" data-inicio="13.58" data-fim="18.66">Aparecem o prédio da escola, árvores e a área que está sendo investigada.</span> <span class="trecho" data-inicio="18.58" data-fim="22.66">Agora, o Círculo dos Curiosos tinha uma missão de verdade.</span> <span class="trecho" data-inicio="22.58" data-fim="27.68">A escola precisava descobrir por que determinada área do pátio estava sendo pouco utilizada.</span></p><p><span class="trecho" data-inicio="27.58" data-fim="34.68">Três crianças estão próximas umas das outras, observando o espaço e conversando.</span> <span class="trecho" data-inicio="34.62" data-fim="37.0">Outros estudantes aparecem no pátio.</span> <span class="trecho" data-inicio="36.97" data-fim="39.99">Uma das crianças utiliza uma cadeira de rodas.</span> <span class="trecho" data-inicio="39.9" data-fim="46.21">As crianças fizeram perguntas, observaram e conversaram com os outros estudantes.</span> <span class="trecho" data-inicio="46.14" data-fim="56.81">O quadrinho mostra uma área da escola com uma rampa, corrimãos e uma placa com o símbolo internacional de acessibilidade.</span> <span class="trecho" data-inicio="56.87" data-fim="60.77">Há também um banco próximo ao caminho.</span></p><p><span class="trecho" data-inicio="60.82" data-fim="64.41">Parte do piso apresenta sinais de desgaste.</span> <span class="trecho" data-inicio="64.41" data-fim="68.6">Descobriram que havia um problema de acessibilidade.</span> <span class="trecho" data-inicio="68.64" data-fim="74.68">Caio está em sua cadeira de rodas, conversando com Tomás e Yara.</span> <span class="trecho" data-inicio="74.62" data-fim="77.58">Caio gesticula com uma das mãos.</span> <span class="trecho" data-inicio="77.61" data-fim="83.75">Tomás segura um tablet e Yara participa da conversa usando as mãos.</span> <span class="trecho" data-inicio="83.79" data-fim="88.68">É preciso melhorar a acessibilidade daquele espaço.</span> <span class="trecho" data-inicio="88.62" data-fim="93.5">Também precisamos verificar se as informações disponíveis são acessíveis.</span></p><p><span class="trecho" data-inicio="93.42" data-fim="97.51">Podemos pensar em formas de comunicação que alcancem mais estudantes.</span> <span class="trecho" data-inicio="97.42" data-fim="101.98">Ravi está sentado diante de um computador portátil.</span> <span class="trecho" data-inicio="102.01" data-fim="105.93">Na tela aparecem elementos relacionados à pesquisa.</span> <span class="trecho" data-inicio="105.92" data-fim="109.5">Ele observa a tela enquanto pesquisa informações.</span> <span class="trecho" data-inicio="109.22" data-fim="111.8">Ravi pesquisou informações.</span> <span class="trecho" data-inicio="111.74" data-fim="115.98">Theo está sentado diante de uma mesa, escrevendo em um caderno.</span> <span class="trecho" data-inicio="115.9" data-fim="118.76">Ao seu lado está um computador portátil.</span> <span class="trecho" data-inicio="118.75" data-fim="121.88">Ao fundo, há um painel com gráficos.</span></p><p><span class="trecho" data-inicio="121.82" data-fim="123.81">Theo organizou os dados.</span></p><p><span class="trecho" data-inicio="126.34" data-fim="128.71">Nina está sentada diante de um caderno.</span> <span class="trecho" data-inicio="128.67" data-fim="133.43">Ela escreve enquanto observa folhas e os outros elementos naturais sobre a mesa.</span> <span class="trecho" data-inicio="133.14" data-fim="136.24">Nina pensou nas questões ambientais.</span> <span class="trecho" data-inicio="136.25" data-fim="141.6">O grupo está diante de outros estudantes durante uma apresentação.</span> <span class="trecho" data-inicio="141.62" data-fim="156.7">Uma grande tela mostra o título “Mais acessibilidade para todos” e apresenta quatro propostas: rampas e sinalização, informações acessíveis, comunicação inclusiva e mais uso do espaço.</span></p><p><span class="trecho" data-inicio="156.7" data-fim="160.73">No final, o grupo apresentou suas descobertas à escola.</span> <span class="trecho" data-inicio="160.72" data-fim="164.84">Lia e Sofia estão lado a lado durante a conversa.</span> <span class="trecho" data-inicio="164.88" data-fim="168.7">Lia movimenta uma das mãos enquanto fala.</span> <span class="trecho" data-inicio="168.64" data-fim="171.96">Sofia também gesticula enquanto responde.</span> <span class="trecho" data-inicio="171.97" data-fim="175.86">Fiscalizar não significa ficar procurando culpados.</span> <span class="trecho" data-inicio="175.85" data-fim="181.01">Significa também acompanhar, perguntar, buscar informações e participar.</span> <span class="trecho" data-inicio="181.01" data-fim="186.25">As crianças estão reunidas, de costas, olhando para a paisagem da cidade.</span></p><p><span class="trecho" data-inicio="186.28" data-fim="190.08">Ao fundo aparecem árvores, prédios e o céu.</span> <span class="trecho" data-inicio="190.11" data-fim="199.97">No alto da imagem está escrita a mensagem: O Círculo dos Curiosos havia aprendido uma das partes mais importantes da cidadania.</span> <span class="trecho" data-inicio="200.02" data-fim="203.51">Quem participa ajuda a transformar.</span> <span class="trecho" data-inicio="203.46" data-fim="210.08">Ao lado aparece outra mensagem: Juntos por uma escola e uma cidade melhor.</span> <span class="trecho" data-inicio="210.02" data-fim="216.04">O círculo dos curiosos havia aprendido uma das partes mais importantes da cidadania.</span> <span class="trecho" data-inicio="216.14" data-fim="220.49">Quem participa ajuda a transformar.</span></p><p class="aviso">Texto feito a partir do áudio. Inclui a descrição das imagens.</p></div>
+    
+    <details class="quadrinho">
+      <summary><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Ver a história em quadrinhos</summary>
+      <figure>
+        <img src="imagens/quadrinhos/historia-9.webp" alt="História em quadrinhos “Os detetives da cidadania”, com as crianças do Círculo dos Curiosos. O texto dos balões é o mesmo do botão Ler o texto." width="1076" height="717" loading="lazy">
+        <figcaption>Os balões têm o mesmo texto da história. Para ler com letra grande, aperte <strong>Ler o texto</strong> ou <a href="imagens/quadrinhos/historia-9.webp" target="_blank" rel="noopener">abra o quadrinho em tamanho grande<span class="so-leitor"> (abre em outra aba)</span></a>.</figcaption>
+      </figure>
+    </details>
+    
+  </div>
+</article>
+</li>
+      </ul>
+    </section>
+
+    <section class="secao cor-rosa" id="bastidores" aria-labelledby="h-bastidores">
+      <h2 class="titulo-secao" id="h-bastidores">Bastidores</h2>
+      <p class="descricao">Antes de ficar pronta, toda gravação passa por ensaios. Escute como foi um deles.</p>
+      <ul class="lista">
+<li>
+<article class="historia cor-rosa" id="bastidor" aria-labelledby="titulo-bastidor" data-titulo="Ensaio da história 2" data-duracao="72.58">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-bastidor">Ensaio da história 2</h3>
+    <p class="resumo">Uma gravação de ensaio de “O dinheiro que vai e volta”, com as escorregadas na leitura e uma conversa no final.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Ensaio da história 2">
+      <source src="audios/bastidor.m4a" type="audio/mp4">
+      Seu navegador não toca áudio. <a href="audios/bastidor.m4a">Baixe o arquivo de Ensaio da história 2</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Ensaio da história 2"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">1 min 13 s</span><span class="so-leitor">Duração: 1 minuto e 13 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-bastidor"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Ensaio da história 2</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="73" step="1" value="0" aria-label="Posição em Ensaio da história 2">
+        <span class="tempo" aria-hidden="true">0:00 / 1:12</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-bastidor">Velocidade</label>
+        <select id="vel-bastidor" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/bastidor.m4a" download>Baixar áudio<span class="so-leitor"> de Ensaio da história 2</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-bastidor" role="region" aria-label="Texto de Ensaio da história 2" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="1.38">História dois.</span> <span class="trecho" data-inicio="1.37" data-fim="3.38">O dinheiro que vai e volta.</span> <span class="trecho" data-inicio="3.3" data-fim="6.38">No dia seguinte, o grupo se reuniu novamente.</span> <span class="trecho" data-inicio="6.3" data-fim="9.38">Theo chegou com uma folha cheia de números.</span> <span class="trecho" data-inicio="9.3" data-fim="10.4">Descobri uma coisa!</span> <span class="trecho" data-inicio="10.3" data-fim="15.83">Conta! O dinheiro que o governo usa para oferecer serviços públicos vem de diferentes fontes.</span> <span class="trecho" data-inicio="15.8" data-fim="17.39">Uma delas são os tributos.</span></p><p><span class="trecho" data-inicio="19.3" data-fim="23.38">Tributos? É um nome que vamos precisar entender melhor.</span> <span class="trecho" data-inicio="23.3" data-fim="29.4">O governo arrecada recursos e depois utiliza esses recursos para financiar ações e serviços públicos.</span> <span class="trecho" data-inicio="29.3" data-fim="30.65">serviços públicos.</span> <span class="trecho" data-inicio="30.64" data-fim="32.27">Nina pensou na escola.</span> <span class="trecho" data-inicio="32.26" data-fim="35.95">Então parte desses recursos pode ajudar na educação?</span> <span class="trecho" data-inicio="35.94" data-fim="42.54">Pode. E também pode ajudar em coisas que usamos na cidade, como espaços públicos e serviços.</span> <span class="trecho" data-inicio="42.53" data-fim="44.12">Tomás ficou pensativo.</span> <span class="trecho" data-inicio="44.11" data-fim="47.7">Então aquele dinheiro não serve para uma pessoa só?</span></p><p><span class="trecho" data-inicio="47.62" data-fim="50.09">Exatamente. Descobrimos o segredo.</span> <span class="trecho" data-inicio="50.08" data-fim="51.78">Todos olharam para ele.</span> <span class="trecho" data-inicio="51.77" data-fim="54.1">Dinheiro público é para atender…</span> <span class="trecho" data-inicio="54.02" data-fim="59.07">O grupo comemorou, mas Lia ainda tinha uma pergunta.</span> <span class="trecho" data-inicio="59.02" data-fim="61.43">Se existem tributos, o que são…</span> <span class="trecho descricao-som" data-inicio="61.44" data-fim="63.09">[a leitura se enrola]</span> <span class="trecho descricao-som" data-inicio="63.02" data-fim="66.96">[conversa de bastidor, fora da história]</span></p><p class="aviso">Texto feito a partir do áudio. Os colchetes descrevem o que acontece na gravação.</p></div>
+    
+    
+  </div>
+</article>
+</li>
+      </ul>
+    </section>
+
+    <section class="secao" aria-labelledby="h-mais">
+      <h2 class="titulo-secao" id="h-mais">Depois de ouvir</h2>
+      <div class="chamadas">
+        <a class="chamada cor-verde" href="aprender.html"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><strong>Aprender</strong><span>Tributos, nota fiscal, bem público e muito mais, explicados de um jeito simples.</span></a>
+        <a class="chamada cor-laranja" href="quiz.html"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><strong>Quiz</strong><span>Um quiz desafio e um quiz fácil, com figuras, para ver quanto você já sabe sobre educação fiscal.</span></a>
+        <a class="chamada cor-rosa" href="criar.html"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-5L16 4l4 4L9 19z"/><path d="M14 6l4 4"/></svg><strong>Criar história</strong><span>Escolha os personagens, o lugar e o mistério, e monte a sua história.</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="envoltorio">
+    <h2>Acessibilidade</h2>
+    <p>Este site foi feito para todo mundo: funciona com leitor de tela, só com o teclado e com a tela ampliada. Cada história tem o texto escrito, e três delas têm audiodescrição das imagens.</p>
+    <ul>
+      <li>Libras pelo VLibras, o tradutor do Governo Federal (precisa de internet).</li>
+      <li>Letra maior, alto contraste, modo escuro e linhas mais espaçadas no alto da página.</li>
+      <li>Os textos foram feitos a partir dos áudios e revisados, mas podem ter pequenas diferenças.</li>
+    </ul>
+    <h2>Quem fez</h2>
+    <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
+    <ul class="logos" aria-label="Instituições do projeto">
+      <li><img src="imagens/logos/hugo-gerdau.webp" alt="EMEF Hugo Gerdau" height="56"></li>
+      <li><img src="imagens/logos/educacao-fiscal.webp" alt="Educação Fiscal Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/tempo-integral.webp" alt="Escola em Tempo Integral, Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/prefeitura.webp" alt="Prefeitura de Sapucaia do Sul" height="56"></li>
+    </ul>
+  </div>
+</footer>
+
+<div id="avisos" class="so-leitor" role="status" aria-live="polite"></div>
+
+<!-- VLibras: tradução automática para Libras (Governo Federal) -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
+<script>
+  window.addEventListener("load", function () {
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: segue sem Libras */ }
+  });
+</script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crie a sua história | O Círculo dos Curiosos</title>
+<meta name="description" content="Monte a sua própria história de educação fiscal com os personagens do Círculo dos Curiosos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="css/estilo.css">
+<script>
+  /* Aplica as preferências antes de desenhar a página */
+  (function () {
+    var r = document.documentElement;
+    r.classList.add("js");
+    function ler(k) { try { return localStorage.getItem("historias:" + k); } catch (e) { return null; } }
+    var t = ler("tamanho"); if (t && t !== "0") r.setAttribute("data-tamanho", t);
+    var e = ler("escuro");
+    if (e === "1" || (e === null && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches)) r.setAttribute("data-tema", "escuro");
+    if (ler("contraste") === "1") r.setAttribute("data-contraste", "alto");
+    if (ler("espaco") === "1") r.setAttribute("data-espaco", "amplo");
+    if (ler("libras") === "1") r.setAttribute("data-libras", "sim");
+  })();
+</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envoltorio">
+    <a class="marca" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24.0" cy="6.0" r="4.6" style="fill:var(--coral)"/><circle cx="34.6" cy="9.4" r="4.6" style="fill:var(--azul)"/><circle cx="41.1" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="41.1" cy="29.6" r="4.6" style="fill:var(--laranja)"/><circle cx="34.6" cy="38.6" r="4.6" style="fill:var(--rosa)"/><circle cx="24.0" cy="42.0" r="4.6" style="fill:var(--roxo)"/><circle cx="13.4" cy="38.6" r="4.6" style="fill:var(--azul)"/><circle cx="6.9" cy="29.6" r="4.6" style="fill:var(--coral)"/><circle cx="6.9" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="13.4" cy="9.4" r="4.6" style="fill:var(--laranja)"/><circle cx="22.5" cy="22.5" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M27 27 31 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O Círculo dos Curiosos</a>
+    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li></ul></nav>
+  </div>
+</header>
+<div class="barra-opcoes sem-js-oculto">
+  <div class="envoltorio">
+    <fieldset class="opcoes">
+      <legend>Para ler melhor:</legend>
+      <button type="button" class="botao-opcao" id="texto-menor" aria-label="Diminuir o texto">A−</button>
+      <button type="button" class="botao-opcao" id="texto-maior" aria-label="Aumentar o texto">A+</button>
+      <button type="button" class="botao-opcao" id="alto-contraste" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        Contraste
+      </button>
+      <button type="button" class="botao-opcao" id="modo-escuro" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        Escuro
+      </button>
+      <button type="button" class="botao-opcao" id="espacamento" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Espaçar linhas
+      </button>
+    </fieldset>
+  </div>
+</div>
+
+<main id="conteudo" tabindex="-1">
+  <div class="envoltorio">
+
+    <section class="secao cor-rosa" aria-labelledby="h-criar">
+      <h1 class="titulo-secao" id="h-criar">Crie a sua história</h1>
+      <p class="descricao">Agora é a sua vez de entrar no Círculo dos Curiosos. Escolha quem participa, onde acontece e qual é o mistério. O site monta a história, lê em voz alta e mostra em Libras.</p>
+
+      <form class="criar-form" id="criar-form" novalidate>
+        <div class="erro-form" id="erro-form" tabindex="-1" hidden></div>
+
+        <fieldset class="passo cor-azul">
+          <legend>1. Quem é você?</legend>
+          <p class="dica">Escreva o seu nome para entrar na história. Se preferir, deixe em branco.</p>
+          <label class="rotulo-campo" for="seu-nome">Seu nome</label>
+          <input class="campo-texto" id="seu-nome" name="nome" type="text" autocomplete="given-name" maxlength="30">
+        </fieldset>
+
+        <fieldset class="passo cor-verde" aria-describedby="dica-pers">
+          <legend>2. Quem do Círculo vai junto?</legend>
+          <p class="dica" id="dica-pers">Escolha de uma a três crianças.</p>
+          <div class="cartoes"><label class="cartao cor-coral"><input type="checkbox" name="personagem" value="Lia"><img class="rosto-foto cor-coral" src="imagens/personagens/lia-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Lia</span></label><label class="cartao cor-laranja"><input type="checkbox" name="personagem" value="Theo"><img class="rosto-foto cor-laranja" src="imagens/personagens/theo-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Theo</span></label><label class="cartao cor-rosa"><input type="checkbox" name="personagem" value="Bia"><img class="rosto-foto cor-rosa" src="imagens/personagens/bia-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Bia</span></label><label class="cartao cor-roxo"><input type="checkbox" name="personagem" value="Ravi"><img class="rosto-foto cor-roxo" src="imagens/personagens/ravi-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Ravi</span></label><label class="cartao cor-verde"><input type="checkbox" name="personagem" value="Nina"><img class="rosto-foto cor-verde" src="imagens/personagens/nina-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Nina</span></label><label class="cartao cor-azul"><input type="checkbox" name="personagem" value="Caio"><img class="rosto-foto cor-azul" src="imagens/personagens/caio-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Caio</span></label><label class="cartao cor-azul"><input type="checkbox" name="personagem" value="Sofia"><img class="rosto-foto cor-azul" src="imagens/personagens/sofia-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Sofia</span></label><label class="cartao cor-laranja"><input type="checkbox" name="personagem" value="Miguel"><img class="rosto-foto cor-laranja" src="imagens/personagens/miguel-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Miguel</span></label><label class="cartao cor-coral"><input type="checkbox" name="personagem" value="Yara"><img class="rosto-foto cor-coral" src="imagens/personagens/yara-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Yara</span></label><label class="cartao cor-verde"><input type="checkbox" name="personagem" value="Tomás"><img class="rosto-foto cor-verde" src="imagens/personagens/tomas-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Tomás</span></label></div>
+        </fieldset>
+
+        <fieldset class="passo cor-laranja">
+          <legend>3. Onde acontece?</legend>
+          <div class="cartoes"><label class="cartao"><input type="radio" name="lugar" value="escola" checked><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5M12 8.5v2"/></svg><span>Na escola</span></label><label class="cartao"><input type="radio" name="lugar" value="praca"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M12 13v8M8 21h8"/></svg><span>Na praça</span></label><label class="cartao"><input type="radio" name="lugar" value="mercado"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h11L21 7H6.2"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg><span>No mercado</span></label><label class="cartao"><input type="radio" name="lugar" value="biblioteca"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Na biblioteca</span></label><label class="cartao"><input type="radio" name="lugar" value="posto"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>No posto de saúde</span></label><label class="cartao"><input type="radio" name="lugar" value="onibus"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r="1"/><circle cx="16" cy="14.5" r="1"/></svg><span>No ônibus</span></label></div>
+        </fieldset>
+
+        <fieldset class="passo cor-roxo">
+          <legend>4. Qual é o mistério?</legend>
+          <div class="cartoes cartoes-largos"><label class="cartao"><input type="radio" name="misterio" value="lixeira" checked><span>Uma lixeira quebrada</span></label><label class="cartao"><input type="radio" name="misterio" value="nota"><span>Uma compra sem nota fiscal</span></label><label class="cartao"><input type="radio" name="misterio" value="rampa"><span>Um lugar sem rampa</span></label><label class="cartao"><input type="radio" name="misterio" value="luz"><span>Uma rua sem iluminação</span></label><label class="cartao"><input type="radio" name="misterio" value="favor"><span>Alguém oferecendo um “favorzinho”</span></label><label class="cartao"><input type="radio" name="misterio" value="merenda"><span>De onde vem o dinheiro da merenda?</span></label></div>
+        </fieldset>
+
+        <fieldset class="passo cor-coral">
+          <legend>5. O que o grupo decide fazer?</legend>
+          <div class="cartoes cartoes-largos"><label class="cartao"><input type="radio" name="acao" value="investigar" checked><span>Investigar e fazer perguntas</span></label><label class="cartao"><input type="radio" name="acao" value="campanha"><span>Fazer uma campanha com cartazes</span></label><label class="cartao"><input type="radio" name="acao" value="nota"><span>Pedir a nota fiscal</span></label><label class="cartao"><input type="radio" name="acao" value="conversar"><span>Conversar com a direção ou a prefeitura</span></label><label class="cartao"><input type="radio" name="acao" value="libras"><span>Fazer uma apresentação em Libras e braile</span></label><label class="cartao"><input type="radio" name="acao" value="transparencia"><span>Pesquisar no portal da transparência</span></label></div>
+        </fieldset>
+
+        <fieldset class="passo cor-rosa">
+          <legend>6. Como termina?</legend>
+          <p class="dica" id="dica-final">Escreva o final do seu jeito. Se deixar em branco, o site cria um final.</p>
+          <label class="rotulo-campo" for="final">O final da história</label>
+          <textarea class="campo-texto" id="final" name="final" maxlength="600" aria-describedby="dica-final"></textarea>
+          <p><button type="button" class="botao" id="dar-ideia"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg>Me dá uma ideia</button></p>
+          <label class="rotulo-campo" for="titulo-historia">Título da história (se quiser)</label>
+          <input class="campo-texto" id="titulo-historia" name="titulo" type="text" maxlength="60">
+        </fieldset>
+
+        <p><button type="submit" class="botao botao-principal"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>Montar a minha história</button></p>
+      </form>
+
+      <div id="resultado"></div>
+
+      <section class="guardadas" id="guardadas" aria-labelledby="h-guardadas" hidden>
+        <h2 id="h-guardadas">Minhas histórias guardadas</h2>
+        <p class="descricao">Ficam guardadas só neste aparelho.</p>
+        <ul id="lista-guardadas"></ul>
+      </section>
+    </section>
+    <script>window.ROSTOS = {"Lia": "<img class=\"rosto-foto cor-coral\" src=\"imagens/personagens/lia-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Theo": "<img class=\"rosto-foto cor-laranja\" src=\"imagens/personagens/theo-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Bia": "<img class=\"rosto-foto cor-rosa\" src=\"imagens/personagens/bia-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Ravi": "<img class=\"rosto-foto cor-roxo\" src=\"imagens/personagens/ravi-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Nina": "<img class=\"rosto-foto cor-verde\" src=\"imagens/personagens/nina-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Caio": "<img class=\"rosto-foto cor-azul\" src=\"imagens/personagens/caio-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Sofia": "<img class=\"rosto-foto cor-azul\" src=\"imagens/personagens/sofia-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Miguel": "<img class=\"rosto-foto cor-laranja\" src=\"imagens/personagens/miguel-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Yara": "<img class=\"rosto-foto cor-coral\" src=\"imagens/personagens/yara-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">", "Tomás": "<img class=\"rosto-foto cor-verde\" src=\"imagens/personagens/tomas-rosto.webp\" alt=\"\" width=\"260\" height=\"260\" loading=\"lazy\">"};</script>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="envoltorio">
+    <h2>Acessibilidade</h2>
+    <p>Este site foi feito para todo mundo: funciona com leitor de tela, só com o teclado e com a tela ampliada. Cada história tem o texto escrito, e três delas têm audiodescrição das imagens.</p>
+    <ul>
+      <li>Libras pelo VLibras, o tradutor do Governo Federal (precisa de internet).</li>
+      <li>Letra maior, alto contraste, modo escuro e linhas mais espaçadas no alto da página.</li>
+      <li>Os textos foram feitos a partir dos áudios e revisados, mas podem ter pequenas diferenças.</li>
+    </ul>
+    <h2>Quem fez</h2>
+    <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
+    <ul class="logos" aria-label="Instituições do projeto">
+      <li><img src="imagens/logos/hugo-gerdau.webp" alt="EMEF Hugo Gerdau" height="56"></li>
+      <li><img src="imagens/logos/educacao-fiscal.webp" alt="Educação Fiscal Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/tempo-integral.webp" alt="Escola em Tempo Integral, Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/prefeitura.webp" alt="Prefeitura de Sapucaia do Sul" height="56"></li>
+    </ul>
+  </div>
+</footer>
+
+<div id="avisos" class="so-leitor" role="status" aria-live="polite"></div>
+
+<!-- VLibras: tradução automática para Libras (Governo Federal) -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
+<script>
+  window.addEventListener("load", function () {
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: segue sem Libras */ }
+  });
+</script>
+<script src="js/app.js"></script>
+<script src="js/criar.js"></script>
+</body>
+</html>

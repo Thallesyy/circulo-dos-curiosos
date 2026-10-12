@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A pesquisa | O Círculo dos Curiosos</title>
+<meta name="description" content="Matemática para Todos: a pesquisa dos estudantes da EMEF Hugo Gerdau sobre Educação Fiscal, Estatística e Inclusão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="css/estilo.css">
+<script>
+  /* Aplica as preferências antes de desenhar a página */
+  (function () {
+    var r = document.documentElement;
+    r.classList.add("js");
+    function ler(k) { try { return localStorage.getItem("historias:" + k); } catch (e) { return null; } }
+    var t = ler("tamanho"); if (t && t !== "0") r.setAttribute("data-tamanho", t);
+    var e = ler("escuro");
+    if (e === "1" || (e === null && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches)) r.setAttribute("data-tema", "escuro");
+    if (ler("contraste") === "1") r.setAttribute("data-contraste", "alto");
+    if (ler("espaco") === "1") r.setAttribute("data-espaco", "amplo");
+    if (ler("libras") === "1") r.setAttribute("data-libras", "sim");
+  })();
+</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envoltorio">
+    <a class="marca" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24.0" cy="6.0" r="4.6" style="fill:var(--coral)"/><circle cx="34.6" cy="9.4" r="4.6" style="fill:var(--azul)"/><circle cx="41.1" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="41.1" cy="29.6" r="4.6" style="fill:var(--laranja)"/><circle cx="34.6" cy="38.6" r="4.6" style="fill:var(--rosa)"/><circle cx="24.0" cy="42.0" r="4.6" style="fill:var(--roxo)"/><circle cx="13.4" cy="38.6" r="4.6" style="fill:var(--azul)"/><circle cx="6.9" cy="29.6" r="4.6" style="fill:var(--coral)"/><circle cx="6.9" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="13.4" cy="9.4" r="4.6" style="fill:var(--laranja)"/><circle cx="22.5" cy="22.5" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M27 27 31 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O Círculo dos Curiosos</a>
+    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li></ul></nav>
+  </div>
+</header>
+<div class="barra-opcoes sem-js-oculto">
+  <div class="envoltorio">
+    <fieldset class="opcoes">
+      <legend>Para ler melhor:</legend>
+      <button type="button" class="botao-opcao" id="texto-menor" aria-label="Diminuir o texto">A−</button>
+      <button type="button" class="botao-opcao" id="texto-maior" aria-label="Aumentar o texto">A+</button>
+      <button type="button" class="botao-opcao" id="alto-contraste" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        Contraste
+      </button>
+      <button type="button" class="botao-opcao" id="modo-escuro" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        Escuro
+      </button>
+      <button type="button" class="botao-opcao" id="espacamento" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Espaçar linhas
+      </button>
+    </fieldset>
+  </div>
+</div>
+
+<main id="conteudo" tabindex="-1">
+  <div class="envoltorio">
+
+    <section class="secao cor-roxo" aria-labelledby="h-pesquisa">
+      <h1 class="titulo-secao" id="h-pesquisa">A pesquisa por trás das histórias</h1>
+      <p class="descricao">As histórias do Círculo dos Curiosos nasceram de uma pesquisa científica feita por estudantes. Aqui você conhece o que eles perguntaram, o que descobriram e o que fizeram com as respostas.</p>
+
+      <div class="ficha">
+        <p class="ficha-titulo">Matemática para Todos: Educação Fiscal, Estatística e Inclusão</p>
+        <p class="ficha-sub">Investigando, aprendendo e incluindo.</p>
+        <dl>
+          <div><dt>Escola</dt><dd>EMEF Hugo Gerdau, Sapucaia do Sul (RS)</dd></div>
+          <div><dt>Quem pesquisou</dt><dd>Estudantes da turma integral 2</dd></div>
+          <div><dt>Orientação</dt><dd>Professora Mayara Santos</dd></div>
+          <div><dt>Onde foi apresentada</dt><dd>VII SaberTec, IFSul Câmpus Sapucaia do Sul, 2026</dd></div>
+          <div><dt>Área</dt><dd>Matemática e suas Tecnologias</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="secao cor-azul" aria-labelledby="h-pergunta">
+      <h2 class="titulo-secao" id="h-pergunta">A grande pergunta</h2>
+      <p class="pergunta-grande">Como usar a Matemática e a Estatística para descobrir o que a comunidade da escola sabe sobre Educação Fiscal e acessibilidade e, com as respostas, criar materiais que todo mundo consiga usar?</p>
+      <p class="descricao">A turma apostou que os números da pesquisa podiam mostrar o caminho para fazer materiais mais acessíveis.</p>
+    </section>
+
+    <section class="secao cor-verde" aria-labelledby="h-como">
+      <h2 class="titulo-secao" id="h-como">Como a pesquisa foi feita</h2>
+      <ol class="etapas">
+        <li><strong>Estudo.</strong> A turma estudou nota fiscal, tributos, impostos e a função social dos tributos, com vídeos, conversas e atividades.</li>
+        <li><strong>História em quadrinhos.</strong> Os estudantes criaram um quadrinho sobre a nota fiscal e para onde vai o dinheiro dos tributos.</li>
+        <li><strong>Ensinando o 1º ano.</strong> Com desenhos e um mercadinho de brincadeira, mostraram aos menores que toda compra tem nota fiscal.</li>
+        <li><strong>Questionário.</strong> A comunidade da escola respondeu quatro perguntas de sim ou não. Foram 82 respostas.</li>
+        <li><strong>Números e gráficos.</strong> A turma organizou as respostas, calculou as porcentagens e fez gráficos.</li>
+        <li><strong>Materiais para todos.</strong> Com o resultado, criaram dez histórias inclusivas. A inteligência artificial ajudou só a desenhar os personagens e os quadrinhos, a partir das ideias e dos roteiros da turma.</li>
+      </ol>
+    </section>
+
+    <section class="secao cor-laranja" aria-labelledby="h-resultados">
+      <h2 class="titulo-secao" id="h-resultados">O que a pesquisa descobriu</h2>
+      <p class="descricao">82 pessoas da comunidade escolar responderam. Veja quantas disseram sim em cada pergunta.</p>
+      <ul class="dados">
+        <li class="dado">
+          <h3 class="dado-pergunta">Você sabe o que é Educação Fiscal?</h3>
+          <p class="dado-numero">70,7%<span class="dado-sim"> responderam sim</span></p>
+          <div class="medidor" aria-hidden="true"><span style="width:70.7%"></span></div>
+          <p class="dado-legenda">58 de 82 pessoas disseram sim e 24 disseram não. Mais ou menos 7 em cada 10 pessoas.</p>
+        </li>
+        <li class="dado">
+          <h3 class="dado-pergunta">Seu filho ou sua filha demonstra interesse em ouvir histórias, livros ou audiobooks?</h3>
+          <p class="dado-numero">93,9%<span class="dado-sim"> responderam sim</span></p>
+          <div class="medidor" aria-hidden="true"><span style="width:93.9%"></span></div>
+          <p class="dado-legenda">77 de 82 pessoas disseram sim e 5 disseram não. Mais de 9 em cada 10 pessoas.</p>
+        </li>
+        <li class="dado">
+          <h3 class="dado-pergunta">É importante ter materiais de Educação Fiscal em formatos acessíveis, como audiobook e livro inclusivo?</h3>
+          <p class="dado-numero">97,6%<span class="dado-sim"> responderam sim</span></p>
+          <div class="medidor" aria-hidden="true"><span style="width:97.6%"></span></div>
+          <p class="dado-legenda">80 de 82 pessoas disseram sim e 2 disseram não. Quase todo mundo: só 2 pessoas disseram não.</p>
+        </li>
+        <li class="dado">
+          <h3 class="dado-pergunta">Você aceita receber materiais sobre Educação Fiscal adaptados e inclusivos?</h3>
+          <p class="dado-numero">97,6%<span class="dado-sim"> responderam sim</span></p>
+          <div class="medidor" aria-hidden="true"><span style="width:97.6%"></span></div>
+          <p class="dado-legenda">80 de 82 pessoas disseram sim e 2 disseram não. Quase todo mundo: só 2 pessoas disseram não.</p>
+        </li>
+      </ul>
+      <details class="tabela-dados">
+        <summary>Ver os números em tabela</summary>
+        <div class="tabela-rolagem">
+        <table>
+          <caption>Respostas das 82 pessoas que participaram da pesquisa</caption>
+          <thead><tr><th scope="col">Pergunta</th><th scope="col">Sim</th><th scope="col">Não</th></tr></thead>
+          <tbody><tr><th scope="row">Você sabe o que é Educação Fiscal?</th><td>70,7% (58 pessoas)</td><td>29,3% (24 pessoas)</td></tr><tr><th scope="row">Seu filho ou sua filha demonstra interesse em ouvir histórias, livros ou audiobooks?</th><td>93,9% (77 pessoas)</td><td>6,1% (5 pessoas)</td></tr><tr><th scope="row">É importante ter materiais de Educação Fiscal em formatos acessíveis, como audiobook e livro inclusivo?</th><td>97,6% (80 pessoas)</td><td>2,4% (2 pessoas)</td></tr><tr><th scope="row">Você aceita receber materiais sobre Educação Fiscal adaptados e inclusivos?</th><td>97,6% (80 pessoas)</td><td>2,4% (2 pessoas)</td></tr></tbody>
+        </table>
+        </div>
+      </details>
+      <div class="destaque-pesquisa">
+        <h3>O que os números mostram</h3>
+        <p>Muita gente já sabe o que é Educação Fiscal, mas não todo mundo: quase 3 em cada 10 pessoas disseram que não sabem. Ao mesmo tempo, quase todas as pessoas querem histórias e materiais acessíveis.</p>
+        <p>Por isso a turma decidiu ensinar Educação Fiscal <strong>contando histórias</strong>, em formatos que todo mundo consegue usar.</p>
+      </div>
+    </section>
+
+    <section class="secao cor-rosa" aria-labelledby="h-inclusivas">
+      <h2 class="titulo-secao" id="h-inclusivas">As histórias inclusivas</h2>
+      <p class="descricao">As dez histórias do Círculo dos Curiosos foram feitas em vários formatos, para cada pessoa escolher o melhor jeito de ler, ouvir ou ver:</p>
+      <ul class="formatos">
+        <li class="cor-azul"><strong>Braille</strong><span>As dez histórias, para quem lê com os dedos.</span></li>
+        <li class="cor-verde"><strong>Letra ampliada</strong><span>As dez histórias, com letras grandes para quem enxerga pouco.</span></li>
+        <li class="cor-laranja"><strong>Áudio</strong><span>As histórias narradas, para ouvir.</span></li>
+        <li class="cor-roxo"><strong>Audiodescrição</strong><span>Três histórias com a descrição das imagens.</span></li>
+        <li class="cor-coral"><strong>Libras</strong><span>Os títulos apresentados em Libras.</span></li>
+      </ul>
+      <p class="descricao">Entre os personagens estão o Caio, que usa cadeira de rodas, a Yara, que tem deficiência auditiva, e o Tomás, que tem deficiência visual. Eles participam das investigações como todo mundo e são muito mais do que a deficiência.</p>
+      <p><a class="botao botao-principal" href="index.html#historias">Ouvir as histórias</a></p>
+    </section>
+
+    <section class="secao cor-verde" aria-labelledby="h-coda">
+      <h2 class="titulo-secao" id="h-coda">Quem conta as histórias</h2>
+      <p class="descricao">As histórias foram narradas por uma estudante CODA, que é como se chama a filha ou o filho de pais surdos. Ela ajudou a construir o projeto e a criar as histórias, e participou das visitas. Na apresentação do trabalho, ela também se comunica em Libras.</p>
+    </section>
+
+    <section class="secao cor-azul" aria-labelledby="h-visita">
+      <h2 class="titulo-secao" id="h-visita">A visita à Sala de Recursos</h2>
+      <p class="descricao">Em 28 de setembro de 2026, dez estudantes visitaram a Sala de Recursos Multifuncionais da EMEF Padre Reus, referência em baixa visão e cegueira em Sapucaia do Sul. Lá conheceram livros e jogos em Braille e viram de perto como um material pode ser feito de jeitos diferentes para que todos consigam aprender.</p>
+    </section>
+
+    <section class="secao cor-laranja" aria-labelledby="h-aprendemos">
+      <h2 class="titulo-secao" id="h-aprendemos">O que a turma aprendeu</h2>
+      <div class="aprendizados">
+        <div class="cor-azul"><h3>Matemática e Estatística</h3><ul><li>Coletar e organizar dados</li><li>Calcular porcentagens</li><li>Ler e construir gráficos</li><li>Explicar os resultados</li></ul></div>
+        <div class="cor-verde"><h3>Educação Fiscal</h3><ul><li>Nota fiscal</li><li>Tributos e impostos</li><li>Função social dos tributos</li><li>Cidadania e participação</li></ul></div>
+        <div class="cor-rosa"><h3>Inclusão</h3><ul><li>Acessibilidade</li><li>Braille e letra ampliada</li><li>Áudio e audiodescrição</li><li>Libras</li></ul></div>
+      </div>
+      <p class="frase-final">A Educação Fiscal deu o tema, a Estatística deu o caminho e a inclusão mostrou como compartilhar o que foi aprendido.</p>
+    </section>
+
+    <section class="secao" aria-labelledby="h-referencias">
+      <h2 class="titulo-secao" id="h-referencias">Referências</h2>
+      <ul class="referencias">
+        <li>BRASIL. Lei nº 13.146, de 6 de julho de 2015. Lei Brasileira de Inclusão da Pessoa com Deficiência. <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm" rel="noopener">Ler a lei</a>.</li>
+        <li>BRASIL. Ministério da Educação. Base Nacional Comum Curricular. Brasília, DF: MEC, 2018.</li>
+        <li>BRASIL. Receita Federal. Cidadania Fiscal. Brasília, DF: Receita Federal do Brasil.</li>
+        <li>BRASIL. Receita Federal. Fundamentação e Diretrizes: Cidadania Fiscal no Currículo Escolar. Brasília, DF, 2026.</li>
+        <li>GAL, Iddo. Adults’ Statistical Literacy: Meanings, Components, Responsibilities. International Statistical Review, v. 70, n. 1, p. 1-25, 2002.</li>
+        <li>ZERBATO, Ana Paula; MENDES, Enicéia Gonçalves. O desenho universal para a aprendizagem na formação de professores: da investigação às práticas inclusivas. Educação e Pesquisa, v. 47, 2021.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="envoltorio">
+    <h2>Acessibilidade</h2>
+    <p>Este site foi feito para todo mundo: funciona com leitor de tela, só com o teclado e com a tela ampliada. Cada história tem o texto escrito, e três delas têm audiodescrição das imagens.</p>
+    <ul>
+      <li>Libras pelo VLibras, o tradutor do Governo Federal (precisa de internet).</li>
+      <li>Letra maior, alto contraste, modo escuro e linhas mais espaçadas no alto da página.</li>
+      <li>Os textos foram feitos a partir dos áudios e revisados, mas podem ter pequenas diferenças.</li>
+    </ul>
+    <h2>Quem fez</h2>
+    <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
+    <ul class="logos" aria-label="Instituições do projeto">
+      <li><img src="imagens/logos/hugo-gerdau.webp" alt="EMEF Hugo Gerdau" height="56"></li>
+      <li><img src="imagens/logos/educacao-fiscal.webp" alt="Educação Fiscal Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/tempo-integral.webp" alt="Escola em Tempo Integral, Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/prefeitura.webp" alt="Prefeitura de Sapucaia do Sul" height="56"></li>
+    </ul>
+  </div>
+</footer>
+
+<div id="avisos" class="so-leitor" role="status" aria-live="polite"></div>
+
+<!-- VLibras: tradução automática para Libras (Governo Federal) -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
+<script>
+  window.addEventListener("load", function () {
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: segue sem Libras */ }
+  });
+</script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

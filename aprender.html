@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aprender: educação fiscal | O Círculo dos Curiosos</title>
+<meta name="description" content="Educação fiscal explicada para crianças: tributos, nota fiscal, bem público, sonegação, corrupção e participação.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="css/estilo.css">
+<script>
+  /* Aplica as preferências antes de desenhar a página */
+  (function () {
+    var r = document.documentElement;
+    r.classList.add("js");
+    function ler(k) { try { return localStorage.getItem("historias:" + k); } catch (e) { return null; } }
+    var t = ler("tamanho"); if (t && t !== "0") r.setAttribute("data-tamanho", t);
+    var e = ler("escuro");
+    if (e === "1" || (e === null && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches)) r.setAttribute("data-tema", "escuro");
+    if (ler("contraste") === "1") r.setAttribute("data-contraste", "alto");
+    if (ler("espaco") === "1") r.setAttribute("data-espaco", "amplo");
+    if (ler("libras") === "1") r.setAttribute("data-libras", "sim");
+  })();
+</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envoltorio">
+    <a class="marca" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24.0" cy="6.0" r="4.6" style="fill:var(--coral)"/><circle cx="34.6" cy="9.4" r="4.6" style="fill:var(--azul)"/><circle cx="41.1" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="41.1" cy="29.6" r="4.6" style="fill:var(--laranja)"/><circle cx="34.6" cy="38.6" r="4.6" style="fill:var(--rosa)"/><circle cx="24.0" cy="42.0" r="4.6" style="fill:var(--roxo)"/><circle cx="13.4" cy="38.6" r="4.6" style="fill:var(--azul)"/><circle cx="6.9" cy="29.6" r="4.6" style="fill:var(--coral)"/><circle cx="6.9" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="13.4" cy="9.4" r="4.6" style="fill:var(--laranja)"/><circle cx="22.5" cy="22.5" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M27 27 31 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O Círculo dos Curiosos</a>
+    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li></ul></nav>
+  </div>
+</header>
+<div class="barra-opcoes sem-js-oculto">
+  <div class="envoltorio">
+    <fieldset class="opcoes">
+      <legend>Para ler melhor:</legend>
+      <button type="button" class="botao-opcao" id="texto-menor" aria-label="Diminuir o texto">A−</button>
+      <button type="button" class="botao-opcao" id="texto-maior" aria-label="Aumentar o texto">A+</button>
+      <button type="button" class="botao-opcao" id="alto-contraste" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        Contraste
+      </button>
+      <button type="button" class="botao-opcao" id="modo-escuro" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        Escuro
+      </button>
+      <button type="button" class="botao-opcao" id="espacamento" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Espaçar linhas
+      </button>
+    </fieldset>
+  </div>
+</div>
+
+<main id="conteudo" tabindex="-1">
+  <div class="envoltorio">
+
+    <section class="secao cor-verde" aria-labelledby="h-aprender">
+      <h1 class="titulo-secao" id="h-aprender">Aprender sobre educação fiscal</h1>
+      <p class="descricao">Tudo o que o Círculo dos Curiosos descobriu, explicado em partes curtas. Cada parte pode ser ouvida e vista em Libras, e indica a história que fala do assunto.</p>
+      <nav aria-label="Assuntos desta página"><ul class="indice-assuntos"><li class="cor-azul"><a href="#o-que-e">O que é educação fiscal?</a></li><li class="cor-verde"><a href="#tributos">Tributos: impostos, taxas e contribuições</a></li><li class="cor-laranja"><a href="#viagem">A viagem do dinheiro público</a></li><li class="cor-rosa"><a href="#nota">Cadê a nota? A nota fiscal</a></li><li class="cor-azul"><a href="#bem-publico">Isso é de quem? O bem público</a></li><li class="cor-roxo"><a href="#sonegacao">Sonegação: o segredo que prejudica todos</a></li><li class="cor-coral"><a href="#corrupcao">Corrupção: o favor que não é favor</a></li><li class="cor-verde"><a href="#fiscalizar">Fiscalizar é participar</a></li><li class="cor-laranja"><a href="#acessibilidade">Acessibilidade também é cidadania</a></li></ul></nav>
+      <div class="assuntos">
+      <article class="assunto cor-azul" id="o-que-e" aria-labelledby="h-o-que-e">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></span><h2 id="h-o-que-e">O que é educação fiscal?</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-o-que-e">
+<p>Educação fiscal é aprender de onde vem e para onde vai o dinheiro que cuida da cidade, do estado e do país.</p>
+<p>Esse dinheiro se chama <strong>dinheiro público</strong>, porque é de todos. Ele paga escolas, merenda, postos de saúde, praças, ruas iluminadas e muito mais.</p>
+<p class="destaque">Quem entende como isso funciona consegue fazer perguntas, cuidar do que é de todos e participar das decisões. Isso é cidadania.</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-o-que-e"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> O que é educação fiscal?</span></button>
+            <button type="button" class="botao" data-libras="texto-o-que-e"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: O que é educação fiscal?</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-1">História 1: A pergunta que ninguém esperava</a> e <a class="ligacao-historia" href="index.html#historia-10">História 10: O círculo continua</a></p>
+        </div>
+      </article>
+      <article class="assunto cor-verde" id="tributos" aria-labelledby="h-tributos">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v4c0 1.7 2.7 3 6 3s6-1.3 6-3V7"/><path d="M9 14v3c0 1.7 2.7 3 6 3s6-1.3 6-3v-4c0-1.7-2.7-3-6-3"/></svg></span><h2 id="h-tributos">Tributos: impostos, taxas e contribuições</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-tributos">
+<p><strong>Tributos</strong> são pagamentos obrigatórios, escritos na lei, que as pessoas e as empresas fazem ao governo. Eles existem em três tipos principais:</p>
+<ul>
+<li><strong>Impostos:</strong> ajudam a pagar vários serviços ao mesmo tempo. Exemplos: o IPTU, das casas e terrenos; o IPVA, dos carros e motos; e o ICMS, que vem escondido no preço de muitas compras.</li>
+<li><strong>Taxas:</strong> são pagas por um serviço específico, como a coleta de lixo ou tirar um documento.</li>
+<li><strong>Contribuições:</strong> têm um destino especial, como a previdência social, que paga as aposentadorias.</li>
+</ul>
+<p class="destaque">Todo imposto é tributo, mas nem todo tributo é imposto. Parece pegadinha, como disse o Círculo dos Curiosos!</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-tributos"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> Tributos: impostos, taxas e contribuições</span></button>
+            <button type="button" class="botao" data-libras="texto-tributos"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: Tributos: impostos, taxas e contribuições</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-2">História 2: O dinheiro que vai e volta</a> e <a class="ligacao-historia" href="index.html#historia-3">História 3: Afinal, o que são impostos?</a></p>
+        </div>
+      </article>
+      <article class="assunto cor-laranja" id="viagem" aria-labelledby="h-viagem">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M9 18h5a4 4 0 0 0 0-8h-4a4 4 0 0 1 0-8h5"/></svg></span><h2 id="h-viagem">A viagem do dinheiro público</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-viagem">
+<p>Lembra da moeda da Bia? Veja, passo a passo, o caminho que o dinheiro público faz:</p>
+<ol>
+<li>As pessoas compram, trabalham e têm casas e carros. Parte disso vira tributo.</li>
+<li>O governo <strong>arrecada</strong>: junta os tributos pagos por todo mundo.</li>
+<li>O governo <strong>planeja</strong> os gastos num plano chamado orçamento, que precisa ser aprovado pelos vereadores, deputados e senadores, escolhidos pelo voto.</li>
+<li>O dinheiro vira <strong>serviço</strong>: escola, merenda, vacina, posto de saúde, ônibus, praça, rampa.</li>
+<li>Todo mundo pode <strong>acompanhar</strong> se o dinheiro foi bem usado.</li>
+</ol>
+<p class="destaque">Atenção: uma moeda não vai direto para uma escola. O dinheiro de todos é juntado e depois dividido conforme o planejamento.</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-viagem"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> A viagem do dinheiro público</span></button>
+            <button type="button" class="botao" data-libras="texto-viagem"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: A viagem do dinheiro público</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-4">História 4: A viagem de uma moeda</a></p>
+        </div>
+      </article>
+      <article class="assunto cor-rosa" id="nota" aria-labelledby="h-nota">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-2-1.5L14 21l-2-1.5L10 21l-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><h2 id="h-nota">Cadê a nota? A nota fiscal</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-nota">
+<p>A <strong>nota fiscal</strong> é o papel (ou o arquivo no celular) que registra uma compra: o que foi comprado, quanto custou e quem vendeu.</p>
+<ul>
+<li>Ela ajuda a trocar um produto com defeito e a usar a garantia.</li>
+<li>Ela mostra que a venda foi registrada. Assim, os tributos daquela compra chegam aos cofres públicos.</li>
+<li>Por lei, a nota precisa mostrar quanto do preço é tributo. Procure essa informação na próxima nota da sua família!</li>
+</ul>
+<p class="destaque">Pedir a nota fiscal é uma atitude simples de cidadania.</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-nota"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> Cadê a nota? A nota fiscal</span></button>
+            <button type="button" class="botao" data-libras="texto-nota"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: Cadê a nota? A nota fiscal</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-5">História 5: Cadê a nota?</a></p>
+        </div>
+      </article>
+      <article class="assunto cor-azul" id="bem-publico" aria-labelledby="h-bem-publico">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M5 11v8M19 11v8M4 7h16l-1 4H5z"/><path d="M8 15h8"/></svg></span><h2 id="h-bem-publico">Isso é de quem? O bem público</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-bem-publico">
+<p><strong>Bem público</strong> é aquilo que pertence a todos: a escola, a praça, a lixeira, o ônibus, a rua, o parque, a biblioteca.</p>
+<p>É nosso, mas não é de ninguém em particular. Se cada pessoa pensar “não é meu”, ninguém cuida.</p>
+<p class="destaque">Cuidar do que é público também economiza o dinheiro de todos: o que é estragado precisa ser consertado com recursos públicos.</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-bem-publico"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> Isso é de quem? O bem público</span></button>
+            <button type="button" class="botao" data-libras="texto-bem-publico"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: Isso é de quem? O bem público</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-7">História 7: Isso é de quem?</a></p>
+        </div>
+      </article>
+      <article class="assunto cor-roxo" id="sonegacao" aria-labelledby="h-sonegacao">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v2"/></svg></span><h2 id="h-sonegacao">Sonegação: o segredo que prejudica todos</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-sonegacao">
+<p><strong>Sonegar</strong> é esconder vendas ou informações de propósito para não pagar os tributos.</p>
+<p>É diferente de um erro: quem erra não tinha a intenção de esconder nada.</p>
+<p class="destaque">Quando alguém sonega, falta dinheiro para escolas, hospitais e outros serviços. A escolha de uma pessoa tem consequência para todo mundo.</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-sonegacao"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> Sonegação: o segredo que prejudica todos</span></button>
+            <button type="button" class="botao" data-libras="texto-sonegacao"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: Sonegação: o segredo que prejudica todos</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-6">História 6: O segredo escondido</a></p>
+        </div>
+      </article>
+      <article class="assunto cor-coral" id="corrupcao" aria-labelledby="h-corrupcao">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11"/><path d="M12 9c-1.5-3-5-4-5-1.5S10 9 12 9c2 0 5 .5 5-1.5S13.5 6 12 9z"/><path d="M4 4l16 16"/></svg></span><h2 id="h-corrupcao">Corrupção: o favor que não é favor</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-corrupcao">
+<p><strong>Corrupção</strong> é oferecer ou receber uma vantagem que não é certa, ligada a um cargo ou a um poder. Pode ser dinheiro, um presente ou um “favorzinho”.</p>
+<p>A corrupção desvia o que é de todos e prejudica o interesse coletivo.</p>
+<p class="destaque">Ser honesto nas pequenas coisas, como respeitar a fila e devolver o troco que veio a mais, também ajuda a construir uma cultura de cidadania.</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-corrupcao"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> Corrupção: o favor que não é favor</span></button>
+            <button type="button" class="botao" data-libras="texto-corrupcao"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: Corrupção: o favor que não é favor</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-8">História 8: O favor</a></p>
+        </div>
+      </article>
+      <article class="assunto cor-verde" id="fiscalizar" aria-labelledby="h-fiscalizar">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4l3 1 2 5h3l-2-4.3L19 19V5L6 9z"/><path d="M21 10v4"/></svg></span><h2 id="h-fiscalizar">Fiscalizar é participar</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-fiscalizar">
+<p>Fiscalizar não é procurar culpados. É <strong>acompanhar, perguntar, buscar informações e participar</strong>.</p>
+<ul>
+<li>Qualquer pessoa pode ver como o dinheiro público é gasto. O governo federal mostra os gastos no <a href="https://portaldatransparencia.gov.br/" rel="noopener">Portal da Transparência</a>, e os estados e as prefeituras também têm os seus portais.</li>
+<li>Na escola, dá para participar do grêmio estudantil, do conselho escolar e de campanhas, como fez o Círculo dos Curiosos.</li>
+</ul>
+<p class="destaque">Quem participa ajuda a transformar.</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-fiscalizar"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> Fiscalizar é participar</span></button>
+            <button type="button" class="botao" data-libras="texto-fiscalizar"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: Fiscalizar é participar</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-9">História 9: Os detetives da cidadania</a></p>
+        </div>
+      </article>
+      <article class="assunto cor-laranja" id="acessibilidade" aria-labelledby="h-acessibilidade">
+        <div class="assunto-topo"><span class="icone"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M6 8.5l6 1 6-1M12 9.5v5l-3 5.5M12 14.5l3 5.5"/></svg></span><h2 id="h-acessibilidade">Acessibilidade também é cidadania</h2></div>
+        <div class="assunto-corpo">
+          <div id="texto-acessibilidade">
+<p>Um espaço público só é de todos quando <strong>todos conseguem usar</strong>. Rampas, corrimãos, piso tátil, Libras, braile e audiodescrição ajudam muita gente.</p>
+<p>No pátio da escola, o Círculo dos Curiosos descobriu que uma área quase não era usada porque não era acessível.</p>
+<p class="destaque">Pensar em acessibilidade é pensar em todo mundo. E o dinheiro público deve servir a todos.</p></div>
+          <div class="assunto-acoes sem-js-oculto">
+            <button type="button" class="botao" data-ouvir="texto-acessibilidade"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="rotulo">Ouvir</span><span class="so-leitor"> Acessibilidade também é cidadania</span></button>
+            <button type="button" class="botao" data-libras="texto-acessibilidade"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14c0 4-3 7-7 7s-6-2.5-7-5l-1.5-3.5a1.5 1.5 0 0 1 2.7-1.3L7 13"/></svg>Ver em Libras<span class="so-leitor">: Acessibilidade também é cidadania</span></button>
+          </div>
+          <p class="assunto-acoes">Para ouvir sobre isso: <a class="ligacao-historia" href="index.html#historia-7">História 7: Isso é de quem?</a> e <a class="ligacao-historia" href="index.html#historia-9">História 9: Os detetives da cidadania</a></p>
+        </div>
+      </article>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="envoltorio">
+    <h2>Acessibilidade</h2>
+    <p>Este site foi feito para todo mundo: funciona com leitor de tela, só com o teclado e com a tela ampliada. Cada história tem o texto escrito, e três delas têm audiodescrição das imagens.</p>
+    <ul>
+      <li>Libras pelo VLibras, o tradutor do Governo Federal (precisa de internet).</li>
+      <li>Letra maior, alto contraste, modo escuro e linhas mais espaçadas no alto da página.</li>
+      <li>Os textos foram feitos a partir dos áudios e revisados, mas podem ter pequenas diferenças.</li>
+    </ul>
+    <h2>Quem fez</h2>
+    <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
+    <ul class="logos" aria-label="Instituições do projeto">
+      <li><img src="imagens/logos/hugo-gerdau.webp" alt="EMEF Hugo Gerdau" height="56"></li>
+      <li><img src="imagens/logos/educacao-fiscal.webp" alt="Educação Fiscal Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/tempo-integral.webp" alt="Escola em Tempo Integral, Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/prefeitura.webp" alt="Prefeitura de Sapucaia do Sul" height="56"></li>
+    </ul>
+  </div>
+</footer>
+
+<div id="avisos" class="so-leitor" role="status" aria-live="polite"></div>
+
+<!-- VLibras: tradução automática para Libras (Governo Federal) -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
+<script>
+  window.addEventListener("load", function () {
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: segue sem Libras */ }
+  });
+</script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
