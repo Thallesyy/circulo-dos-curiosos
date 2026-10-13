@@ -25,9 +25,82 @@
 </script>
 </head>
 <body>
-<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir a audiodescrição desta página</a>
-<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ligar a voz do site</button>
+<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir o guia em áudio desta página</a>
+<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ativar a audiodescrição</button>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<button type="button" class="botao-acess sem-js-oculto" id="abrir-acess" aria-haspopup="dialog" aria-controls="painel-acess" aria-label="Acessibilidade: audiodescrição e guia em áudio">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7" r="1.4" fill="currentColor"/><path d="M7 9.5l5 1 5-1M12 10.5v3.5l-2.5 4.5M12 14l2.5 4.5"/></svg><span class="botao-acess-rotulo">Acessibilidade<span class="so-leitor">: audiodescrição e guia em áudio</span></span>
+</button>
+<dialog class="painel-acess" id="painel-acess" aria-labelledby="titulo-painel-acess">
+  <div class="painel-topo">
+    <h2 id="titulo-painel-acess"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7" r="1.4" fill="currentColor"/><path d="M7 9.5l5 1 5-1M12 10.5v3.5l-2.5 4.5M12 14l2.5 4.5"/></svg>Acessibilidade</h2>
+    <button type="button" class="botao-opcao" id="fechar-acess">Fechar<span class="so-leitor"> o painel de acessibilidade</span></button>
+  </div>
+  <section class="painel-bloco" aria-labelledby="pa-voz">
+    <h3 id="pa-voz">Audiodescrição</h3>
+    <p>Ative e passe o mouse ou o dedo sobre qualquer parte do site: ele fala o que é e o que acontece ao clicar. Também funciona com a tecla Tab.</p>
+    <button type="button" class="botao botao-principal" data-alternar-voz><span class="rotulo">Ativar a audiodescrição</span></button>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-ad">
+    <h3 id="pa-ad">Guia em áudio desta página</h3>
+    <p>Um áudio que conta o que tem nesta página e onde fica cada coisa. Você pode fechar o painel e continuar ouvindo.</p>
+    <ul class="lista lista-ad">
+<li>
+<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Guia em áudio da página Acessibilidade" data-duracao="195.97">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-pagina">Guia da página Acessibilidade</h3>
+    
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Guia em áudio da página Acessibilidade">
+      <source src="audios/audiodescricao-acessibilidade.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/audiodescricao-acessibilidade.mp3">Baixe o arquivo de Guia em áudio da página Acessibilidade</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Guia em áudio da página Acessibilidade"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">3 min 16 s</span><span class="so-leitor">Duração: 3 minutos e 16 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Guia em áudio da página Acessibilidade</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="196" step="1" value="0" aria-label="Posição em Guia em áudio da página Acessibilidade">
+        <span class="tempo" aria-hidden="true">0:00 / 3:15</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-pagina">Velocidade</label>
+        <select id="vel-audiodescricao-pagina" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/audiodescricao-acessibilidade.mp3" download>Baixar áudio<span class="so-leitor"> de Guia em áudio da página Acessibilidade</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Guia em áudio da página Acessibilidade" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="3.13">Guia em áudio da página Acessibilidade.</span> <span class="trecho" data-inicio="3.88" data-fim="9.71">Esta página reúne todos os recursos de acessibilidade do site e explica como usar cada um.</span> <span class="trecho" data-inicio="10.46" data-fim="20.34">O site tem seis páginas: Histórias, que é a página inicial, Aprender, Quiz, Criar história, Pesquisa e esta, Acessibilidade.</span> <span class="trecho" data-inicio="20.69" data-fim="29.67">Toda página tem um guia em áudio como este, no botão Acessibilidade e no primeiro atalho do Tab, que conta o que tem nela e onde fica cada coisa.</span></p><p><span class="trecho" data-inicio="30.42" data-fim="33.79">A parte de cima é igual em todas as páginas.</span> <span class="trecho" data-inicio="34.14" data-fim="43.95">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir o guia em áudio desta página, Ativar a audiodescrição e Pular para o conteúdo.</span> <span class="trecho" data-inicio="44.3" data-fim="47.29">Logo depois vem o botão Acessibilidade.</span> <span class="trecho" data-inicio="47.64" data-fim="52.2">Ele fica sempre no lado direito da tela, um pouco acima do meio.</span> <span class="trecho" data-inicio="52.55" data-fim="57.25">É redondo e roxo, com o desenho de uma pessoa de braços abertos.</span> <span class="trecho" data-inicio="57.6" data-fim="65.34">Ele abre o painel de acessibilidade, onde ficam o botão Ativar a audiodescrição, este guia em áudio e o VLibras.</span></p><p><span class="trecho" data-inicio="65.69" data-fim="68.68">Para fechar o painel, aperte Esc.</span> <span class="trecho" data-inicio="69.03" data-fim="72.88">Se você fechar o painel, o guia continua tocando.</span> <span class="trecho" data-inicio="73.23" data-fim="87.1">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span> <span class="trecho" data-inicio="87.45" data-fim="97.2">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Audiodescrição.</span></p><p><span class="trecho" data-inicio="97.95" data-fim="103.58">O conteúdo principal começa com o título Acessibilidade e uma frase de apresentação.</span> <span class="trecho" data-inicio="104.33" data-fim="114.91">A página segue com estes títulos, nesta ordem: Recursos de acessibilidade, Como navegar pelo site, Atalhos do teclado, Mapa do site e Nosso compromisso.</span> <span class="trecho" data-inicio="115.66" data-fim="124.7">Em Recursos de acessibilidade há dez cartões coloridos, cada um com o nome do recurso, que também é um título, e uma explicação curta.</span> <span class="trecho" data-inicio="125.05" data-fim="130.25">O primeiro cartão, Audiodescrição, tem o botão Ativar a audiodescrição.</span></p><p><span class="trecho" data-inicio="131.0" data-fim="139.92">Em Como navegar pelo site há quatro quadros: com o teclado, com leitor de tela no computador, com leitor de tela no celular e sem leitor de tela.</span> <span class="trecho" data-inicio="140.67" data-fim="145.77">Em Atalhos do teclado, uma tabela mostra as teclas e o que cada uma faz.</span> <span class="trecho" data-inicio="146.12" data-fim="148.9">Os mais importantes são estes.</span> <span class="trecho" data-inicio="149.25" data-fim="155.56">Segurando as teclas Alt e Shift e apertando a letra D, você ativa ou desativa a audiodescrição.</span> <span class="trecho" data-inicio="155.91" data-fim="162.74">Segurando Alt e Shift e apertando a letra A, você abre o painel e ouve o guia em áudio da página.</span></p><p><span class="trecho" data-inicio="163.09" data-fim="166.76">E a tecla Esc fecha o painel e cala a voz.</span> <span class="trecho" data-inicio="167.51" data-fim="171.69">Em Mapa do site há um link para cada página, com o que tem nela.</span> <span class="trecho" data-inicio="172.44" data-fim="181.15">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span> <span class="trecho" data-inicio="181.5" data-fim="191.06">No lado direito da tela, logo abaixo do botão Acessibilidade, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span> <span class="trecho" data-inicio="191.41" data-fim="195.22">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto do guia em áudio desta página.</p></div>
+    
+    
+  </div>
+</article>
+</li></ul>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-libras">
+    <h3 id="pa-libras">Libras</h3>
+    <p>O avatar do VLibras traduz o texto da página para Libras.</p>
+    <button type="button" class="botao" data-abrir-vlibras>Abrir o VLibras</button>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-atalhos">
+    <h3 id="pa-atalhos">Atalhos do teclado</h3>
+    <dl class="atalhos-painel">
+      <div><dt><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></dt><dd>Ativa ou desativa a audiodescrição.</dd></div>
+      <div><dt><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd></dt><dd>Abre este painel e toca o guia em áudio.</dd></div>
+      <div><dt><kbd>Esc</kbd></dt><dd>Fecha este painel e cala a voz.</dd></div>
+    </dl>
+    <p><a href="acessibilidade.html">Ver todos os recursos de acessibilidade</a></p>
+  </section>
+</dialog>
 
 <header class="topo">
   <div class="envoltorio">
@@ -55,7 +128,7 @@
       </button>
       <button type="button" class="botao-opcao" id="voz-site" aria-pressed="false">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-        Voz do site
+        Audiodescrição
       </button>
     </fieldset>
   </div>
@@ -63,47 +136,6 @@
 
 <main id="conteudo" tabindex="-1">
   <div class="envoltorio">
-<section class="faixa-ad" aria-label="Audiodescrição desta página"><ul class="lista lista-ad">
-<li>
-<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Audiodescrição da página Acessibilidade" data-duracao="163.55">
-  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-  <div class="corpo">
-    <h3 id="titulo-audiodescricao-pagina">Audiodescrição desta página</h3>
-    <p class="resumo">Para quem não enxerga ou enxerga pouco: o que tem nesta página, onde fica cada coisa e como usar.</p>
-    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Audiodescrição da página Acessibilidade">
-      <source src="audios/audiodescricao-acessibilidade.mp3" type="audio/mpeg">
-      Seu navegador não toca áudio. <a href="audios/audiodescricao-acessibilidade.mp3">Baixe o arquivo de Audiodescrição da página Acessibilidade</a>.
-    </audio>
-    <div class="acoes sem-js-oculto">
-      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Audiodescrição da página Acessibilidade"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
-      <span class="duracao"><span aria-hidden="true">2 min 44 s</span><span class="so-leitor">Duração: 2 minutos e 44 segundos</span></span>
-      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Audiodescrição da página Acessibilidade</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
-    </div>
-    <div class="player" hidden>
-      <div class="barra">
-        <input type="range" class="posicao" min="0" max="164" step="1" value="0" aria-label="Posição em Audiodescrição da página Acessibilidade">
-        <span class="tempo" aria-hidden="true">0:00 / 2:43</span>
-      </div>
-      <p class="situacao-libras" hidden></p>
-      <div class="ajustes">
-        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
-        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
-        <label for="vel-audiodescricao-pagina">Velocidade</label>
-        <select id="vel-audiodescricao-pagina" class="velocidade">
-          <option value="0.75">Mais devagar (0,75×)</option>
-          <option value="1">Normal (1×)</option>
-          <option value="1.25">Mais rápido (1,25×)</option>
-          <option value="1.5">Rápido (1,5×)</option>
-        </select>
-        <a class="botao-opcao" href="audios/audiodescricao-acessibilidade.mp3" download>Baixar áudio<span class="so-leitor"> de Audiodescrição da página Acessibilidade</span></a>
-      </div>
-    </div>
-    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Audiodescrição da página Acessibilidade" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="3.24">Audiodescrição da página Acessibilidade.</span> <span class="trecho" data-inicio="3.99" data-fim="9.86">Esta página reúne todos os recursos de acessibilidade do site e explica como usar cada um.</span> <span class="trecho" data-inicio="10.61" data-fim="20.75">O site tem seis páginas: Histórias, que é a página inicial, Aprender, Quiz, Criar história, Pesquisa e esta, Acessibilidade.</span> <span class="trecho" data-inicio="21.1" data-fim="27.7">Toda página começa com uma audiodescrição como esta, que conta o que tem nela e onde fica cada coisa.</span> <span class="trecho" data-inicio="28.45" data-fim="31.87">A parte de cima é igual em todas as páginas.</span></p><p><span class="trecho" data-inicio="32.22" data-fim="41.69">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir a audiodescrição desta página, Ligar a voz do site e Pular para o conteúdo.</span> <span class="trecho" data-inicio="42.04" data-fim="55.83">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span> <span class="trecho" data-inicio="56.18" data-fim="65.39">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Voz do site.</span></p><p><span class="trecho" data-inicio="66.14" data-fim="69.95">O conteúdo principal começa com esta audiodescrição.</span> <span class="trecho" data-inicio="70.3" data-fim="74.77">Depois vem o título Acessibilidade e uma frase de apresentação.</span> <span class="trecho" data-inicio="75.52" data-fim="86.07">A página segue com estes títulos, nesta ordem: Recursos de acessibilidade, Como navegar pelo site, Atalhos do teclado, Mapa do site e Nosso compromisso.</span> <span class="trecho" data-inicio="86.82" data-fim="95.98">Em Recursos de acessibilidade há dez cartões coloridos, cada um com o nome do recurso, que também é um título, e uma explicação curta.</span></p><p><span class="trecho" data-inicio="96.33" data-fim="101.1">O segundo cartão, Voz do site, tem o botão Ligar a voz do site.</span> <span class="trecho" data-inicio="101.85" data-fim="110.87">Em Como navegar pelo site há quatro quadros: com o teclado, com leitor de tela no computador, com leitor de tela no celular e sem leitor de tela.</span> <span class="trecho" data-inicio="111.62" data-fim="116.84">Em Atalhos do teclado, uma tabela mostra as teclas e o que cada uma faz.</span> <span class="trecho" data-inicio="117.19" data-fim="119.92">Os mais importantes são estes.</span> <span class="trecho" data-inicio="120.27" data-fim="126.4">Segurando as teclas Alt e Shift e apertando a letra A, você ouve a audiodescrição da página.</span></p><p><span class="trecho" data-inicio="126.75" data-fim="132.39">Segurando Alt e Shift e apertando a letra V, você liga ou desliga a Voz do site.</span> <span class="trecho" data-inicio="132.74" data-fim="135.36">E a tecla Esc cala a voz.</span> <span class="trecho" data-inicio="136.11" data-fim="140.35">Em Mapa do site há um link para cada página, com o que tem nela.</span> <span class="trecho" data-inicio="141.1" data-fim="149.67">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span> <span class="trecho" data-inicio="150.02" data-fim="158.89">No lado direito da tela, na metade da altura, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span></p><p><span class="trecho" data-inicio="159.24" data-fim="162.8">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto da audiodescrição desta página.</p></div>
-    
-    
-  </div>
-</article>
-</li></ul></section>
 
     <section class="secao cor-coral" aria-labelledby="h-acess">
       <h1 class="titulo-secao" id="h-acess">Acessibilidade</h1>
@@ -112,7 +144,7 @@
 
     <section class="secao cor-azul" aria-labelledby="h-recursos">
       <h2 class="titulo-secao" id="h-recursos">Recursos de acessibilidade</h2>
-      <ul class="recursos"><li class="recurso cor-roxo"><h3>Audiodescrição das páginas</h3><p>No começo de cada página, um áudio conta o que tem nela, onde fica cada coisa e como usar. É o primeiro atalho da página: aperte Tab uma vez e depois Enter.</p></li><li class="recurso cor-azul"><h3>Voz do site</h3><p>Para quem não usa leitor de tela: lê em voz alta o nome de cada botão, link ou campo quando você passa por ele com a tecla Tab. Quem já usa leitor de tela não precisa ligar.</p><button type="button" class="botao botao-principal" data-alternar-voz><span class="rotulo">Ligar a voz do site</span></button></li><li class="recurso cor-verde"><h3>Histórias em áudio</h3><p>As dez histórias narradas, com botão de pausar, de voltar e avançar dez segundos, de mudar a velocidade e de baixar o áudio.</p></li><li class="recurso cor-laranja"><h3>Texto junto com o áudio</h3><p>O botão Ler o texto mostra a história escrita e marca em amarelo a frase que está tocando. Clicando numa frase, o áudio vai para ela.</p></li><li class="recurso cor-rosa"><h3>Audiodescrição das imagens</h3><p>Três histórias têm uma versão que descreve as ilustrações: onde as crianças estão, o que fazem e o que está escrito nos cartazes.</p></li><li class="recurso cor-coral"><h3>Libras</h3><p>O botão azul do VLibras, no lado direito da tela, traduz o site para Libras. Com a opção Libras junto com o áudio, o avatar acompanha cada história frase por frase.</p></li><li class="recurso cor-azul"><h3>Letra maior, contraste, modo escuro e linhas espaçadas</h3><p>Ficam na faixa Para ler melhor, no alto de todas as páginas. As escolhas ficam guardadas para a próxima visita.</p></li><li class="recurso cor-verde"><h3>Imagens descritas</h3><p>As ilustrações têm descrição em texto para os leitores de tela. Os quadrinhos têm o mesmo texto da história, no botão Ler o texto.</p></li><li class="recurso cor-laranja"><h3>Quiz fácil</h3><p>Perguntas curtas, alternativas com figuras, leitura em voz alta automática e chance de tentar de novo sem perder ponto.</p></li><li class="recurso cor-rosa"><h3>Braille e letra ampliada</h3><p>Fora do site, as dez histórias também foram feitas em Braille e com letra ampliada pela escola.</p></li></ul>
+      <ul class="recursos"><li class="recurso cor-roxo"><h3>Audiodescrição</h3><p>Ative e passe o mouse ou o dedo sobre qualquer parte do site: ele fala o que é e o que acontece ao clicar, como “Aprender, link. Clique e você irá para a página Aprender”. No celular, um toque fala e o segundo toque clica. Também funciona com a tecla Tab.</p><button type="button" class="botao botao-principal" data-alternar-voz><span class="rotulo">Ativar a audiodescrição</span></button></li><li class="recurso cor-azul"><h3>Guia em áudio de cada página</h3><p>No botão redondo Acessibilidade, no lado direito da tela, um áudio conta o que tem na página, onde fica cada coisa e como usar. Pelo teclado, é o primeiro atalho: aperte Tab uma vez e depois Enter.</p></li><li class="recurso cor-verde"><h3>Histórias em áudio</h3><p>As dez histórias narradas, com botão de pausar, de voltar e avançar dez segundos, de mudar a velocidade e de baixar o áudio.</p></li><li class="recurso cor-laranja"><h3>Texto junto com o áudio</h3><p>O botão Ler o texto mostra a história escrita e marca em amarelo a frase que está tocando. Clicando numa frase, o áudio vai para ela.</p></li><li class="recurso cor-rosa"><h3>Audiodescrição das imagens</h3><p>Três histórias têm uma versão que descreve as ilustrações: onde as crianças estão, o que fazem e o que está escrito nos cartazes.</p></li><li class="recurso cor-coral"><h3>Libras</h3><p>O botão azul do VLibras, no lado direito da tela, traduz o site para Libras. Com a opção Libras junto com o áudio, o avatar acompanha cada história frase por frase.</p></li><li class="recurso cor-azul"><h3>Letra maior, contraste, modo escuro e linhas espaçadas</h3><p>Ficam na faixa Para ler melhor, no alto de todas as páginas. As escolhas ficam guardadas para a próxima visita.</p></li><li class="recurso cor-verde"><h3>Imagens descritas</h3><p>As ilustrações têm descrição em texto para os leitores de tela e para a audiodescrição. Os quadrinhos têm o mesmo texto da história, no botão Ler o texto.</p></li><li class="recurso cor-laranja"><h3>Quiz fácil</h3><p>Perguntas curtas, alternativas com figuras, leitura em voz alta automática e chance de tentar de novo sem perder ponto.</p></li><li class="recurso cor-rosa"><h3>Braille e letra ampliada</h3><p>Fora do site, as dez histórias também foram feitas em Braille e com letra ampliada pela escola.</p></li></ul>
     </section>
 
     <section class="secao cor-verde" aria-labelledby="h-navegar">
@@ -120,7 +152,7 @@
       <div class="guias">
         <div class="guia cor-azul">
           <h3>Com o teclado</h3>
-          <p>Aperte <kbd>Tab</kbd> para ir de um botão a outro e <kbd>Enter</kbd> para apertar. O item escolhido fica com uma borda grossa ao redor. Os três primeiros itens de cada página são atalhos: Ouvir a audiodescrição desta página, Ligar a voz do site e Pular para o conteúdo.</p>
+          <p>Aperte <kbd>Tab</kbd> para ir de um botão a outro e <kbd>Enter</kbd> para apertar. O item escolhido fica com uma borda grossa ao redor. Os três primeiros itens de cada página são atalhos: Ouvir o guia em áudio desta página, Ativar a audiodescrição e Pular para o conteúdo. Logo depois vem o botão Acessibilidade, que abre o painel com a audiodescrição, o guia em áudio e o VLibras. A tecla <kbd>Esc</kbd> fecha o painel.</p>
         </div>
         <div class="guia cor-roxo">
           <h3>Com leitor de tela no computador</h3>
@@ -132,7 +164,7 @@
         </div>
         <div class="guia cor-rosa">
           <h3>Sem leitor de tela</h3>
-          <p>Ligue a Voz do site com <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> ou com o botão Voz do site, no alto da página. Ela fala o nome de cada item quando você aperta <kbd>Tab</kbd>.</p>
+          <p>Ative a audiodescrição com <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd> ou com o botão Audiodescrição, no alto da página ou no painel de acessibilidade. Depois é só passar o mouse ou o dedo sobre a tela, ou apertar <kbd>Tab</kbd>: o site fala onde você está e o que acontece ao clicar. No celular, um toque fala e o segundo toque clica.</p>
         </div>
       </div>
     </section>
@@ -143,7 +175,7 @@
         <table class="tabela-atalhos">
           <caption>Teclas que funcionam em todas as páginas</caption>
           <thead><tr><th scope="col">Tecla</th><th scope="col">O que faz</th></tr></thead>
-          <tbody><tr><th scope="row"><kbd>Tab</kbd></th><td>Vai para o próximo botão, link ou campo.</td></tr><tr><th scope="row"><kbd>Shift + Tab</kbd></th><td>Volta para o item anterior.</td></tr><tr><th scope="row"><kbd>Enter ou Espaço</kbd></th><td>Aperta o botão ou abre o link.</td></tr><tr><th scope="row"><kbd>Setas</kbd></th><td>Andam na barra de posição do áudio e trocam as alternativas do quiz e as opções do formulário.</td></tr><tr><th scope="row"><kbd>K</kbd></th><td>Toca ou pausa a história, com o foco dentro dela.</td></tr><tr><th scope="row"><kbd>Alt + Shift + A</kbd></th><td>Toca a audiodescrição da página.</td></tr><tr><th scope="row"><kbd>Alt + Shift + V</kbd></th><td>Liga ou desliga a Voz do site.</td></tr><tr><th scope="row"><kbd>Esc</kbd></th><td>Cala a Voz do site.</td></tr></tbody>
+          <tbody><tr><th scope="row"><kbd>Tab</kbd></th><td>Vai para o próximo botão, link ou campo.</td></tr><tr><th scope="row"><kbd>Shift + Tab</kbd></th><td>Volta para o item anterior.</td></tr><tr><th scope="row"><kbd>Enter ou Espaço</kbd></th><td>Aperta o botão ou abre o link.</td></tr><tr><th scope="row"><kbd>Setas</kbd></th><td>Andam na barra de posição do áudio e trocam as alternativas do quiz e as opções do formulário.</td></tr><tr><th scope="row"><kbd>K</kbd></th><td>Toca ou pausa a história, com o foco dentro dela.</td></tr><tr><th scope="row"><kbd>Alt + Shift + D</kbd></th><td>Ativa ou desativa a audiodescrição.</td></tr><tr><th scope="row"><kbd>Alt + Shift + A</kbd></th><td>Abre o painel de acessibilidade e toca o guia em áudio da página. De novo, pausa.</td></tr><tr><th scope="row"><kbd>Esc</kbd></th><td>Fecha o painel de acessibilidade e cala a voz.</td></tr></tbody>
         </table>
       </div>
     </section>
@@ -156,7 +188,7 @@
     <section class="secao cor-rosa" aria-labelledby="h-compromisso">
       <h2 class="titulo-secao" id="h-compromisso">Nosso compromisso</h2>
       <p class="descricao">O site foi feito seguindo as diretrizes internacionais de acessibilidade para a web (WCAG) e a Lei Brasileira de Inclusão (Lei nº 13.146/2015). Foi testado com o teclado, em telas de computador e de celular, com letra grande, alto contraste e modo escuro.</p>
-      <p class="descricao">Algumas coisas dependem de fora do site: o VLibras precisa de internet, e a leitura em voz alta dos botões Ouvir e da Voz do site usa as vozes do navegador. As audiodescrições das páginas e as histórias são arquivos de áudio e funcionam em qualquer navegador.</p>
+      <p class="descricao">Algumas coisas dependem de fora do site: o VLibras precisa de internet, e a audiodescrição e os botões Ouvir usam as vozes do navegador. Se a voz online não responder, o site troca sozinho para uma voz instalada no aparelho. Os guias em áudio das páginas e as histórias são arquivos de áudio e funcionam em qualquer navegador.</p>
       <p class="descricao">Encontrou alguma barreira para usar o site? Avise a escola, para que ele possa melhorar.</p>
     </section>
   </div>
@@ -165,7 +197,7 @@
 <footer class="rodape">
   <div class="envoltorio">
     <h2>Acessibilidade</h2>
-    <p>Este site foi feito para todo mundo: tem audiodescrição em todas as páginas, Voz do site, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
+    <p>Este site foi feito para todo mundo: tem audiodescrição ao passar o mouse ou o dedo, guia em áudio em todas as páginas, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
     <h2>Quem fez</h2>
     <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
     <ul class="logos" aria-label="Instituições do projeto">

@@ -25,9 +25,82 @@
 </script>
 </head>
 <body>
-<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir a audiodescrição desta página</a>
-<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ligar a voz do site</button>
+<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir o guia em áudio desta página</a>
+<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ativar a audiodescrição</button>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<button type="button" class="botao-acess sem-js-oculto" id="abrir-acess" aria-haspopup="dialog" aria-controls="painel-acess" aria-label="Acessibilidade: audiodescrição e guia em áudio">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7" r="1.4" fill="currentColor"/><path d="M7 9.5l5 1 5-1M12 10.5v3.5l-2.5 4.5M12 14l2.5 4.5"/></svg><span class="botao-acess-rotulo">Acessibilidade<span class="so-leitor">: audiodescrição e guia em áudio</span></span>
+</button>
+<dialog class="painel-acess" id="painel-acess" aria-labelledby="titulo-painel-acess">
+  <div class="painel-topo">
+    <h2 id="titulo-painel-acess"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7" r="1.4" fill="currentColor"/><path d="M7 9.5l5 1 5-1M12 10.5v3.5l-2.5 4.5M12 14l2.5 4.5"/></svg>Acessibilidade</h2>
+    <button type="button" class="botao-opcao" id="fechar-acess">Fechar<span class="so-leitor"> o painel de acessibilidade</span></button>
+  </div>
+  <section class="painel-bloco" aria-labelledby="pa-voz">
+    <h3 id="pa-voz">Audiodescrição</h3>
+    <p>Ative e passe o mouse ou o dedo sobre qualquer parte do site: ele fala o que é e o que acontece ao clicar. Também funciona com a tecla Tab.</p>
+    <button type="button" class="botao botao-principal" data-alternar-voz><span class="rotulo">Ativar a audiodescrição</span></button>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-ad">
+    <h3 id="pa-ad">Guia em áudio desta página</h3>
+    <p>Um áudio que conta o que tem nesta página e onde fica cada coisa. Você pode fechar o painel e continuar ouvindo.</p>
+    <ul class="lista lista-ad">
+<li>
+<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Guia em áudio da página Quiz" data-duracao="209.37">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-pagina">Guia da página Quiz</h3>
+    
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Guia em áudio da página Quiz">
+      <source src="audios/audiodescricao-quiz.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/audiodescricao-quiz.mp3">Baixe o arquivo de Guia em áudio da página Quiz</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Guia em áudio da página Quiz"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">3 min 29 s</span><span class="so-leitor">Duração: 3 minutos e 29 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Guia em áudio da página Quiz</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="209" step="1" value="0" aria-label="Posição em Guia em áudio da página Quiz">
+        <span class="tempo" aria-hidden="true">0:00 / 3:29</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-pagina">Velocidade</label>
+        <select id="vel-audiodescricao-pagina" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/audiodescricao-quiz.mp3" download>Baixar áudio<span class="so-leitor"> de Guia em áudio da página Quiz</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Guia em áudio da página Quiz" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="2.75">Guia em áudio da página Quiz.</span> <span class="trecho" data-inicio="3.5" data-fim="7.01">Aqui você responde perguntas sobre educação fiscal.</span> <span class="trecho" data-inicio="7.76" data-fim="11.2">A parte de cima é igual em todas as páginas.</span> <span class="trecho" data-inicio="11.55" data-fim="21.18">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir o guia em áudio desta página, Ativar a audiodescrição e Pular para o conteúdo.</span> <span class="trecho" data-inicio="21.53" data-fim="24.5">Logo depois vem o botão Acessibilidade.</span> <span class="trecho" data-inicio="24.85" data-fim="29.46">Ele fica sempre no lado direito da tela, um pouco acima do meio.</span></p><p><span class="trecho" data-inicio="29.81" data-fim="34.64">É redondo e roxo, com o desenho de uma pessoa de braços abertos.</span> <span class="trecho" data-inicio="34.99" data-fim="42.9">Ele abre o painel de acessibilidade, onde ficam o botão Ativar a audiodescrição, este guia em áudio e o VLibras.</span> <span class="trecho" data-inicio="43.25" data-fim="46.3">Para fechar o painel, aperte Esc.</span> <span class="trecho" data-inicio="46.65" data-fim="50.45">Se você fechar o painel, o guia continua tocando.</span> <span class="trecho" data-inicio="50.8" data-fim="64.73">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span></p><p><span class="trecho" data-inicio="65.08" data-fim="74.41">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Audiodescrição.</span> <span class="trecho" data-inicio="75.16" data-fim="85.45">O conteúdo principal começa com o título Quiz da educação fiscal, com um traço laranja embaixo, e uma caixa branca de borda escura, onde o quiz acontece.</span> <span class="trecho" data-inicio="86.2" data-fim="93.62">Primeiro você escolhe o quiz, com o título Escolha o seu quiz e dois botões grandes, um ao lado do outro.</span></p><p><span class="trecho" data-inicio="93.97" data-fim="102.37">O primeiro, laranja, com o desenho de um alvo, é o Quiz desafio: dez perguntas, cada uma com quatro alternativas.</span> <span class="trecho" data-inicio="102.72" data-fim="110.91">O segundo, verde, com uma estrela, é o Quiz fácil: cinco perguntas curtas, com três alternativas e figuras.</span> <span class="trecho" data-inicio="111.26" data-fim="115.22">Ele lê tudo em voz alta sozinho e deixa tentar de novo.</span> <span class="trecho" data-inicio="115.97" data-fim="127.38">Depois de escolher, aparecem, nesta ordem: uma fileira de círculos numerados, que mostra em qual pergunta você está, o botão Ouvir a pergunta, o botão Ver em Libras e a pergunta.</span></p><p><span class="trecho" data-inicio="127.73" data-fim="130.25">O foco vai sozinho para a pergunta.</span> <span class="trecho" data-inicio="131.0" data-fim="138.39">No Quiz desafio, as quatro alternativas são opções de marcar, com as letras A, B, C e D.</span> <span class="trecho" data-inicio="138.74" data-fim="144.53">Use as setas do teclado para escolher e depois aperte o botão Responder, logo abaixo.</span> <span class="trecho" data-inicio="145.28" data-fim="152.83">No Quiz fácil, as três alternativas são botões grandes, lado a lado, cada um com um desenho e um texto curto.</span> <span class="trecho" data-inicio="153.18" data-fim="156.92">Use o Tab para ir de um a outro e Enter para responder.</span> <span class="trecho" data-inicio="157.67" data-fim="168.06">Depois de responder, aparece uma caixa com o resultado, verde quando acerta e vermelha quando erra, com a explicação, um link para a história e o botão Próxima pergunta.</span></p><p><span class="trecho" data-inicio="168.41" data-fim="171.01">O foco vai sozinho para essa caixa.</span> <span class="trecho" data-inicio="171.36" data-fim="177.48">Se o avatar do VLibras estiver aberto, ele sinaliza cada pergunta e as alternativas sozinho.</span> <span class="trecho" data-inicio="177.83" data-fim="185.17">No final aparece quantas perguntas você acertou e os botões Jogar de novo, o outro quiz e Escolher outro quiz.</span> <span class="trecho" data-inicio="185.92" data-fim="194.62">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span> <span class="trecho" data-inicio="194.97" data-fim="204.6">No lado direito da tela, logo abaixo do botão Acessibilidade, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span></p><p><span class="trecho" data-inicio="204.95" data-fim="208.62">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto do guia em áudio desta página.</p></div>
+    
+    
+  </div>
+</article>
+</li></ul>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-libras">
+    <h3 id="pa-libras">Libras</h3>
+    <p>O avatar do VLibras traduz o texto da página para Libras.</p>
+    <button type="button" class="botao" data-abrir-vlibras>Abrir o VLibras</button>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-atalhos">
+    <h3 id="pa-atalhos">Atalhos do teclado</h3>
+    <dl class="atalhos-painel">
+      <div><dt><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></dt><dd>Ativa ou desativa a audiodescrição.</dd></div>
+      <div><dt><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd></dt><dd>Abre este painel e toca o guia em áudio.</dd></div>
+      <div><dt><kbd>Esc</kbd></dt><dd>Fecha este painel e cala a voz.</dd></div>
+    </dl>
+    <p><a href="acessibilidade.html">Ver todos os recursos de acessibilidade</a></p>
+  </section>
+</dialog>
 
 <header class="topo">
   <div class="envoltorio">
@@ -55,7 +128,7 @@
       </button>
       <button type="button" class="botao-opcao" id="voz-site" aria-pressed="false">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-        Voz do site
+        Audiodescrição
       </button>
     </fieldset>
   </div>
@@ -63,47 +136,6 @@
 
 <main id="conteudo" tabindex="-1">
   <div class="envoltorio">
-<section class="faixa-ad" aria-label="Audiodescrição desta página"><ul class="lista lista-ad">
-<li>
-<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Audiodescrição da página Quiz" data-duracao="182.8">
-  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-  <div class="corpo">
-    <h3 id="titulo-audiodescricao-pagina">Audiodescrição desta página</h3>
-    <p class="resumo">Para quem não enxerga ou enxerga pouco: o que tem nesta página, onde fica cada coisa e como usar.</p>
-    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Audiodescrição da página Quiz">
-      <source src="audios/audiodescricao-quiz.mp3" type="audio/mpeg">
-      Seu navegador não toca áudio. <a href="audios/audiodescricao-quiz.mp3">Baixe o arquivo de Audiodescrição da página Quiz</a>.
-    </audio>
-    <div class="acoes sem-js-oculto">
-      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Audiodescrição da página Quiz"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
-      <span class="duracao"><span aria-hidden="true">3 min 3 s</span><span class="so-leitor">Duração: 3 minutos e 3 segundos</span></span>
-      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Audiodescrição da página Quiz</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
-    </div>
-    <div class="player" hidden>
-      <div class="barra">
-        <input type="range" class="posicao" min="0" max="183" step="1" value="0" aria-label="Posição em Audiodescrição da página Quiz">
-        <span class="tempo" aria-hidden="true">0:00 / 3:02</span>
-      </div>
-      <p class="situacao-libras" hidden></p>
-      <div class="ajustes">
-        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
-        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
-        <label for="vel-audiodescricao-pagina">Velocidade</label>
-        <select id="vel-audiodescricao-pagina" class="velocidade">
-          <option value="0.75">Mais devagar (0,75×)</option>
-          <option value="1">Normal (1×)</option>
-          <option value="1.25">Mais rápido (1,25×)</option>
-          <option value="1.5">Rápido (1,5×)</option>
-        </select>
-        <a class="botao-opcao" href="audios/audiodescricao-quiz.mp3" download>Baixar áudio<span class="so-leitor"> de Audiodescrição da página Quiz</span></a>
-      </div>
-    </div>
-    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Audiodescrição da página Quiz" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="2.87">Audiodescrição da página Quiz.</span> <span class="trecho" data-inicio="3.62" data-fim="7.21">Aqui você responde perguntas sobre educação fiscal.</span> <span class="trecho" data-inicio="7.96" data-fim="11.39">A parte de cima é igual em todas as páginas.</span> <span class="trecho" data-inicio="11.74" data-fim="21.26">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir a audiodescrição desta página, Ligar a voz do site e Pular para o conteúdo.</span> <span class="trecho" data-inicio="21.61" data-fim="35.37">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span></p><p><span class="trecho" data-inicio="35.72" data-fim="45.09">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Voz do site.</span> <span class="trecho" data-inicio="45.84" data-fim="49.66">O conteúdo principal começa com esta audiodescrição.</span> <span class="trecho" data-inicio="50.01" data-fim="59.0">Depois vem o título Quiz da educação fiscal, com um traço laranja embaixo, e uma caixa branca de borda escura, onde o quiz acontece.</span> <span class="trecho" data-inicio="59.75" data-fim="67.23">Primeiro você escolhe o quiz, com o título Escolha o seu quiz e dois botões grandes, um ao lado do outro.</span></p><p><span class="trecho" data-inicio="67.58" data-fim="75.98">O primeiro, laranja, com o desenho de um alvo, é o Quiz desafio: dez perguntas, cada uma com quatro alternativas.</span> <span class="trecho" data-inicio="76.33" data-fim="84.87">O segundo, verde, com uma estrela, é o Quiz fácil: cinco perguntas curtas, com três alternativas e figuras.</span> <span class="trecho" data-inicio="85.22" data-fim="89.05">Ele lê tudo em voz alta sozinho e deixa tentar de novo.</span> <span class="trecho" data-inicio="89.8" data-fim="101.54">Depois de escolher, aparecem, nesta ordem: uma fileira de círculos numerados, que mostra em qual pergunta você está, o botão Ouvir a pergunta, o botão Ver em Libras e a pergunta.</span></p><p><span class="trecho" data-inicio="101.89" data-fim="104.44">O foco vai sozinho para a pergunta.</span> <span class="trecho" data-inicio="105.19" data-fim="112.48">No Quiz desafio, as quatro alternativas são opções de marcar, com as letras A, B, C e D.</span> <span class="trecho" data-inicio="112.83" data-fim="118.57">Use as setas do teclado para escolher e depois aperte o botão Responder, logo abaixo.</span> <span class="trecho" data-inicio="119.32" data-fim="126.81">No Quiz fácil, as três alternativas são botões grandes, lado a lado, cada um com um desenho e um texto curto.</span> <span class="trecho" data-inicio="127.16" data-fim="130.77">Use o Tab para ir de um a outro e Enter para responder.</span> <span class="trecho" data-inicio="131.52" data-fim="142.01">Depois de responder, aparece uma caixa com o resultado, verde quando acerta e vermelha quando erra, com a explicação, um link para a história e o botão Próxima pergunta.</span></p><p><span class="trecho" data-inicio="142.36" data-fim="144.94">O foco vai sozinho para essa caixa.</span> <span class="trecho" data-inicio="145.29" data-fim="151.39">Se o avatar do VLibras estiver aberto, ele sinaliza cada pergunta e as alternativas sozinho.</span> <span class="trecho" data-inicio="151.74" data-fim="159.28">No final aparece quantas perguntas você acertou e os botões Jogar de novo, o outro quiz e Escolher outro quiz.</span> <span class="trecho" data-inicio="160.03" data-fim="168.81">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span> <span class="trecho" data-inicio="169.16" data-fim="177.97">No lado direito da tela, na metade da altura, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span></p><p><span class="trecho" data-inicio="178.32" data-fim="182.05">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto da audiodescrição desta página.</p></div>
-    
-    
-  </div>
-</article>
-</li></ul></section>
 
     <section class="secao cor-laranja" aria-labelledby="h-quiz">
       <h1 class="titulo-secao" id="h-quiz">Quiz da educação fiscal</h1>
@@ -118,7 +150,7 @@
 <footer class="rodape">
   <div class="envoltorio">
     <h2>Acessibilidade</h2>
-    <p>Este site foi feito para todo mundo: tem audiodescrição em todas as páginas, Voz do site, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
+    <p>Este site foi feito para todo mundo: tem audiodescrição ao passar o mouse ou o dedo, guia em áudio em todas as páginas, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
     <h2>Quem fez</h2>
     <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
     <ul class="logos" aria-label="Instituições do projeto">

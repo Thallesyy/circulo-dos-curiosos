@@ -25,9 +25,82 @@
 </script>
 </head>
 <body>
-<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir a audiodescrição desta página</a>
-<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ligar a voz do site</button>
+<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir o guia em áudio desta página</a>
+<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ativar a audiodescrição</button>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<button type="button" class="botao-acess sem-js-oculto" id="abrir-acess" aria-haspopup="dialog" aria-controls="painel-acess" aria-label="Acessibilidade: audiodescrição e guia em áudio">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7" r="1.4" fill="currentColor"/><path d="M7 9.5l5 1 5-1M12 10.5v3.5l-2.5 4.5M12 14l2.5 4.5"/></svg><span class="botao-acess-rotulo">Acessibilidade<span class="so-leitor">: audiodescrição e guia em áudio</span></span>
+</button>
+<dialog class="painel-acess" id="painel-acess" aria-labelledby="titulo-painel-acess">
+  <div class="painel-topo">
+    <h2 id="titulo-painel-acess"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7" r="1.4" fill="currentColor"/><path d="M7 9.5l5 1 5-1M12 10.5v3.5l-2.5 4.5M12 14l2.5 4.5"/></svg>Acessibilidade</h2>
+    <button type="button" class="botao-opcao" id="fechar-acess">Fechar<span class="so-leitor"> o painel de acessibilidade</span></button>
+  </div>
+  <section class="painel-bloco" aria-labelledby="pa-voz">
+    <h3 id="pa-voz">Audiodescrição</h3>
+    <p>Ative e passe o mouse ou o dedo sobre qualquer parte do site: ele fala o que é e o que acontece ao clicar. Também funciona com a tecla Tab.</p>
+    <button type="button" class="botao botao-principal" data-alternar-voz><span class="rotulo">Ativar a audiodescrição</span></button>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-ad">
+    <h3 id="pa-ad">Guia em áudio desta página</h3>
+    <p>Um áudio que conta o que tem nesta página e onde fica cada coisa. Você pode fechar o painel e continuar ouvindo.</p>
+    <ul class="lista lista-ad">
+<li>
+<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Guia em áudio da página Aprender" data-duracao="185.84">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-pagina">Guia da página Aprender</h3>
+    
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Guia em áudio da página Aprender">
+      <source src="audios/audiodescricao-aprender.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/audiodescricao-aprender.mp3">Baixe o arquivo de Guia em áudio da página Aprender</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Guia em áudio da página Aprender"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">3 min 6 s</span><span class="so-leitor">Duração: 3 minutos e 6 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Guia em áudio da página Aprender</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="186" step="1" value="0" aria-label="Posição em Guia em áudio da página Aprender">
+        <span class="tempo" aria-hidden="true">0:00 / 3:05</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-pagina">Velocidade</label>
+        <select id="vel-audiodescricao-pagina" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/audiodescricao-aprender.mp3" download>Baixar áudio<span class="so-leitor"> de Guia em áudio da página Aprender</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Guia em áudio da página Aprender" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="2.74">Guia em áudio da página Aprender.</span> <span class="trecho" data-inicio="3.49" data-fim="8.69">Aqui estão os assuntos de educação fiscal explicados em partes curtas.</span> <span class="trecho" data-inicio="9.44" data-fim="12.9">A parte de cima é igual em todas as páginas.</span> <span class="trecho" data-inicio="13.25" data-fim="22.97">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir o guia em áudio desta página, Ativar a audiodescrição e Pular para o conteúdo.</span> <span class="trecho" data-inicio="23.32" data-fim="26.28">Logo depois vem o botão Acessibilidade.</span> <span class="trecho" data-inicio="26.63" data-fim="31.12">Ele fica sempre no lado direito da tela, um pouco acima do meio.</span></p><p><span class="trecho" data-inicio="31.47" data-fim="36.25">É redondo e roxo, com o desenho de uma pessoa de braços abertos.</span> <span class="trecho" data-inicio="36.6" data-fim="44.31">Ele abre o painel de acessibilidade, onde ficam o botão Ativar a audiodescrição, este guia em áudio e o VLibras.</span> <span class="trecho" data-inicio="44.66" data-fim="47.66">Para fechar o painel, aperte Esc.</span> <span class="trecho" data-inicio="48.01" data-fim="51.86">Se você fechar o painel, o guia continua tocando.</span> <span class="trecho" data-inicio="52.21" data-fim="66.19">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span></p><p><span class="trecho" data-inicio="66.54" data-fim="76.12">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Audiodescrição.</span> <span class="trecho" data-inicio="76.87" data-fim="83.56">O conteúdo principal começa com o título Aprender sobre educação fiscal, com um traço verde embaixo.</span> <span class="trecho" data-inicio="84.31" data-fim="89.96">Logo abaixo, uma fileira de etiquetas coloridas tem nove links, um para cada assunto.</span> <span class="trecho" data-inicio="90.31" data-fim="93.14">Eles levam direto ao assunto escolhido.</span> <span class="trecho" data-inicio="93.89" data-fim="99.65">Os nove assuntos vêm em seguida, cada um num cartão grande, com uma cor e uma borda grossa.</span></p><p><span class="trecho" data-inicio="100.0" data-fim="102.59">Cada assunto tem o seu próprio título.</span> <span class="trecho" data-inicio="102.94" data-fim="107.6">Com o leitor de tela, use a tecla H para ir de um assunto a outro.</span> <span class="trecho" data-inicio="107.95" data-fim="122.3">Os assuntos são, nesta ordem: O que é educação fiscal, Tributos, A viagem do dinheiro público, Cadê a nota, Isso é de quem, Sonegação, Corrupção, Fiscalizar é participar e Acessibilidade também é cidadania.</span> <span class="trecho" data-inicio="123.05" data-fim="140.53">No topo de cada cartão há um ícone desenhado com linhas, dentro de um círculo branco: uma lupa, moedas, um caminho com setas, uma nota fiscal, um banco de praça, um cadeado, um presente, um megafone e o símbolo da acessibilidade, uma pessoa de braços abertos.</span></p><p><span class="trecho" data-inicio="140.88" data-fim="147.77">Dentro do cartão vêm textos curtos, listas e uma frase importante em destaque, numa faixa colorida.</span> <span class="trecho" data-inicio="148.52" data-fim="157.34">No fim de cada cartão há dois botões: Ouvir, que lê o assunto em voz alta, e Ver em Libras, que abre o avatar de Libras.</span> <span class="trecho" data-inicio="157.69" data-fim="161.57">Depois deles vem um link para a história que fala do assunto.</span> <span class="trecho" data-inicio="162.32" data-fim="171.09">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span></p><p><span class="trecho" data-inicio="171.44" data-fim="181.07">No lado direito da tela, logo abaixo do botão Acessibilidade, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span> <span class="trecho" data-inicio="181.42" data-fim="185.09">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto do guia em áudio desta página.</p></div>
+    
+    
+  </div>
+</article>
+</li></ul>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-libras">
+    <h3 id="pa-libras">Libras</h3>
+    <p>O avatar do VLibras traduz o texto da página para Libras.</p>
+    <button type="button" class="botao" data-abrir-vlibras>Abrir o VLibras</button>
+  </section>
+  <section class="painel-bloco" aria-labelledby="pa-atalhos">
+    <h3 id="pa-atalhos">Atalhos do teclado</h3>
+    <dl class="atalhos-painel">
+      <div><dt><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></dt><dd>Ativa ou desativa a audiodescrição.</dd></div>
+      <div><dt><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd></dt><dd>Abre este painel e toca o guia em áudio.</dd></div>
+      <div><dt><kbd>Esc</kbd></dt><dd>Fecha este painel e cala a voz.</dd></div>
+    </dl>
+    <p><a href="acessibilidade.html">Ver todos os recursos de acessibilidade</a></p>
+  </section>
+</dialog>
 
 <header class="topo">
   <div class="envoltorio">
@@ -55,7 +128,7 @@
       </button>
       <button type="button" class="botao-opcao" id="voz-site" aria-pressed="false">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-        Voz do site
+        Audiodescrição
       </button>
     </fieldset>
   </div>
@@ -63,47 +136,6 @@
 
 <main id="conteudo" tabindex="-1">
   <div class="envoltorio">
-<section class="faixa-ad" aria-label="Audiodescrição desta página"><ul class="lista lista-ad">
-<li>
-<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Audiodescrição da página Aprender" data-duracao="157.74">
-  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-  <div class="corpo">
-    <h3 id="titulo-audiodescricao-pagina">Audiodescrição desta página</h3>
-    <p class="resumo">Para quem não enxerga ou enxerga pouco: o que tem nesta página, onde fica cada coisa e como usar.</p>
-    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Audiodescrição da página Aprender">
-      <source src="audios/audiodescricao-aprender.mp3" type="audio/mpeg">
-      Seu navegador não toca áudio. <a href="audios/audiodescricao-aprender.mp3">Baixe o arquivo de Audiodescrição da página Aprender</a>.
-    </audio>
-    <div class="acoes sem-js-oculto">
-      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Audiodescrição da página Aprender"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
-      <span class="duracao"><span aria-hidden="true">2 min 38 s</span><span class="so-leitor">Duração: 2 minutos e 38 segundos</span></span>
-      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Audiodescrição da página Aprender</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
-    </div>
-    <div class="player" hidden>
-      <div class="barra">
-        <input type="range" class="posicao" min="0" max="158" step="1" value="0" aria-label="Posição em Audiodescrição da página Aprender">
-        <span class="tempo" aria-hidden="true">0:00 / 2:37</span>
-      </div>
-      <p class="situacao-libras" hidden></p>
-      <div class="ajustes">
-        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
-        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
-        <label for="vel-audiodescricao-pagina">Velocidade</label>
-        <select id="vel-audiodescricao-pagina" class="velocidade">
-          <option value="0.75">Mais devagar (0,75×)</option>
-          <option value="1">Normal (1×)</option>
-          <option value="1.25">Mais rápido (1,25×)</option>
-          <option value="1.5">Rápido (1,5×)</option>
-        </select>
-        <a class="botao-opcao" href="audios/audiodescricao-aprender.mp3" download>Baixar áudio<span class="so-leitor"> de Audiodescrição da página Aprender</span></a>
-      </div>
-    </div>
-    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Audiodescrição da página Aprender" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="2.75">Audiodescrição da página Aprender.</span> <span class="trecho" data-inicio="3.5" data-fim="8.42">Aqui estão os assuntos de educação fiscal explicados em partes curtas.</span> <span class="trecho" data-inicio="9.17" data-fim="12.56">A parte de cima é igual em todas as páginas.</span> <span class="trecho" data-inicio="12.91" data-fim="22.47">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir a audiodescrição desta página, Ligar a voz do site e Pular para o conteúdo.</span> <span class="trecho" data-inicio="22.82" data-fim="36.39">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span></p><p><span class="trecho" data-inicio="36.74" data-fim="46.24">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Voz do site.</span> <span class="trecho" data-inicio="46.99" data-fim="50.91">O conteúdo principal começa com esta audiodescrição.</span> <span class="trecho" data-inicio="51.26" data-fim="56.69">Depois vem o título Aprender sobre educação fiscal, com um traço verde embaixo.</span> <span class="trecho" data-inicio="57.44" data-fim="63.07">Logo abaixo, uma fileira de etiquetas coloridas tem nove links, um para cada assunto.</span> <span class="trecho" data-inicio="63.42" data-fim="66.32">Eles levam direto ao assunto escolhido.</span></p><p><span class="trecho" data-inicio="67.07" data-fim="72.71">Os nove assuntos vêm em seguida, cada um num cartão grande, com uma cor e uma borda grossa.</span> <span class="trecho" data-inicio="73.06" data-fim="75.59">Cada assunto tem o seu próprio título.</span> <span class="trecho" data-inicio="75.94" data-fim="80.41">Com o leitor de tela, use a tecla H para ir de um assunto a outro.</span> <span class="trecho" data-inicio="80.76" data-fim="95.07">Os assuntos são, nesta ordem: O que é educação fiscal, Tributos, A viagem do dinheiro público, Cadê a nota, Isso é de quem, Sonegação, Corrupção, Fiscalizar é participar e Acessibilidade também é cidadania.</span></p><p><span class="trecho" data-inicio="95.82" data-fim="113.65">No topo de cada cartão há um ícone desenhado com linhas, dentro de um círculo branco: uma lupa, moedas, um caminho com setas, uma nota fiscal, um banco de praça, um cadeado, um presente, um megafone e o símbolo da acessibilidade, uma pessoa de braços abertos.</span> <span class="trecho" data-inicio="114.0" data-fim="120.79">Dentro do cartão vêm textos curtos, listas e uma frase importante em destaque, numa faixa colorida.</span> <span class="trecho" data-inicio="121.54" data-fim="130.24">No fim de cada cartão há dois botões: Ouvir, que lê o assunto em voz alta, e Ver em Libras, que abre o avatar de Libras.</span></p><p><span class="trecho" data-inicio="130.59" data-fim="134.5">Depois deles vem um link para a história que fala do assunto.</span> <span class="trecho" data-inicio="135.25" data-fim="144.1">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span> <span class="trecho" data-inicio="144.45" data-fim="153.0">No lado direito da tela, na metade da altura, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span> <span class="trecho" data-inicio="153.35" data-fim="156.99">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto da audiodescrição desta página.</p></div>
-    
-    
-  </div>
-</article>
-</li></ul></section>
 
     <section class="secao cor-verde" aria-labelledby="h-aprender">
       <h1 class="titulo-secao" id="h-aprender">Aprender sobre educação fiscal</h1>
@@ -261,7 +293,7 @@
 <footer class="rodape">
   <div class="envoltorio">
     <h2>Acessibilidade</h2>
-    <p>Este site foi feito para todo mundo: tem audiodescrição em todas as páginas, Voz do site, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
+    <p>Este site foi feito para todo mundo: tem audiodescrição ao passar o mouse ou o dedo, guia em áudio em todas as páginas, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
     <h2>Quem fez</h2>
     <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
     <ul class="logos" aria-label="Instituições do projeto">

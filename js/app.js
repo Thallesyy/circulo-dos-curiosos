@@ -237,41 +237,113 @@
   });
 
   /* =========================================================
-     Leitura em voz alta (voz do navegador)
+     Leitura em voz alta (voz do navegador), com voz reserva
      ========================================================= */
-  var fala = { id: 0, voz: null };
+  var fala = { id: 0, voz: null, quebradas: [], pendente: null };
   var temVoz = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+
   function escolherVoz() {
     if (!temVoz) return;
-    var vozes = window.speechSynthesis.getVoices();
-    fala.voz = vozes.filter(function (v) { return /pt[-_]BR/i.test(v.lang); })[0] ||
-               vozes.filter(function (v) { return /^pt/i.test(v.lang); })[0] || null;
+    var vozes = window.speechSynthesis.getVoices().filter(function (v) {
+      return /^pt/i.test(v.lang) && fala.quebradas.indexOf(v.name) < 0;
+    });
+    function primeira(teste) { return vozes.filter(teste)[0]; }
+    // Preferência: voz brasileira instalada > brasileira online > portuguesa instalada > qualquer português
+    fala.voz = primeira(function (v) { return /pt[-_]BR/i.test(v.lang) && v.localService; }) ||
+               primeira(function (v) { return /pt[-_]BR/i.test(v.lang); }) ||
+               primeira(function (v) { return v.localService; }) ||
+               vozes[0] || null;
+  }
+  // Se uma voz não funcionar (ex.: voz online da Microsoft fora do ar), passa para a próxima
+  function trocarVoz() {
+    if (fala.voz) fala.quebradas.push(fala.voz.name);
+    else fala.quebradas.push("(padrão)");
+    escolherVoz();
   }
   if (temVoz) {
     escolherVoz();
-    window.speechSynthesis.addEventListener && window.speechSynthesis.addEventListener("voiceschanged", escolherVoz);
+    if (window.speechSynthesis.addEventListener) window.speechSynthesis.addEventListener("voiceschanged", escolherVoz);
   }
+
+  // Alguns navegadores só deixam falar depois do primeiro clique ou tecla na página
+  var avisoClique = null;
+  function pedirClique() {
+    if (!avisoClique) {
+      avisoClique = document.createElement("div");
+      avisoClique.className = "aviso-voz";
+      avisoClique.setAttribute("role", "status");
+      document.body.appendChild(avisoClique);
+    }
+    avisoClique.textContent = "Para a voz começar, clique em qualquer lugar da página ou aperte uma tecla.";
+    avisoClique.hidden = false;
+  }
+  function liberarPendente() {
+    if (avisoClique) avisoClique.hidden = true;
+    if (!fala.pendente) return;
+    var p = fala.pendente;
+    fala.pendente = null;
+    falar(p.lista, p.aoFrase, p.aoFim);
+  }
+  document.addEventListener("pointerdown", liberarPendente, true);
+  document.addEventListener("keydown", liberarPendente, true);
+  document.addEventListener("click", liberarPendente, true);
+
   function pararFala() {
     fala.id++;
     if (temVoz) window.speechSynthesis.cancel();
   }
+
   function falar(lista, aoFrase, aoFim) {
     pararFala();
     if (!temVoz) { anunciar("Este navegador não tem leitura em voz alta."); if (aoFim) aoFim(); return; }
+    var ativo = navigator.userActivation;
+    if (ativo && !ativo.hasBeenActive) {
+      fala.pendente = { lista: lista, aoFrase: aoFrase, aoFim: aoFim };
+      pedirClique();
+      return;
+    }
     var id = fala.id;
     var i = 0;
-    (function proxima() {
+    var tentativas = 0;
+    function proxima() {
       if (id !== fala.id) return;
       if (i >= lista.length) { if (aoFim) aoFim(); return; }
       if (aoFrase) aoFrase(i);
       var u = new window.SpeechSynthesisUtterance(lista[i]);
-      u.lang = "pt-BR";
+      u.lang = fala.voz ? fala.voz.lang : "pt-BR";
       if (fala.voz) u.voice = fala.voz;
-      u.rate = 0.95;
-      u.onend = function () { i++; proxima(); };
-      u.onerror = function () { if (id === fala.id) { i++; proxima(); } };
+      u.rate = 1;
+      var comecou = false, acabou = false;
+      function tentarDeNovo() {
+        if (acabou) return;
+        acabou = true;
+        if (tentativas++ < 4) { trocarVoz(); window.speechSynthesis.cancel(); window.setTimeout(proxima, 60); }
+        else { i++; tentativas = 0; proxima(); }
+      }
+      var vigia = window.setTimeout(function () { if (!comecou && id === fala.id) tentarDeNovo(); }, 2500);
+      u.onstart = function () { comecou = true; tentativas = 0; };
+      u.onend = function () {
+        window.clearTimeout(vigia);
+        if (acabou || id !== fala.id) return;
+        acabou = true;
+        i++; proxima();
+      };
+      u.onerror = function (ev) {
+        window.clearTimeout(vigia);
+        if (acabou || id !== fala.id) return;
+        if (ev.error === "interrupted" || ev.error === "canceled") return;
+        if (ev.error === "not-allowed") {
+          acabou = true;
+          fala.pendente = { lista: lista.slice(i), aoFrase: aoFrase, aoFim: aoFim };
+          pedirClique();
+          return;
+        }
+        if (!comecou) tentarDeNovo();
+        else { acabou = true; i++; proxima(); }
+      };
       window.speechSynthesis.speak(u);
-    })();
+    }
+    proxima();
   }
 
   // Botões genéricos "Ouvir" e "Ver em Libras" (ex.: página Aprender)
@@ -688,12 +760,18 @@
 
 
   /* =========================================================
-     Voz do site: para quem não usa leitor de tela.
-     Fala em voz alta o nome de cada botão, link ou campo
-     quando ele recebe o foco (tecla Tab).
+     Audiodescrição (modo ativável)
+     Ligada, fala o que está embaixo do mouse ou do dedo, ou com o
+     foco do Tab, e o que acontece ao clicar.
      ========================================================= */
   var vozSite = { ligada: ler("voz-site") === "1" };
   var botoesVoz = Array.prototype.slice.call(document.querySelectorAll("#voz-site, [data-alternar-voz]"));
+  var PAGINAS_NOME = {
+    "index.html": "Histórias, a página inicial", "aprender.html": "Aprender", "quiz.html": "Quiz",
+    "criar.html": "Criar história", "pesquisa.html": "Pesquisa", "acessibilidade.html": "Acessibilidade"
+  };
+  var SELETOR_LEITURA = "a[href], button, input, select, textarea, summary, label, img[alt], [role=img], " +
+    "h1, h2, h3, h4, p, li, td, th, dt, dd, figcaption, legend, .trecho, .dado-numero, #vlibras-access-wrapper";
 
   function limpar(t) { return (t || "").replace(/\s+/g, " ").trim(); }
 
@@ -706,40 +784,100 @@
     }
     if (el.labels && el.labels.length) return el.labels[0].innerText;
     if (el.tagName === "IMG") return el.alt;
-    return el.innerText || el.value || el.title || "";
+    // Textos em várias linhas viram frases separadas
+    var texto = (el.innerText || "").split(/\n+/).map(limpar).filter(Boolean).join(". ");
+    return texto || el.value || el.title || "";
   }
 
-  function descrever(el) {
-    if (!el || el === document.body) return "";
-    var nome = limpar(nomeDe(el)).slice(0, 220);
+  // Devolve o que dizer: { texto, acao } (acao é o que acontece ao clicar)
+  function descricaoDe(el) {
+    if (!el || el === document.body || el === document.documentElement) return null;
+    if (el.id === "vlibras-access-wrapper") return { texto: "Botão do VLibras", acao: "para abrir o avatar que traduz o site para Libras" };
+    if (el.tagName === "LABEL") {
+      var controle = el.control || el.querySelector("input, select, textarea");
+      if (controle) el = controle;
+    }
+    var nome = limpar(nomeDe(el)).slice(0, 260).replace(/[\s.,;:]+$/, "");
     var tag = el.tagName;
     var tipo = (el.getAttribute("type") || "").toLowerCase();
-    var extra = [];
-    if (/^H[1-6]$/.test(tag)) return "Título: " + nome;
-    if (tag === "A") return "Link: " + nome;
+    if (/^H[1-6]$/.test(tag)) return { texto: "Título: " + nome };
+    if (tag === "A") {
+      var href = el.getAttribute("href") || "";
+      var pagina = href.split("#")[0].split("/").pop();
+      if (el.hasAttribute("download")) return { texto: nome + ", link", acao: "para baixar o áudio" };
+      if (/^https?:/i.test(href)) return { texto: nome + ", link para outro site", acao: el.target === "_blank" ? "para abrir o site em outra aba" : "para abrir o site" };
+      if (href.charAt(0) === "#") return { texto: nome + ", link", acao: "para ir até essa parte da página" };
+      if (PAGINAS_NOME[pagina]) {
+        var destino = PAGINAS_NOME[pagina];
+        var parte = href.indexOf("#") > -1 ? ", direto na parte certa" : "";
+        return { texto: nome + ", link", acao: "e você irá para a página " + destino + parte };
+      }
+      if (/\.webp$/i.test(pagina)) return { texto: nome + ", link", acao: "para abrir a imagem em tamanho grande" };
+      return { texto: nome + ", link", acao: "para abrir" };
+    }
     if (tag === "SUMMARY") {
       var aberto = el.parentElement && el.parentElement.open;
-      return nome + ", botão para " + (aberto ? "fechar" : "abrir");
+      return { texto: nome + (aberto ? ", aberto" : ", fechado"), acao: aberto ? "para fechar" : "para abrir e ver o conteúdo" };
     }
     if (tag === "BUTTON") {
-      if (el.hasAttribute("aria-pressed")) extra.push(el.getAttribute("aria-pressed") === "true" ? "ligado" : "desligado");
-      if (el.hasAttribute("aria-expanded")) extra.push(el.getAttribute("aria-expanded") === "true" ? "aberto" : "fechado");
-      if (el.disabled) extra.push("indisponível");
-      return nome + ", botão" + (extra.length ? ", " + extra.join(", ") : "");
+      var extra = "";
+      if (el.hasAttribute("aria-pressed")) extra = el.getAttribute("aria-pressed") === "true" ? ", ligado" : ", desligado";
+      if (el.disabled) return { texto: nome + ", botão indisponível agora" };
+      if (el.classList.contains("botao-tocar")) {
+        var tocando = el.getAttribute("data-estado") === "tocando";
+        return { texto: nome + ", botão", acao: tocando ? "para pausar" : "para começar a ouvir" };
+      }
+      if (el.classList.contains("botao-texto")) {
+        var exp = el.getAttribute("aria-expanded") === "true";
+        return { texto: nome + ", botão", acao: exp ? "para esconder o texto" : "para mostrar o texto escrito" };
+      }
+      if (el.hasAttribute("aria-pressed")) return { texto: nome + ", botão" + extra, acao: el.getAttribute("aria-pressed") === "true" ? "para desligar" : "para ligar" };
+      if (el.getAttribute("aria-haspopup") === "dialog") return { texto: nome + ", botão", acao: "para abrir o painel de acessibilidade" };
+      return { texto: nome + ", botão", acao: "para apertar" };
     }
-    if (tag === "INPUT" && tipo === "checkbox") return nome + ", caixa de marcar, " + (el.checked ? "marcada" : "desmarcada");
-    if (tag === "INPUT" && tipo === "radio") return nome + ", opção " + (el.checked ? "escolhida" : "não escolhida") + ". Use as setas para trocar.";
-    if (tag === "INPUT" && tipo === "range") return nome + ", barra de posição: " + (el.getAttribute("aria-valuetext") || el.value) + ". Use as setas para andar.";
-    if (tag === "SELECT") return nome + ", lista. Escolhido: " + limpar(el.selectedOptions[0] ? el.selectedOptions[0].text : "") + ". Use as setas para trocar.";
-    if (tag === "TEXTAREA" || tag === "INPUT") return nome + ", campo para escrever" + (el.value ? ". Escrito: " + el.value.slice(0, 120) : ", vazio");
-    if (el.getAttribute("role") === "region") return nome + ". Use as setas para rolar o texto.";
-    if (el.id === "conteudo") return "Conteúdo principal da página.";
-    return nome;
+    if (tag === "INPUT" && tipo === "checkbox") return { texto: nome + ", caixa de marcar, " + (el.checked ? "marcada" : "desmarcada"), acao: el.checked ? "para desmarcar" : "para marcar" };
+    if (tag === "INPUT" && tipo === "radio") return { texto: nome + ", opção" + (el.checked ? " escolhida" : ""), acao: el.checked ? null : "para escolher" };
+    if (tag === "INPUT" && tipo === "range") return { texto: nome + ", barra de posição: " + (el.getAttribute("aria-valuetext") || el.value), acao: "num ponto da barra para ir até ele. Com o teclado, use as setas" };
+    if (tag === "SELECT") return { texto: nome + ", lista. Escolhido: " + limpar(el.selectedOptions[0] ? el.selectedOptions[0].text : ""), acao: "para trocar" };
+    if (tag === "TEXTAREA" || tag === "INPUT") return { texto: nome + ", campo para escrever" + (el.value ? ". Escrito: " + el.value.slice(0, 120) : ", vazio"), acao: "para escrever" };
+    if (tag === "IMG" || el.getAttribute("role") === "img") return nome ? { texto: "Imagem: " + nome } : null;
+    if (el.classList.contains("trecho")) return { texto: nome, acao: "para ouvir a história a partir desta frase" };
+    if (el.getAttribute("role") === "region") return { texto: nome + ". Use as setas para rolar o texto." };
+    if (el.id === "conteudo") return { texto: "Conteúdo principal da página." };
+    return nome ? { texto: nome.slice(0, 400) } : null;
   }
 
-  function falarVoz(texto) {
-    if (!vozSite.ligada || !texto) return;
-    falar([texto]);
+  function frase(desc, modo) {
+    if (!desc) return "";
+    if (!desc.acao) return desc.texto;
+    var verbo = modo === "toque" ? "Toque de novo" : modo === "teclado" ? "Aperte Enter" : "Clique";
+    var acao = desc.acao.charAt(0) === "e" && desc.acao.indexOf("e você") === 0 ? " " + desc.acao : " " + desc.acao;
+    return desc.texto + ". " + verbo + acao + ".";
+  }
+
+  // Contorno amarelo no que está sendo lido
+  var lendoAgora = null;
+  function destacar(el) {
+    if (lendoAgora && lendoAgora !== el) lendoAgora.classList.remove("lendo-agora");
+    lendoAgora = el;
+    if (el && el.classList) el.classList.add("lendo-agora");
+  }
+
+  var ultimoLido = null;
+  function lerElemento(el, modo, forcar) {
+    if (!vozSite.ligada || !el) return;
+    if (el === ultimoLido && !forcar) return;
+    var desc = descricaoDe(el);
+    if (!desc) return;
+    ultimoLido = el;
+    destacar(el);
+    falar([frase(desc, modo)]);
+  }
+
+  function alvoDe(no) {
+    if (!no || !no.closest) return null;
+    if (no.closest("#vlibras-access-wrapper")) return document.getElementById("vlibras-access-wrapper");
+    return no.closest(SELETOR_LEITURA);
   }
 
   function aplicarVoz(ligada, avisar) {
@@ -748,15 +886,16 @@
     botoesVoz.forEach(function (b) {
       if (b.id === "voz-site") b.setAttribute("aria-pressed", ligada ? "true" : "false");
       var r = b.querySelector(".rotulo") || (b.id === "voz-site" ? null : b);
-      if (r) r.textContent = ligada ? "Desligar a voz do site" : "Ligar a voz do site";
+      if (r) r.textContent = ligada ? "Desativar a audiodescrição" : "Ativar a audiodescrição";
     });
+    raiz.classList.toggle("modo-ad", ligada);
+    if (!ligada) { destacar(null); ultimoLido = null; }
     if (!avisar) return;
     if (ligada) {
-      falar(["Voz do site ligada. Use a tecla Tab para andar pelos botões e links. Aperte Esc para calar a voz."]);
+      falar(["Audiodescrição ativada. Passe o mouse ou o dedo sobre a tela, ou use a tecla Tab, e eu falo onde você está e o que acontece ao clicar."]);
     } else {
-      pararFala();
-      anunciar("Voz do site desligada");
-      if (temVoz) falar(["Voz do site desligada."]);
+      anunciar("Audiodescrição desativada");
+      falar(["Audiodescrição desativada."]);
     }
   }
 
@@ -765,32 +904,109 @@
   });
   aplicarVoz(vozSite.ligada, false);
 
-  document.addEventListener("focusin", function (ev) {
-    if (!vozSite.ligada) return;
-    falarVoz(descrever(ev.target));
+  // Mouse: lê o que estiver embaixo, depois de uma pausa curta
+  var esperaMouse = null;
+  document.addEventListener("pointerover", function (ev) {
+    if (!vozSite.ligada || ev.pointerType === "touch") return;
+    var alvo = alvoDe(ev.target);
+    window.clearTimeout(esperaMouse);
+    if (!alvo || alvo === ultimoLido) return;
+    esperaMouse = window.setTimeout(function () { lerElemento(alvo, "mouse"); }, 220);
   });
+
+  // Dedo: arrastar o dedo lê o que passa embaixo; um toque lê, o segundo toque clica
+  var armado = null, armadoEm = 0, ultimoPonteiro = "mouse";
+  document.addEventListener("pointerdown", function (ev) { ultimoPonteiro = ev.pointerType || "mouse"; }, true);
+  document.addEventListener("touchmove", function (ev) {
+    if (!vozSite.ligada || !ev.touches.length) return;
+    var t = ev.touches[0];
+    var alvo = alvoDe(document.elementFromPoint(t.clientX, t.clientY));
+    if (alvo && alvo !== ultimoLido) lerElemento(alvo, "toque");
+  }, { passive: true });
+  document.addEventListener("click", function (ev) {
+    if (!vozSite.ligada || ultimoPonteiro !== "touch") return;
+    var alvo = alvoDe(ev.target);
+    if (!alvo) return;
+    var interativo = alvo.matches("a[href], button, input, select, textarea, summary, label, .trecho") || alvo.id === "vlibras-access-wrapper";
+    if (!interativo) { lerElemento(alvo, "toque", true); return; }
+    if (armado === alvo && Date.now() - armadoEm < 6000) { armado = null; return; } // segundo toque: clica
+    ev.preventDefault();
+    ev.stopPropagation();
+    armado = alvo;
+    armadoEm = Date.now();
+    lerElemento(alvo, "toque", true);
+  }, true);
+
+  // Teclado: lê o item que recebe o foco
+  document.addEventListener("focusin", function (ev) {
+    if (!vozSite.ligada || ultimoPonteiro === "touch") return;
+    if (ev.target.matches && ev.target.matches(":focus-visible")) lerElemento(ev.target, "teclado", true);
+  });
+  document.addEventListener("keydown", function () { ultimoPonteiro = "teclado"; }, true);
   document.addEventListener("change", function (ev) {
     if (!vozSite.ligada) return;
     var t = ev.target;
-    if (t.type === "checkbox" || t.type === "radio") falarVoz(descrever(t));
+    if (t.type === "checkbox" || t.type === "radio") lerElemento(t, "teclado", true);
   });
-  document.addEventListener("toggle", function (ev) {
-    if (!vozSite.ligada || ev.target.tagName !== "DETAILS") return;
-    falarVoz(ev.target.open ? "Aberto." : "Fechado.");
-  }, true);
   // Os avisos da página (ex.: "Resposta certa") também são falados
   aoAnunciar = function (texto) {
-    if (vozSite.ligada && !/^(Tocando|Pausado)/.test(texto)) window.setTimeout(function () { falarVoz(texto); }, 350);
+    if (vozSite.ligada && !/^(Tocando|Pausado)/.test(texto)) window.setTimeout(function () { falar([texto]); }, 350);
   };
 
-  /* ---------- Audiodescrição da página ---------- */
+  /* ---------- Painel de acessibilidade (botão no lado direito) ---------- */
+  var painel = document.getElementById("painel-acess");
+  var botaoPainel = document.getElementById("abrir-acess");
+  var fecharPainel = document.getElementById("fechar-acess");
+  var focoAntesDoPainel = null;
+
+  function painelAberto() { return !!(painel && painel.open); }
+
+  function abrirPainel(focar) {
+    if (!painel || painelAberto()) return;
+    focoAntesDoPainel = document.activeElement;
+    if (typeof painel.showModal === "function") painel.showModal(); else painel.setAttribute("open", "");
+    if (botaoPainel) botaoPainel.setAttribute("aria-expanded", "true");
+    var alvo = focar || painel.querySelector("#audiodescricao-pagina .botao-tocar") || fecharPainel;
+    if (alvo) alvo.focus();
+  }
+
+  function fecharOPainel() {
+    if (!painelAberto()) return;
+    if (typeof painel.close === "function") painel.close(); else painel.removeAttribute("open");
+  }
+
+  if (painel) {
+    painel.addEventListener("close", function () {
+      if (botaoPainel) botaoPainel.setAttribute("aria-expanded", "false");
+      var volta = focoAntesDoPainel && document.contains(focoAntesDoPainel) ? focoAntesDoPainel : botaoPainel;
+      if (volta && volta.focus) volta.focus();
+      anunciar("Painel de acessibilidade fechado");
+    });
+    // Clicar fora do painel (no fundo escuro) também fecha
+    painel.addEventListener("click", function (ev) {
+      if (ev.target === painel) fecharOPainel();
+    });
+  }
+  if (botaoPainel) {
+    botaoPainel.setAttribute("aria-expanded", "false");
+    botaoPainel.addEventListener("click", function () { abrirPainel(); });
+  }
+  if (fecharPainel) fecharPainel.addEventListener("click", fecharOPainel);
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-abrir-vlibras]"), function (b) {
+    b.addEventListener("click", function () {
+      fecharOPainel();
+      anunciar("Abrindo o avatar de Libras");
+      abrirAvatar();
+    });
+  });
+
+  /* ---------- Audiodescrição da página: abre o painel e toca ---------- */
   function tocarAudiodescricao() {
     var ad = document.getElementById("audiodescricao-pagina");
     if (!ad || !ad._api) return false;
     pararFala();
-    ad.scrollIntoView({ block: "start" });
-    var b = ad.querySelector(".botao-tocar");
-    if (b) b.focus({ preventScroll: true });
+    abrirPainel(ad.querySelector(".botao-tocar"));
     ad._api.tocar();
     return true;
   }
@@ -804,10 +1020,17 @@
   document.addEventListener("keydown", function (ev) {
     if (ev.altKey && ev.shiftKey && !ev.ctrlKey) {
       var k = (ev.key || "").toLowerCase();
-      if (k === "v" || ev.code === "KeyV") { ev.preventDefault(); aplicarVoz(!vozSite.ligada, true); return; }
-      if (k === "a" || ev.code === "KeyA") { ev.preventDefault(); tocarAudiodescricao(); return; }
+      if (k === "d" || k === "v" || ev.code === "KeyD" || ev.code === "KeyV") { ev.preventDefault(); aplicarVoz(!vozSite.ligada, true); return; }
+      if (k === "a" || ev.code === "KeyA") {
+        ev.preventDefault();
+        var ad = document.getElementById("audiodescricao-pagina");
+        var tocandoAD = ad && ad.querySelector(".botao-tocar").getAttribute("data-estado") === "tocando";
+        if (tocandoAD) ad.querySelector(".botao-tocar").click(); // aperta de novo: pausa
+        else tocarAudiodescricao();
+        return;
+      }
     }
-    if (ev.key === "Escape" && vozSite.ligada) pararFala();
+    if (ev.key === "Escape" && vozSite.ligada) { pararFala(); destacar(null); }
   });
 
   /* ---------- Ferramentas para as outras páginas (quiz, criar) ---------- */
