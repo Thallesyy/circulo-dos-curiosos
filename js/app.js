@@ -13,7 +13,9 @@
   }
 
   var avisos = document.getElementById("avisos");
+  var aoAnunciar = null; // a "Voz do site" também fala os avisos
   function anunciar(texto) {
+    if (aoAnunciar) aoAnunciar(texto);
     if (!avisos) return;
     avisos.textContent = "";
     window.setTimeout(function () { avisos.textContent = texto; }, 60);
@@ -683,6 +685,130 @@
       if (h3) { h3.setAttribute("tabindex", "-1"); h3.focus(); }
     }
   }
+
+
+  /* =========================================================
+     Voz do site: para quem não usa leitor de tela.
+     Fala em voz alta o nome de cada botão, link ou campo
+     quando ele recebe o foco (tecla Tab).
+     ========================================================= */
+  var vozSite = { ligada: ler("voz-site") === "1" };
+  var botoesVoz = Array.prototype.slice.call(document.querySelectorAll("#voz-site, [data-alternar-voz]"));
+
+  function limpar(t) { return (t || "").replace(/\s+/g, " ").trim(); }
+
+  function nomeDe(el) {
+    if (el.getAttribute("aria-label")) return el.getAttribute("aria-label");
+    var por = el.getAttribute("aria-labelledby");
+    if (por) {
+      var partes = por.split(/\s+/).map(function (id) { var a = document.getElementById(id); return a ? a.innerText : ""; });
+      if (limpar(partes.join(" "))) return partes.join(" ");
+    }
+    if (el.labels && el.labels.length) return el.labels[0].innerText;
+    if (el.tagName === "IMG") return el.alt;
+    return el.innerText || el.value || el.title || "";
+  }
+
+  function descrever(el) {
+    if (!el || el === document.body) return "";
+    var nome = limpar(nomeDe(el)).slice(0, 220);
+    var tag = el.tagName;
+    var tipo = (el.getAttribute("type") || "").toLowerCase();
+    var extra = [];
+    if (/^H[1-6]$/.test(tag)) return "Título: " + nome;
+    if (tag === "A") return "Link: " + nome;
+    if (tag === "SUMMARY") {
+      var aberto = el.parentElement && el.parentElement.open;
+      return nome + ", botão para " + (aberto ? "fechar" : "abrir");
+    }
+    if (tag === "BUTTON") {
+      if (el.hasAttribute("aria-pressed")) extra.push(el.getAttribute("aria-pressed") === "true" ? "ligado" : "desligado");
+      if (el.hasAttribute("aria-expanded")) extra.push(el.getAttribute("aria-expanded") === "true" ? "aberto" : "fechado");
+      if (el.disabled) extra.push("indisponível");
+      return nome + ", botão" + (extra.length ? ", " + extra.join(", ") : "");
+    }
+    if (tag === "INPUT" && tipo === "checkbox") return nome + ", caixa de marcar, " + (el.checked ? "marcada" : "desmarcada");
+    if (tag === "INPUT" && tipo === "radio") return nome + ", opção " + (el.checked ? "escolhida" : "não escolhida") + ". Use as setas para trocar.";
+    if (tag === "INPUT" && tipo === "range") return nome + ", barra de posição: " + (el.getAttribute("aria-valuetext") || el.value) + ". Use as setas para andar.";
+    if (tag === "SELECT") return nome + ", lista. Escolhido: " + limpar(el.selectedOptions[0] ? el.selectedOptions[0].text : "") + ". Use as setas para trocar.";
+    if (tag === "TEXTAREA" || tag === "INPUT") return nome + ", campo para escrever" + (el.value ? ". Escrito: " + el.value.slice(0, 120) : ", vazio");
+    if (el.getAttribute("role") === "region") return nome + ". Use as setas para rolar o texto.";
+    if (el.id === "conteudo") return "Conteúdo principal da página.";
+    return nome;
+  }
+
+  function falarVoz(texto) {
+    if (!vozSite.ligada || !texto) return;
+    falar([texto]);
+  }
+
+  function aplicarVoz(ligada, avisar) {
+    vozSite.ligada = ligada;
+    guardar("voz-site", ligada ? "1" : "0");
+    botoesVoz.forEach(function (b) {
+      if (b.id === "voz-site") b.setAttribute("aria-pressed", ligada ? "true" : "false");
+      var r = b.querySelector(".rotulo") || (b.id === "voz-site" ? null : b);
+      if (r) r.textContent = ligada ? "Desligar a voz do site" : "Ligar a voz do site";
+    });
+    if (!avisar) return;
+    if (ligada) {
+      falar(["Voz do site ligada. Use a tecla Tab para andar pelos botões e links. Aperte Esc para calar a voz."]);
+    } else {
+      pararFala();
+      anunciar("Voz do site desligada");
+      if (temVoz) falar(["Voz do site desligada."]);
+    }
+  }
+
+  botoesVoz.forEach(function (b) {
+    b.addEventListener("click", function () { aplicarVoz(!vozSite.ligada, true); });
+  });
+  aplicarVoz(vozSite.ligada, false);
+
+  document.addEventListener("focusin", function (ev) {
+    if (!vozSite.ligada) return;
+    falarVoz(descrever(ev.target));
+  });
+  document.addEventListener("change", function (ev) {
+    if (!vozSite.ligada) return;
+    var t = ev.target;
+    if (t.type === "checkbox" || t.type === "radio") falarVoz(descrever(t));
+  });
+  document.addEventListener("toggle", function (ev) {
+    if (!vozSite.ligada || ev.target.tagName !== "DETAILS") return;
+    falarVoz(ev.target.open ? "Aberto." : "Fechado.");
+  }, true);
+  // Os avisos da página (ex.: "Resposta certa") também são falados
+  aoAnunciar = function (texto) {
+    if (vozSite.ligada && !/^(Tocando|Pausado)/.test(texto)) window.setTimeout(function () { falarVoz(texto); }, 350);
+  };
+
+  /* ---------- Audiodescrição da página ---------- */
+  function tocarAudiodescricao() {
+    var ad = document.getElementById("audiodescricao-pagina");
+    if (!ad || !ad._api) return false;
+    pararFala();
+    ad.scrollIntoView({ block: "start" });
+    var b = ad.querySelector(".botao-tocar");
+    if (b) b.focus({ preventScroll: true });
+    ad._api.tocar();
+    return true;
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-ouvir-ad]"), function (a) {
+    a.addEventListener("click", function (ev) {
+      if (tocarAudiodescricao()) ev.preventDefault();
+    });
+  });
+
+  /* ---------- Atalhos do teclado ---------- */
+  document.addEventListener("keydown", function (ev) {
+    if (ev.altKey && ev.shiftKey && !ev.ctrlKey) {
+      var k = (ev.key || "").toLowerCase();
+      if (k === "v" || ev.code === "KeyV") { ev.preventDefault(); aplicarVoz(!vozSite.ligada, true); return; }
+      if (k === "a" || ev.code === "KeyA") { ev.preventDefault(); tocarAudiodescricao(); return; }
+    }
+    if (ev.key === "Escape" && vozSite.ligada) pararFala();
+  });
 
   /* ---------- Ferramentas para as outras páginas (quiz, criar) ---------- */
   window.Circulo = {

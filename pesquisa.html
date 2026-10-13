@@ -25,12 +25,14 @@
 </script>
 </head>
 <body>
+<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir a audiodescrição desta página</a>
+<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ligar a voz do site</button>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="topo">
   <div class="envoltorio">
     <a class="marca" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24.0" cy="6.0" r="4.6" style="fill:var(--coral)"/><circle cx="34.6" cy="9.4" r="4.6" style="fill:var(--azul)"/><circle cx="41.1" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="41.1" cy="29.6" r="4.6" style="fill:var(--laranja)"/><circle cx="34.6" cy="38.6" r="4.6" style="fill:var(--rosa)"/><circle cx="24.0" cy="42.0" r="4.6" style="fill:var(--roxo)"/><circle cx="13.4" cy="38.6" r="4.6" style="fill:var(--azul)"/><circle cx="6.9" cy="29.6" r="4.6" style="fill:var(--coral)"/><circle cx="6.9" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="13.4" cy="9.4" r="4.6" style="fill:var(--laranja)"/><circle cx="22.5" cy="22.5" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M27 27 31 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O Círculo dos Curiosos</a>
-    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li></ul></nav>
+    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li><li class="cor-coral"><a href="acessibilidade.html"><span class="bolinha" aria-hidden="true"></span>Acessibilidade</a></li></ul></nav>
   </div>
 </header>
 <div class="barra-opcoes sem-js-oculto">
@@ -51,12 +53,57 @@
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
         Espaçar linhas
       </button>
+      <button type="button" class="botao-opcao" id="voz-site" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Voz do site
+      </button>
     </fieldset>
   </div>
 </div>
 
 <main id="conteudo" tabindex="-1">
   <div class="envoltorio">
+<section class="faixa-ad" aria-label="Audiodescrição desta página"><ul class="lista lista-ad">
+<li>
+<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Audiodescrição da página Pesquisa" data-duracao="184.24">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-pagina">Audiodescrição desta página</h3>
+    <p class="resumo">Para quem não enxerga ou enxerga pouco: o que tem nesta página, onde fica cada coisa e como usar.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Audiodescrição da página Pesquisa">
+      <source src="audios/audiodescricao-pesquisa.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/audiodescricao-pesquisa.mp3">Baixe o arquivo de Audiodescrição da página Pesquisa</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Audiodescrição da página Pesquisa"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">3 min 4 s</span><span class="so-leitor">Duração: 3 minutos e 4 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Audiodescrição da página Pesquisa</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="184" step="1" value="0" aria-label="Posição em Audiodescrição da página Pesquisa">
+        <span class="tempo" aria-hidden="true">0:00 / 3:04</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-pagina">Velocidade</label>
+        <select id="vel-audiodescricao-pagina" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/audiodescricao-pesquisa.mp3" download>Baixar áudio<span class="so-leitor"> de Audiodescrição da página Pesquisa</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Audiodescrição da página Pesquisa" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="2.92">Audiodescrição da página Pesquisa.</span> <span class="trecho" data-inicio="3.67" data-fim="7.78">Aqui está a pesquisa dos estudantes que deu origem às histórias.</span> <span class="trecho" data-inicio="8.53" data-fim="11.96">A parte de cima é igual em todas as páginas.</span> <span class="trecho" data-inicio="12.31" data-fim="21.84">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir a audiodescrição desta página, Ligar a voz do site e Pular para o conteúdo.</span> <span class="trecho" data-inicio="22.19" data-fim="36.09">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span></p><p><span class="trecho" data-inicio="36.44" data-fim="45.88">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Voz do site.</span> <span class="trecho" data-inicio="46.63" data-fim="50.45">O conteúdo principal começa com esta audiodescrição.</span> <span class="trecho" data-inicio="50.8" data-fim="56.37">Depois vem o título A pesquisa por trás das histórias, com um traço roxo embaixo.</span> <span class="trecho" data-inicio="56.72" data-fim="71.78">Logo abaixo, uma ficha branca, com borda escura, mostra o nome do trabalho, Matemática para Todos: Educação Fiscal, Estatística e Inclusão, e os dados da escola, da turma, da professora orientadora e do evento.</span></p><p><span class="trecho" data-inicio="72.53" data-fim="88.29">A página segue com estes títulos, nesta ordem: A grande pergunta, Como a pesquisa foi feita, O que a pesquisa descobriu, As histórias inclusivas, Quem conta as histórias, A visita à Sala de Recursos, O que a turma aprendeu e Referências.</span> <span class="trecho" data-inicio="89.04" data-fim="97.67">Em Como a pesquisa foi feita, as seis etapas aparecem em caixas, uma embaixo da outra, cada uma com o número dentro de um círculo verde.</span> <span class="trecho" data-inicio="98.42" data-fim="104.11">Em O que a pesquisa descobriu, há quatro cartões, dois em cima e dois embaixo.</span></p><p><span class="trecho" data-inicio="104.46" data-fim="113.05">Cada cartão tem a pergunta, a porcentagem de pessoas que responderam sim, em número grande, e uma barra azul que se enche da esquerda para a direita.</span> <span class="trecho" data-inicio="113.4" data-fim="118.97">A primeira barra vai até setenta vírgula sete por cento, pouco mais de dois terços.</span> <span class="trecho" data-inicio="119.32" data-fim="123.33">A segunda vai até noventa e três vírgula nove por cento.</span> <span class="trecho" data-inicio="123.68" data-fim="129.61">A terceira e a quarta vão até noventa e sete vírgula seis por cento, quase cheias.</span> <span class="trecho" data-inicio="129.96" data-fim="135.92">Embaixo dos cartões, o botão Ver os números em tabela abre uma tabela com todas as respostas.</span></p><p><span class="trecho" data-inicio="136.67" data-fim="146.58">Em As histórias inclusivas, cinco cartões coloridos mostram os formatos das histórias: Braille, letra ampliada, áudio, audiodescrição e Libras.</span> <span class="trecho" data-inicio="146.93" data-fim="149.78">Depois vem o link Ouvir as histórias.</span> <span class="trecho" data-inicio="150.13" data-fim="160.8">Em O que a turma aprendeu, três quadros coloridos, lado a lado, listam o que a turma aprendeu de Matemática e Estatística, de Educação Fiscal e de Inclusão.</span> <span class="trecho" data-inicio="161.55" data-fim="170.25">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span></p><p><span class="trecho" data-inicio="170.6" data-fim="179.35">No lado direito da tela, na metade da altura, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span> <span class="trecho" data-inicio="179.7" data-fim="183.49">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto da audiodescrição desta página.</p></div>
+    
+    
+  </div>
+</article>
+</li></ul></section>
 
     <section class="secao cor-roxo" aria-labelledby="h-pesquisa">
       <h1 class="titulo-secao" id="h-pesquisa">A pesquisa por trás das histórias</h1>
@@ -190,12 +237,7 @@
 <footer class="rodape">
   <div class="envoltorio">
     <h2>Acessibilidade</h2>
-    <p>Este site foi feito para todo mundo: funciona com leitor de tela, só com o teclado e com a tela ampliada. Cada história tem o texto escrito, e três delas têm audiodescrição das imagens.</p>
-    <ul>
-      <li>Libras pelo VLibras, o tradutor do Governo Federal (precisa de internet).</li>
-      <li>Letra maior, alto contraste, modo escuro e linhas mais espaçadas no alto da página.</li>
-      <li>Os textos foram feitos a partir dos áudios e revisados, mas podem ter pequenas diferenças.</li>
-    </ul>
+    <p>Este site foi feito para todo mundo: tem audiodescrição em todas as páginas, Voz do site, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
     <h2>Quem fez</h2>
     <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
     <ul class="logos" aria-label="Instituições do projeto">

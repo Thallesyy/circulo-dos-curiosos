@@ -1179,6 +1179,76 @@ textarea.campo-texto { min-height: 7rem; resize: vertical; }
 }
 .logos img { display: block; height: 56px; width: auto; }
 
+/* ===== Audiodescrição no começo de cada página ===== */
+.faixa-ad { padding-top: 1.25rem; }
+.lista-ad { margin: 0; max-width: 56rem; }
+.faixa-ad .historia { border-style: dashed; }
+.faixa-ad .historia h3 { font-size: 1.25rem; }
+.faixa-ad .numero svg { width: 2.2rem; height: 2.2rem; }
+
+/* Títulos dentro das legendas do formulário */
+.passo legend .passo-titulo { font-size: inherit; font-weight: inherit; line-height: 1.2; margin: 0; }
+
+/* ===== Acessibilidade ===== */
+.recursos {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 60rem;
+}
+@media (max-width: 40rem) { .recursos { grid-template-columns: 1fr; } }
+.recurso {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--raio);
+  background: var(--cor-claro);
+  border: 3px solid var(--cor);
+}
+.recurso h3 { font-size: 1.25rem; font-weight: 800; }
+.recurso p { margin: 0; }
+.recurso .botao { align-self: flex-start; margin-top: 0.5rem; }
+.guias {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 60rem;
+}
+@media (max-width: 40rem) { .guias { grid-template-columns: 1fr; } }
+kbd {
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.95em;
+  padding: 0.05em 0.45em;
+  border: 2px solid var(--linha);
+  border-bottom-width: 4px;
+  border-radius: 0.4rem;
+  background: var(--superficie);
+  color: var(--tinta);
+  white-space: nowrap;
+}
+.guia {
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--raio);
+  background: var(--superficie);
+  border: 3px solid var(--cor);
+}
+.guia h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; }
+.guia p { margin: 0; }
+.tabela-atalhos { border-collapse: collapse; width: 100%; max-width: 46rem; margin-top: 1.25rem; background: var(--superficie); }
+.tabela-atalhos caption { text-align: left; font-weight: 700; padding-bottom: 0.5rem; }
+.tabela-atalhos th, .tabela-atalhos td { border: 1px solid var(--linha); padding: 0.65rem 0.85rem; text-align: left; vertical-align: top; }
+.tabela-atalhos thead th { background: var(--cor-claro); }
+.tabela-atalhos tbody th { white-space: nowrap; }
+.mapa-site { max-width: 46rem; padding-left: 1.3rem; margin-top: 1.25rem; }
+.mapa-site li { margin-bottom: 0.75rem; }
+.mapa-site a { font-weight: 800; }
+
 /* ===== Chamadas no fim da página inicial ===== */
 .chamadas {
   display: grid;

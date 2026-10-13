@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acessibilidade | O Círculo dos Curiosos</title>
+<meta name="description" content="Todos os recursos de acessibilidade do site O Círculo dos Curiosos e como navegar com teclado e leitor de tela.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="css/estilo.css">
+<script>
+  /* Aplica as preferências antes de desenhar a página */
+  (function () {
+    var r = document.documentElement;
+    r.classList.add("js");
+    function ler(k) { try { return localStorage.getItem("historias:" + k); } catch (e) { return null; } }
+    var t = ler("tamanho"); if (t && t !== "0") r.setAttribute("data-tamanho", t);
+    var e = ler("escuro");
+    if (e === "1" || (e === null && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches)) r.setAttribute("data-tema", "escuro");
+    if (ler("contraste") === "1") r.setAttribute("data-contraste", "alto");
+    if (ler("espaco") === "1") r.setAttribute("data-espaco", "amplo");
+    if (ler("libras") === "1") r.setAttribute("data-libras", "sim");
+  })();
+</script>
+</head>
+<body>
+<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir a audiodescrição desta página</a>
+<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ligar a voz do site</button>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envoltorio">
+    <a class="marca" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24.0" cy="6.0" r="4.6" style="fill:var(--coral)"/><circle cx="34.6" cy="9.4" r="4.6" style="fill:var(--azul)"/><circle cx="41.1" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="41.1" cy="29.6" r="4.6" style="fill:var(--laranja)"/><circle cx="34.6" cy="38.6" r="4.6" style="fill:var(--rosa)"/><circle cx="24.0" cy="42.0" r="4.6" style="fill:var(--roxo)"/><circle cx="13.4" cy="38.6" r="4.6" style="fill:var(--azul)"/><circle cx="6.9" cy="29.6" r="4.6" style="fill:var(--coral)"/><circle cx="6.9" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="13.4" cy="9.4" r="4.6" style="fill:var(--laranja)"/><circle cx="22.5" cy="22.5" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M27 27 31 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O Círculo dos Curiosos</a>
+    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li><li class="cor-coral"><a href="acessibilidade.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Acessibilidade</a></li></ul></nav>
+  </div>
+</header>
+<div class="barra-opcoes sem-js-oculto">
+  <div class="envoltorio">
+    <fieldset class="opcoes">
+      <legend>Para ler melhor:</legend>
+      <button type="button" class="botao-opcao" id="texto-menor" aria-label="Diminuir o texto">A−</button>
+      <button type="button" class="botao-opcao" id="texto-maior" aria-label="Aumentar o texto">A+</button>
+      <button type="button" class="botao-opcao" id="alto-contraste" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        Contraste
+      </button>
+      <button type="button" class="botao-opcao" id="modo-escuro" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        Escuro
+      </button>
+      <button type="button" class="botao-opcao" id="espacamento" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Espaçar linhas
+      </button>
+      <button type="button" class="botao-opcao" id="voz-site" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Voz do site
+      </button>
+    </fieldset>
+  </div>
+</div>
+
+<main id="conteudo" tabindex="-1">
+  <div class="envoltorio">
+<section class="faixa-ad" aria-label="Audiodescrição desta página"><ul class="lista lista-ad">
+<li>
+<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Audiodescrição da página Acessibilidade" data-duracao="163.55">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-pagina">Audiodescrição desta página</h3>
+    <p class="resumo">Para quem não enxerga ou enxerga pouco: o que tem nesta página, onde fica cada coisa e como usar.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Audiodescrição da página Acessibilidade">
+      <source src="audios/audiodescricao-acessibilidade.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/audiodescricao-acessibilidade.mp3">Baixe o arquivo de Audiodescrição da página Acessibilidade</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Audiodescrição da página Acessibilidade"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">2 min 44 s</span><span class="so-leitor">Duração: 2 minutos e 44 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Audiodescrição da página Acessibilidade</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="164" step="1" value="0" aria-label="Posição em Audiodescrição da página Acessibilidade">
+        <span class="tempo" aria-hidden="true">0:00 / 2:43</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-pagina">Velocidade</label>
+        <select id="vel-audiodescricao-pagina" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/audiodescricao-acessibilidade.mp3" download>Baixar áudio<span class="so-leitor"> de Audiodescrição da página Acessibilidade</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Audiodescrição da página Acessibilidade" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="3.24">Audiodescrição da página Acessibilidade.</span> <span class="trecho" data-inicio="3.99" data-fim="9.86">Esta página reúne todos os recursos de acessibilidade do site e explica como usar cada um.</span> <span class="trecho" data-inicio="10.61" data-fim="20.75">O site tem seis páginas: Histórias, que é a página inicial, Aprender, Quiz, Criar história, Pesquisa e esta, Acessibilidade.</span> <span class="trecho" data-inicio="21.1" data-fim="27.7">Toda página começa com uma audiodescrição como esta, que conta o que tem nela e onde fica cada coisa.</span> <span class="trecho" data-inicio="28.45" data-fim="31.87">A parte de cima é igual em todas as páginas.</span></p><p><span class="trecho" data-inicio="32.22" data-fim="41.69">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir a audiodescrição desta página, Ligar a voz do site e Pular para o conteúdo.</span> <span class="trecho" data-inicio="42.04" data-fim="55.83">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span> <span class="trecho" data-inicio="56.18" data-fim="65.39">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Voz do site.</span></p><p><span class="trecho" data-inicio="66.14" data-fim="69.95">O conteúdo principal começa com esta audiodescrição.</span> <span class="trecho" data-inicio="70.3" data-fim="74.77">Depois vem o título Acessibilidade e uma frase de apresentação.</span> <span class="trecho" data-inicio="75.52" data-fim="86.07">A página segue com estes títulos, nesta ordem: Recursos de acessibilidade, Como navegar pelo site, Atalhos do teclado, Mapa do site e Nosso compromisso.</span> <span class="trecho" data-inicio="86.82" data-fim="95.98">Em Recursos de acessibilidade há dez cartões coloridos, cada um com o nome do recurso, que também é um título, e uma explicação curta.</span></p><p><span class="trecho" data-inicio="96.33" data-fim="101.1">O segundo cartão, Voz do site, tem o botão Ligar a voz do site.</span> <span class="trecho" data-inicio="101.85" data-fim="110.87">Em Como navegar pelo site há quatro quadros: com o teclado, com leitor de tela no computador, com leitor de tela no celular e sem leitor de tela.</span> <span class="trecho" data-inicio="111.62" data-fim="116.84">Em Atalhos do teclado, uma tabela mostra as teclas e o que cada uma faz.</span> <span class="trecho" data-inicio="117.19" data-fim="119.92">Os mais importantes são estes.</span> <span class="trecho" data-inicio="120.27" data-fim="126.4">Segurando as teclas Alt e Shift e apertando a letra A, você ouve a audiodescrição da página.</span></p><p><span class="trecho" data-inicio="126.75" data-fim="132.39">Segurando Alt e Shift e apertando a letra V, você liga ou desliga a Voz do site.</span> <span class="trecho" data-inicio="132.74" data-fim="135.36">E a tecla Esc cala a voz.</span> <span class="trecho" data-inicio="136.11" data-fim="140.35">Em Mapa do site há um link para cada página, com o que tem nela.</span> <span class="trecho" data-inicio="141.1" data-fim="149.67">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span> <span class="trecho" data-inicio="150.02" data-fim="158.89">No lado direito da tela, na metade da altura, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span></p><p><span class="trecho" data-inicio="159.24" data-fim="162.8">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto da audiodescrição desta página.</p></div>
+    
+    
+  </div>
+</article>
+</li></ul></section>
+
+    <section class="secao cor-coral" aria-labelledby="h-acess">
+      <h1 class="titulo-secao" id="h-acess">Acessibilidade</h1>
+      <p class="descricao">Este site foi feito para que todas as pessoas consigam ouvir, ler, ver e participar: quem não enxerga ou enxerga pouco, quem não ouve ou ouve pouco, quem tem dificuldade para aprender e quem não usa o mouse.</p>
+    </section>
+
+    <section class="secao cor-azul" aria-labelledby="h-recursos">
+      <h2 class="titulo-secao" id="h-recursos">Recursos de acessibilidade</h2>
+      <ul class="recursos"><li class="recurso cor-roxo"><h3>Audiodescrição das páginas</h3><p>No começo de cada página, um áudio conta o que tem nela, onde fica cada coisa e como usar. É o primeiro atalho da página: aperte Tab uma vez e depois Enter.</p></li><li class="recurso cor-azul"><h3>Voz do site</h3><p>Para quem não usa leitor de tela: lê em voz alta o nome de cada botão, link ou campo quando você passa por ele com a tecla Tab. Quem já usa leitor de tela não precisa ligar.</p><button type="button" class="botao botao-principal" data-alternar-voz><span class="rotulo">Ligar a voz do site</span></button></li><li class="recurso cor-verde"><h3>Histórias em áudio</h3><p>As dez histórias narradas, com botão de pausar, de voltar e avançar dez segundos, de mudar a velocidade e de baixar o áudio.</p></li><li class="recurso cor-laranja"><h3>Texto junto com o áudio</h3><p>O botão Ler o texto mostra a história escrita e marca em amarelo a frase que está tocando. Clicando numa frase, o áudio vai para ela.</p></li><li class="recurso cor-rosa"><h3>Audiodescrição das imagens</h3><p>Três histórias têm uma versão que descreve as ilustrações: onde as crianças estão, o que fazem e o que está escrito nos cartazes.</p></li><li class="recurso cor-coral"><h3>Libras</h3><p>O botão azul do VLibras, no lado direito da tela, traduz o site para Libras. Com a opção Libras junto com o áudio, o avatar acompanha cada história frase por frase.</p></li><li class="recurso cor-azul"><h3>Letra maior, contraste, modo escuro e linhas espaçadas</h3><p>Ficam na faixa Para ler melhor, no alto de todas as páginas. As escolhas ficam guardadas para a próxima visita.</p></li><li class="recurso cor-verde"><h3>Imagens descritas</h3><p>As ilustrações têm descrição em texto para os leitores de tela. Os quadrinhos têm o mesmo texto da história, no botão Ler o texto.</p></li><li class="recurso cor-laranja"><h3>Quiz fácil</h3><p>Perguntas curtas, alternativas com figuras, leitura em voz alta automática e chance de tentar de novo sem perder ponto.</p></li><li class="recurso cor-rosa"><h3>Braille e letra ampliada</h3><p>Fora do site, as dez histórias também foram feitas em Braille e com letra ampliada pela escola.</p></li></ul>
+    </section>
+
+    <section class="secao cor-verde" aria-labelledby="h-navegar">
+      <h2 class="titulo-secao" id="h-navegar">Como navegar pelo site</h2>
+      <div class="guias">
+        <div class="guia cor-azul">
+          <h3>Com o teclado</h3>
+          <p>Aperte <kbd>Tab</kbd> para ir de um botão a outro e <kbd>Enter</kbd> para apertar. O item escolhido fica com uma borda grossa ao redor. Os três primeiros itens de cada página são atalhos: Ouvir a audiodescrição desta página, Ligar a voz do site e Pular para o conteúdo.</p>
+        </div>
+        <div class="guia cor-roxo">
+          <h3>Com leitor de tela no computador</h3>
+          <p>Funciona com NVDA, JAWS e o Narrador do Windows. Use <kbd>H</kbd> para ir de título em título, <kbd>K</kbd> para links, <kbd>B</kbd> para botões e <kbd>F</kbd> para campos. Cada página é dividida em regiões com nome: cabeçalho, menu Páginas do site, conteúdo principal e rodapé.</p>
+        </div>
+        <div class="guia cor-laranja">
+          <h3>Com leitor de tela no celular</h3>
+          <p>Com o TalkBack, no Android, ou o VoiceOver, no iPhone: deslize o dedo para a direita ou para a esquerda para passar de um item a outro e toque duas vezes para apertar. Para ir de título em título, escolha Títulos no menu de leitura do TalkBack ou no rotor do VoiceOver.</p>
+        </div>
+        <div class="guia cor-rosa">
+          <h3>Sem leitor de tela</h3>
+          <p>Ligue a Voz do site com <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> ou com o botão Voz do site, no alto da página. Ela fala o nome de cada item quando você aperta <kbd>Tab</kbd>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao cor-laranja" aria-labelledby="h-atalhos">
+      <h2 class="titulo-secao" id="h-atalhos">Atalhos do teclado</h2>
+      <div class="tabela-rolagem">
+        <table class="tabela-atalhos">
+          <caption>Teclas que funcionam em todas as páginas</caption>
+          <thead><tr><th scope="col">Tecla</th><th scope="col">O que faz</th></tr></thead>
+          <tbody><tr><th scope="row"><kbd>Tab</kbd></th><td>Vai para o próximo botão, link ou campo.</td></tr><tr><th scope="row"><kbd>Shift + Tab</kbd></th><td>Volta para o item anterior.</td></tr><tr><th scope="row"><kbd>Enter ou Espaço</kbd></th><td>Aperta o botão ou abre o link.</td></tr><tr><th scope="row"><kbd>Setas</kbd></th><td>Andam na barra de posição do áudio e trocam as alternativas do quiz e as opções do formulário.</td></tr><tr><th scope="row"><kbd>K</kbd></th><td>Toca ou pausa a história, com o foco dentro dela.</td></tr><tr><th scope="row"><kbd>Alt + Shift + A</kbd></th><td>Toca a audiodescrição da página.</td></tr><tr><th scope="row"><kbd>Alt + Shift + V</kbd></th><td>Liga ou desliga a Voz do site.</td></tr><tr><th scope="row"><kbd>Esc</kbd></th><td>Cala a Voz do site.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="secao cor-roxo" aria-labelledby="h-mapa">
+      <h2 class="titulo-secao" id="h-mapa">Mapa do site</h2>
+      <ul class="mapa-site"><li><a href="index.html">Histórias</a>: Página inicial. As dez histórias para ouvir e ler, as três com audiodescrição, o ensaio de bastidores e a apresentação das dez crianças.</li><li><a href="aprender.html">Aprender</a>: Nove assuntos de educação fiscal explicados em partes curtas, cada um com botão de ouvir e de ver em Libras.</li><li><a href="quiz.html">Quiz</a>: Quiz desafio, com dez perguntas, e quiz fácil, com cinco perguntas e figuras.</li><li><a href="criar.html">Criar história</a>: Formulário em seis passos para montar a sua própria história com as crianças do Círculo.</li><li><a href="pesquisa.html">Pesquisa</a>: A pesquisa dos estudantes que deu origem às histórias, com os resultados em números.</li><li><a href="acessibilidade.html">Acessibilidade</a>: Esta página: os recursos de acessibilidade e como navegar pelo site.</li></ul>
+    </section>
+
+    <section class="secao cor-rosa" aria-labelledby="h-compromisso">
+      <h2 class="titulo-secao" id="h-compromisso">Nosso compromisso</h2>
+      <p class="descricao">O site foi feito seguindo as diretrizes internacionais de acessibilidade para a web (WCAG) e a Lei Brasileira de Inclusão (Lei nº 13.146/2015). Foi testado com o teclado, em telas de computador e de celular, com letra grande, alto contraste e modo escuro.</p>
+      <p class="descricao">Algumas coisas dependem de fora do site: o VLibras precisa de internet, e a leitura em voz alta dos botões Ouvir e da Voz do site usa as vozes do navegador. As audiodescrições das páginas e as histórias são arquivos de áudio e funcionam em qualquer navegador.</p>
+      <p class="descricao">Encontrou alguma barreira para usar o site? Avise a escola, para que ele possa melhorar.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="envoltorio">
+    <h2>Acessibilidade</h2>
+    <p>Este site foi feito para todo mundo: tem audiodescrição em todas as páginas, Voz do site, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
+    <h2>Quem fez</h2>
+    <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
+    <ul class="logos" aria-label="Instituições do projeto">
+      <li><img src="imagens/logos/hugo-gerdau.webp" alt="EMEF Hugo Gerdau" height="56"></li>
+      <li><img src="imagens/logos/educacao-fiscal.webp" alt="Educação Fiscal Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/tempo-integral.webp" alt="Escola em Tempo Integral, Sapucaia do Sul" height="56"></li>
+      <li><img src="imagens/logos/prefeitura.webp" alt="Prefeitura de Sapucaia do Sul" height="56"></li>
+    </ul>
+  </div>
+</footer>
+
+<div id="avisos" class="so-leitor" role="status" aria-live="polite"></div>
+
+<!-- VLibras: tradução automática para Libras (Governo Federal) -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
+<script>
+  window.addEventListener("load", function () {
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: segue sem Libras */ }
+  });
+</script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

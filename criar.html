@@ -25,12 +25,14 @@
 </script>
 </head>
 <body>
+<a class="pular" href="#audiodescricao-pagina" data-ouvir-ad>Ouvir a audiodescrição desta página</a>
+<button type="button" class="pular sem-js-oculto" data-alternar-voz>Ligar a voz do site</button>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="topo">
   <div class="envoltorio">
     <a class="marca" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24.0" cy="6.0" r="4.6" style="fill:var(--coral)"/><circle cx="34.6" cy="9.4" r="4.6" style="fill:var(--azul)"/><circle cx="41.1" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="41.1" cy="29.6" r="4.6" style="fill:var(--laranja)"/><circle cx="34.6" cy="38.6" r="4.6" style="fill:var(--rosa)"/><circle cx="24.0" cy="42.0" r="4.6" style="fill:var(--roxo)"/><circle cx="13.4" cy="38.6" r="4.6" style="fill:var(--azul)"/><circle cx="6.9" cy="29.6" r="4.6" style="fill:var(--coral)"/><circle cx="6.9" cy="18.4" r="4.6" style="fill:var(--verde)"/><circle cx="13.4" cy="9.4" r="4.6" style="fill:var(--laranja)"/><circle cx="22.5" cy="22.5" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M27 27 31 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O Círculo dos Curiosos</a>
-    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li></ul></nav>
+    <nav class="menu" aria-label="Páginas do site"><ul><li class="cor-azul"><a href="index.html"><span class="bolinha" aria-hidden="true"></span>Histórias</a></li><li class="cor-verde"><a href="aprender.html"><span class="bolinha" aria-hidden="true"></span>Aprender</a></li><li class="cor-laranja"><a href="quiz.html"><span class="bolinha" aria-hidden="true"></span>Quiz</a></li><li class="cor-rosa"><a href="criar.html" aria-current="page"><span class="bolinha" aria-hidden="true"></span>Criar história</a></li><li class="cor-roxo"><a href="pesquisa.html"><span class="bolinha" aria-hidden="true"></span>Pesquisa</a></li><li class="cor-coral"><a href="acessibilidade.html"><span class="bolinha" aria-hidden="true"></span>Acessibilidade</a></li></ul></nav>
   </div>
 </header>
 <div class="barra-opcoes sem-js-oculto">
@@ -51,12 +53,57 @@
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
         Espaçar linhas
       </button>
+      <button type="button" class="botao-opcao" id="voz-site" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Voz do site
+      </button>
     </fieldset>
   </div>
 </div>
 
 <main id="conteudo" tabindex="-1">
   <div class="envoltorio">
+<section class="faixa-ad" aria-label="Audiodescrição desta página"><ul class="lista lista-ad">
+<li>
+<article class="historia cor-roxo" id="audiodescricao-pagina" aria-labelledby="titulo-audiodescricao-pagina" data-titulo="Audiodescrição da página Criar história" data-duracao="174.48">
+  <div class="numero" aria-hidden="true"><svg class="icone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+  <div class="corpo">
+    <h3 id="titulo-audiodescricao-pagina">Audiodescrição desta página</h3>
+    <p class="resumo">Para quem não enxerga ou enxerga pouco: o que tem nesta página, onde fica cada coisa e como usar.</p>
+    <audio class="audio-nativo" controls preload="metadata" aria-label="Áudio: Audiodescrição da página Criar história">
+      <source src="audios/audiodescricao-criar.mp3" type="audio/mpeg">
+      Seu navegador não toca áudio. <a href="audios/audiodescricao-criar.mp3">Baixe o arquivo de Audiodescrição da página Criar história</a>.
+    </audio>
+    <div class="acoes sem-js-oculto">
+      <button type="button" class="botao-tocar" data-estado="parado" aria-label="Ouvir: Audiodescrição da página Criar história"><svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect fill="currentColor" x="6" y="5" width="4.2" height="14" rx="1"/><rect fill="currentColor" x="13.8" y="5" width="4.2" height="14" rx="1"/></svg><span class="rotulo">Ouvir</span></button>
+      <span class="duracao"><span aria-hidden="true">2 min 54 s</span><span class="so-leitor">Duração: 2 minutos e 54 segundos</span></span>
+      <button type="button" class="botao-texto" aria-expanded="false" aria-controls="texto-audiodescricao-pagina"><span class="rotulo">Ler o texto</span><span class="so-leitor"> de Audiodescrição da página Criar história</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="player" hidden>
+      <div class="barra">
+        <input type="range" class="posicao" min="0" max="174" step="1" value="0" aria-label="Posição em Audiodescrição da página Criar história">
+        <span class="tempo" aria-hidden="true">0:00 / 2:54</span>
+      </div>
+      <p class="situacao-libras" hidden></p>
+      <div class="ajustes">
+        <button type="button" class="botao-opcao voltar" aria-label="Voltar 10 segundos">− 10 s</button>
+        <button type="button" class="botao-opcao avancar" aria-label="Avançar 10 segundos">+ 10 s</button>
+        <label for="vel-audiodescricao-pagina">Velocidade</label>
+        <select id="vel-audiodescricao-pagina" class="velocidade">
+          <option value="0.75">Mais devagar (0,75×)</option>
+          <option value="1">Normal (1×)</option>
+          <option value="1.25">Mais rápido (1,25×)</option>
+          <option value="1.5">Rápido (1,5×)</option>
+        </select>
+        <a class="botao-opcao" href="audios/audiodescricao-criar.mp3" download>Baixar áudio<span class="so-leitor"> de Audiodescrição da página Criar história</span></a>
+      </div>
+    </div>
+    <div class="texto" id="texto-audiodescricao-pagina" role="region" aria-label="Texto de Audiodescrição da página Criar história" tabindex="0" hidden><p><span class="trecho" data-inicio="0.3" data-fim="3.14">Audiodescrição da página Criar história.</span> <span class="trecho" data-inicio="3.89" data-fim="8.77">Aqui você monta a sua própria história com as crianças do Círculo dos Curiosos.</span> <span class="trecho" data-inicio="9.52" data-fim="12.93">A parte de cima é igual em todas as páginas.</span> <span class="trecho" data-inicio="13.28" data-fim="22.72">Os três primeiros itens são atalhos que só aparecem quando recebem o foco: Ouvir a audiodescrição desta página, Ligar a voz do site e Pular para o conteúdo.</span> <span class="trecho" data-inicio="23.07" data-fim="36.91">Depois vem o cabeçalho, com o link O Círculo dos Curiosos, no canto de cima, à esquerda, e o menu com seis links: Histórias, Aprender, Quiz, Criar história, Pesquisa e Acessibilidade.</span></p><p><span class="trecho" data-inicio="37.26" data-fim="46.69">Embaixo do menu fica a faixa Para ler melhor, com os botões para diminuir e aumentar a letra, Contraste, Escuro, Espaçar linhas e Voz do site.</span> <span class="trecho" data-inicio="47.44" data-fim="51.31">O conteúdo principal começa com esta audiodescrição.</span> <span class="trecho" data-inicio="51.66" data-fim="60.19">Depois vem o título Crie a sua história, com um traço rosa embaixo, e um formulário com seis passos, um embaixo do outro.</span> <span class="trecho" data-inicio="60.54" data-fim="66.83">Cada passo fica numa caixa com borda colorida e tem o número e o nome no topo, que também é um título.</span></p><p><span class="trecho" data-inicio="67.58" data-fim="71.77">Passo um, Quem é você: um campo para escrever o seu nome.</span> <span class="trecho" data-inicio="72.52" data-fim="82.32">Passo dois, Quem do Círculo vai junto: dez caixas de marcar, uma para cada criança, com o rosto ilustrado dentro de um círculo e o nome embaixo.</span> <span class="trecho" data-inicio="82.67" data-fim="85.12">Você pode marcar até três.</span> <span class="trecho" data-inicio="85.87" data-fim="95.45">Passo três, Onde acontece: seis opções com ícones, escola, praça, mercado, biblioteca, posto de saúde e ônibus.</span> <span class="trecho" data-inicio="95.8" data-fim="98.53">Use as setas para trocar de opção.</span> <span class="trecho" data-inicio="99.28" data-fim="108.02">Passo quatro, Qual é o mistério, e passo cinco, O que o grupo decide fazer: cada um com seis opções para escolher com as setas.</span></p><p><span class="trecho" data-inicio="108.77" data-fim="118.97">Passo seis, Como termina: um campo grande para escrever o final, o botão Me dá uma ideia, que escreve um final para você, e um campo para o título da história.</span> <span class="trecho" data-inicio="119.72" data-fim="123.9">No fim do formulário fica o botão amarelo Montar a minha história.</span> <span class="trecho" data-inicio="124.25" data-fim="132.58">A história aparece logo abaixo, numa caixa branca com uma faixa amarela no alto, com os rostos das crianças escolhidas e o título.</span> <span class="trecho" data-inicio="132.93" data-fim="135.99">O foco vai sozinho para o título da história.</span></p><p><span class="trecho" data-inicio="136.34" data-fim="143.03">Embaixo dela ficam os botões Ouvir a história, Ver em Libras, Imprimir, Guardar e Criar outra.</span> <span class="trecho" data-inicio="143.38" data-fim="151.38">As histórias guardadas aparecem mais abaixo, no título Minhas histórias guardadas, cada uma com os botões Abrir e Apagar.</span> <span class="trecho" data-inicio="152.13" data-fim="160.73">No fim da página fica o rodapé, com o link Conheça todos os recursos de acessibilidade e as informações sobre quem fez o projeto.</span> <span class="trecho" data-inicio="161.08" data-fim="169.79">No lado direito da tela, na metade da altura, fica o botão azul do VLibras, que abre um avatar para traduzir o site para Libras.</span></p><p><span class="trecho" data-inicio="170.14" data-fim="173.73">Com o teclado, ele é o último item da página.</span></p><p class="aviso">Texto da audiodescrição desta página.</p></div>
+    
+    
+  </div>
+</article>
+</li></ul></section>
 
     <section class="secao cor-rosa" aria-labelledby="h-criar">
       <h1 class="titulo-secao" id="h-criar">Crie a sua história</h1>
@@ -66,35 +113,35 @@
         <div class="erro-form" id="erro-form" tabindex="-1" hidden></div>
 
         <fieldset class="passo cor-azul">
-          <legend>1. Quem é você?</legend>
+          <legend><h2 class="passo-titulo">1. Quem é você?</h2></legend>
           <p class="dica">Escreva o seu nome para entrar na história. Se preferir, deixe em branco.</p>
           <label class="rotulo-campo" for="seu-nome">Seu nome</label>
           <input class="campo-texto" id="seu-nome" name="nome" type="text" autocomplete="given-name" maxlength="30">
         </fieldset>
 
         <fieldset class="passo cor-verde" aria-describedby="dica-pers">
-          <legend>2. Quem do Círculo vai junto?</legend>
+          <legend><h2 class="passo-titulo">2. Quem do Círculo vai junto?</h2></legend>
           <p class="dica" id="dica-pers">Escolha de uma a três crianças.</p>
           <div class="cartoes"><label class="cartao cor-coral"><input type="checkbox" name="personagem" value="Lia"><img class="rosto-foto cor-coral" src="imagens/personagens/lia-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Lia</span></label><label class="cartao cor-laranja"><input type="checkbox" name="personagem" value="Theo"><img class="rosto-foto cor-laranja" src="imagens/personagens/theo-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Theo</span></label><label class="cartao cor-rosa"><input type="checkbox" name="personagem" value="Bia"><img class="rosto-foto cor-rosa" src="imagens/personagens/bia-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Bia</span></label><label class="cartao cor-roxo"><input type="checkbox" name="personagem" value="Ravi"><img class="rosto-foto cor-roxo" src="imagens/personagens/ravi-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Ravi</span></label><label class="cartao cor-verde"><input type="checkbox" name="personagem" value="Nina"><img class="rosto-foto cor-verde" src="imagens/personagens/nina-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Nina</span></label><label class="cartao cor-azul"><input type="checkbox" name="personagem" value="Caio"><img class="rosto-foto cor-azul" src="imagens/personagens/caio-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Caio</span></label><label class="cartao cor-azul"><input type="checkbox" name="personagem" value="Sofia"><img class="rosto-foto cor-azul" src="imagens/personagens/sofia-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Sofia</span></label><label class="cartao cor-laranja"><input type="checkbox" name="personagem" value="Miguel"><img class="rosto-foto cor-laranja" src="imagens/personagens/miguel-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Miguel</span></label><label class="cartao cor-coral"><input type="checkbox" name="personagem" value="Yara"><img class="rosto-foto cor-coral" src="imagens/personagens/yara-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Yara</span></label><label class="cartao cor-verde"><input type="checkbox" name="personagem" value="Tomás"><img class="rosto-foto cor-verde" src="imagens/personagens/tomas-rosto.webp" alt="" width="260" height="260" loading="lazy"><span>Tomás</span></label></div>
         </fieldset>
 
         <fieldset class="passo cor-laranja">
-          <legend>3. Onde acontece?</legend>
+          <legend><h2 class="passo-titulo">3. Onde acontece?</h2></legend>
           <div class="cartoes"><label class="cartao"><input type="radio" name="lugar" value="escola" checked><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5M12 8.5v2"/></svg><span>Na escola</span></label><label class="cartao"><input type="radio" name="lugar" value="praca"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M12 13v8M8 21h8"/></svg><span>Na praça</span></label><label class="cartao"><input type="radio" name="lugar" value="mercado"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h11L21 7H6.2"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg><span>No mercado</span></label><label class="cartao"><input type="radio" name="lugar" value="biblioteca"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Na biblioteca</span></label><label class="cartao"><input type="radio" name="lugar" value="posto"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>No posto de saúde</span></label><label class="cartao"><input type="radio" name="lugar" value="onibus"><svg class="icone-cartao" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r="1"/><circle cx="16" cy="14.5" r="1"/></svg><span>No ônibus</span></label></div>
         </fieldset>
 
         <fieldset class="passo cor-roxo">
-          <legend>4. Qual é o mistério?</legend>
+          <legend><h2 class="passo-titulo">4. Qual é o mistério?</h2></legend>
           <div class="cartoes cartoes-largos"><label class="cartao"><input type="radio" name="misterio" value="lixeira" checked><span>Uma lixeira quebrada</span></label><label class="cartao"><input type="radio" name="misterio" value="nota"><span>Uma compra sem nota fiscal</span></label><label class="cartao"><input type="radio" name="misterio" value="rampa"><span>Um lugar sem rampa</span></label><label class="cartao"><input type="radio" name="misterio" value="luz"><span>Uma rua sem iluminação</span></label><label class="cartao"><input type="radio" name="misterio" value="favor"><span>Alguém oferecendo um “favorzinho”</span></label><label class="cartao"><input type="radio" name="misterio" value="merenda"><span>De onde vem o dinheiro da merenda?</span></label></div>
         </fieldset>
 
         <fieldset class="passo cor-coral">
-          <legend>5. O que o grupo decide fazer?</legend>
+          <legend><h2 class="passo-titulo">5. O que o grupo decide fazer?</h2></legend>
           <div class="cartoes cartoes-largos"><label class="cartao"><input type="radio" name="acao" value="investigar" checked><span>Investigar e fazer perguntas</span></label><label class="cartao"><input type="radio" name="acao" value="campanha"><span>Fazer uma campanha com cartazes</span></label><label class="cartao"><input type="radio" name="acao" value="nota"><span>Pedir a nota fiscal</span></label><label class="cartao"><input type="radio" name="acao" value="conversar"><span>Conversar com a direção ou a prefeitura</span></label><label class="cartao"><input type="radio" name="acao" value="libras"><span>Fazer uma apresentação em Libras e braile</span></label><label class="cartao"><input type="radio" name="acao" value="transparencia"><span>Pesquisar no portal da transparência</span></label></div>
         </fieldset>
 
         <fieldset class="passo cor-rosa">
-          <legend>6. Como termina?</legend>
+          <legend><h2 class="passo-titulo">6. Como termina?</h2></legend>
           <p class="dica" id="dica-final">Escreva o final do seu jeito. Se deixar em branco, o site cria um final.</p>
           <label class="rotulo-campo" for="final">O final da história</label>
           <textarea class="campo-texto" id="final" name="final" maxlength="600" aria-describedby="dica-final"></textarea>
@@ -121,12 +168,7 @@
 <footer class="rodape">
   <div class="envoltorio">
     <h2>Acessibilidade</h2>
-    <p>Este site foi feito para todo mundo: funciona com leitor de tela, só com o teclado e com a tela ampliada. Cada história tem o texto escrito, e três delas têm audiodescrição das imagens.</p>
-    <ul>
-      <li>Libras pelo VLibras, o tradutor do Governo Federal (precisa de internet).</li>
-      <li>Letra maior, alto contraste, modo escuro e linhas mais espaçadas no alto da página.</li>
-      <li>Os textos foram feitos a partir dos áudios e revisados, mas podem ter pequenas diferenças.</li>
-    </ul>
+    <p>Este site foi feito para todo mundo: tem audiodescrição em todas as páginas, Voz do site, Libras pelo VLibras, letra maior, alto contraste e funciona só com o teclado e com leitor de tela. <a href="acessibilidade.html">Conheça todos os recursos de acessibilidade</a>.</p>
     <h2>Quem fez</h2>
     <p>As histórias “O Círculo dos Curiosos” fazem parte da pesquisa <a href="pesquisa.html">“Matemática para Todos: Educação Fiscal, Estatística e Inclusão”</a>, feita pelos estudantes da turma integral 2 da EMEF Hugo Gerdau, em Sapucaia do Sul (RS), com orientação da professora Mayara Santos.</p>
     <ul class="logos" aria-label="Instituições do projeto">
