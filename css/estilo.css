@@ -1230,7 +1230,6 @@ textarea.campo-texto { min-height: 7rem; resize: vertical; }
 .modo-ad .lendo-agora {
   outline: 4px dashed var(--sol-forte) !important;
   outline-offset: 3px;
-  border-radius: 0.4rem;
 }
 .aviso-voz {
   position: fixed;

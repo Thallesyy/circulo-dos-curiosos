@@ -267,22 +267,29 @@
 
   // Alguns navegadores só deixam falar depois do primeiro clique ou tecla na página
   var avisoClique = null;
-  function pedirClique() {
+  var esperandoPrimeiroClique = false;
+  function pedirClique(texto) {
     if (!avisoClique) {
       avisoClique = document.createElement("div");
       avisoClique.className = "aviso-voz";
       avisoClique.setAttribute("role", "status");
       document.body.appendChild(avisoClique);
     }
-    avisoClique.textContent = "Para a voz começar, clique em qualquer lugar da página ou aperte uma tecla.";
+    avisoClique.textContent = texto || "Para a voz começar, clique em qualquer lugar da página ou aperte uma tecla.";
     avisoClique.hidden = false;
+    esperandoPrimeiroClique = true;
   }
   function liberarPendente() {
     if (avisoClique) avisoClique.hidden = true;
-    if (!fala.pendente) return;
+    if (!esperandoPrimeiroClique) return;
+    esperandoPrimeiroClique = false;
     var p = fala.pendente;
     fala.pendente = null;
-    falar(p.lista, p.aoFrase, p.aoFim);
+    if (p) { falar(p.lista, p.aoFrase, p.aoFim); return; }
+    // Sem nada pendente: a voz confirma que já pode passar o mouse
+    if (typeof vozSite !== "undefined" && vozSite && vozSite.ligada) {
+      falar(["Audiodescrição pronta. Passe o mouse ou o dedo sobre a tela, ou use a tecla Tab."]);
+    }
   }
   document.addEventListener("pointerdown", liberarPendente, true);
   document.addEventListener("keydown", liberarPendente, true);
@@ -770,7 +777,9 @@
     "index.html": "Histórias, a página inicial", "aprender.html": "Aprender", "quiz.html": "Quiz",
     "criar.html": "Criar história", "pesquisa.html": "Pesquisa", "acessibilidade.html": "Acessibilidade"
   };
-  var SELETOR_LEITURA = "a[href], button, input, select, textarea, summary, label, img[alt], [role=img], " +
+  // Primeiro procura o que dá para clicar (link, botão…); só depois textos e imagens
+  var SELETOR_INTERATIVO = "a[href], button, input, select, textarea, summary, label";
+  var SELETOR_LEITURA = "img[alt]:not([alt='']), [role=img], .roda-fotos, " +
     "h1, h2, h3, h4, p, li, td, th, dt, dd, figcaption, legend, .trecho, .dado-numero, #vlibras-access-wrapper";
 
   function limpar(t) { return (t || "").replace(/\s+/g, " ").trim(); }
@@ -800,12 +809,13 @@
     var nome = limpar(nomeDe(el)).slice(0, 260).replace(/[\s.,;:]+$/, "");
     var tag = el.tagName;
     var tipo = (el.getAttribute("type") || "").toLowerCase();
-    if (/^H[1-6]$/.test(tag)) return { texto: "Título: " + nome };
+    if (/^H[1-6]$/.test(tag)) return { texto: "Título: " + limpar(el.textContent) };
     if (tag === "A") {
       var href = el.getAttribute("href") || "";
       var pagina = href.split("#")[0].split("/").pop();
       if (el.hasAttribute("download")) return { texto: nome + ", link", acao: "para baixar o áudio" };
       if (/^https?:/i.test(href)) return { texto: nome + ", link para outro site", acao: el.target === "_blank" ? "para abrir o site em outra aba" : "para abrir o site" };
+      if (el.classList.contains("roda-rosto")) return { texto: nome + ", link", acao: "para ver o cartão com quem é essa criança" };
       if (href.charAt(0) === "#") return { texto: nome + ", link", acao: "para ir até essa parte da página" };
       if (PAGINAS_NOME[pagina]) {
         var destino = PAGINAS_NOME[pagina];
@@ -877,7 +887,7 @@
   function alvoDe(no) {
     if (!no || !no.closest) return null;
     if (no.closest("#vlibras-access-wrapper")) return document.getElementById("vlibras-access-wrapper");
-    return no.closest(SELETOR_LEITURA);
+    return no.closest(SELETOR_INTERATIVO) || no.closest(SELETOR_LEITURA);
   }
 
   function aplicarVoz(ligada, avisar) {
@@ -903,6 +913,11 @@
     b.addEventListener("click", function () { aplicarVoz(!vozSite.ligada, true); });
   });
   aplicarVoz(vozSite.ligada, false);
+  // Ao abrir a página com a audiodescrição ligada, o navegador só deixa falar depois
+  // do primeiro clique ou tecla: avisa logo, sem esperar a pessoa passar o mouse
+  if (vozSite.ligada && temVoz && navigator.userActivation && !navigator.userActivation.hasBeenActive) {
+    pedirClique("Audiodescrição ligada. Clique em qualquer lugar da página ou aperte uma tecla para a voz começar.");
+  }
 
   // Mouse: lê o que estiver embaixo, depois de uma pausa curta
   var esperaMouse = null;
