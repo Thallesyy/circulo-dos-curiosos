@@ -802,6 +802,11 @@
   function descricaoDe(el) {
     if (!el || el === document.body || el === document.documentElement) return null;
     if (el.id === "vlibras-access-wrapper") return { texto: "Botão do VLibras", acao: "para abrir o avatar que traduz o site para Libras" };
+    if (el.classList.contains("personagem")) {
+      var h = el.querySelector("h3"), pTexto = el.querySelector(".personagem-texto p");
+      return { texto: limpar(h ? h.textContent : "") + ". " + limpar(pTexto ? pTexto.textContent : ""),
+               acao: "para abrir o cartão de audiodescrição, com a descrição da ilustração" };
+    }
     if (el.tagName === "LABEL") {
       var controle = el.control || el.querySelector("input, select, textarea");
       if (controle) el = controle;
@@ -815,7 +820,7 @@
       var pagina = href.split("#")[0].split("/").pop();
       if (el.hasAttribute("download")) return { texto: nome + ", link", acao: "para baixar o áudio" };
       if (/^https?:/i.test(href)) return { texto: nome + ", link para outro site", acao: el.target === "_blank" ? "para abrir o site em outra aba" : "para abrir o site" };
-      if (el.classList.contains("roda-rosto")) return { texto: nome + ", link", acao: "para ver o cartão com quem é essa criança" };
+      if (el.classList.contains("roda-rosto")) return { texto: nome + ", link", acao: "para abrir o cartão de audiodescrição dessa criança" };
       if (href.charAt(0) === "#") return { texto: nome + ", link", acao: "para ir até essa parte da página" };
       if (PAGINAS_NOME[pagina]) {
         var destino = PAGINAS_NOME[pagina];
@@ -887,7 +892,8 @@
   function alvoDe(no) {
     if (!no || !no.closest) return null;
     if (no.closest("#vlibras-access-wrapper")) return document.getElementById("vlibras-access-wrapper");
-    return no.closest(SELETOR_INTERATIVO) || no.closest(SELETOR_LEITURA);
+    // Com a audiodescrição ligada, o cartão inteiro de cada criança é lido de uma vez
+    return no.closest(SELETOR_INTERATIVO) || no.closest(".personagem") || no.closest(SELETOR_LEITURA);
   }
 
   function aplicarVoz(ligada, avisar) {
@@ -955,6 +961,7 @@
   // Teclado: lê o item que recebe o foco
   document.addEventListener("focusin", function (ev) {
     if (!vozSite.ligada || ultimoPonteiro === "touch") return;
+    if (ev.target.id === "cartao-ad-titulo") return; // o cartão de audiodescrição já fala sozinho
     if (ev.target.matches && ev.target.matches(":focus-visible")) lerElemento(ev.target, "teclado", true);
   });
   document.addEventListener("keydown", function () { ultimoPonteiro = "teclado"; }, true);
@@ -1048,7 +1055,121 @@
     if (ev.key === "Escape" && vozSite.ligada) { pararFala(); destacar(null); }
   });
 
-  /* ---------- Roda das crianças: clicar num rosto leva ao cartão dela ---------- */
+  /* =========================================================
+     Cartão de audiodescrição de cada criança
+     Com a audiodescrição ligada, clicar numa criança (na roda ou em
+     "Conheça a turma") abre um cartão que já fala quem ela é, como ela
+     aparece na ilustração e o que dá para fazer. Anterior e Próxima
+     passam de uma criança a outra; Fechar ou Esc voltam para onde estava.
+     ========================================================= */
+  var cartoesCriancas = Array.prototype.slice.call(document.querySelectorAll(".personagem[id]"));
+  var cartaoAD = null, cartaoADIndice = 0, cartaoADOrigem = null;
+
+  function dadosCrianca(cartao) {
+    var h = cartao.querySelector("h3");
+    var idade = cartao.querySelector(".idade");
+    var img = cartao.querySelector("img");
+    var texto = cartao.querySelector(".personagem-texto p");
+    var nome = h ? limpar(h.firstChild ? h.firstChild.textContent : h.textContent) : "";
+    var alt = img ? img.alt : "";
+    // Tira o nome do começo da descrição da imagem ("Yara, menina..." -> "menina...")
+    var visual = alt.indexOf(nome + ",") === 0 ? alt.slice(nome.length + 1).trim() : alt;
+    return {
+      nome: nome,
+      idade: idade ? limpar(idade.textContent) : "",
+      texto: texto ? limpar(texto.textContent) : "",
+      visual: visual,
+      src: img ? img.getAttribute("src") : "",
+      alt: alt
+    };
+  }
+
+  function criarCartaoAD() {
+    if (cartaoAD) return cartaoAD;
+    cartaoAD = document.createElement("dialog");
+    cartaoAD.className = "cartao-ad";
+    cartaoAD.setAttribute("aria-labelledby", "cartao-ad-titulo");
+    cartaoAD.innerHTML =
+      '<p class="cartao-ad-tipo">Cartão de audiodescrição</p>' +
+      '<img class="cartao-ad-foto" alt="">' +
+      '<h2 id="cartao-ad-titulo" tabindex="-1"></h2>' +
+      '<p class="cartao-ad-texto"></p>' +
+      '<p class="cartao-ad-visual"><strong>Na ilustração:</strong> <span></span></p>' +
+      '<p class="cartao-ad-posicao" aria-live="off"></p>' +
+      '<div class="cartao-ad-botoes">' +
+      '<button type="button" class="botao" data-ad="anterior">Anterior</button>' +
+      '<button type="button" class="botao botao-principal" data-ad="ouvir">Ouvir de novo</button>' +
+      '<button type="button" class="botao" data-ad="proxima">Próxima</button>' +
+      '<button type="button" class="botao" data-ad="fechar">Fechar</button>' +
+      "</div>";
+    document.body.appendChild(cartaoAD);
+    proteger(cartaoAD);
+    cartaoAD.addEventListener("click", function (ev) {
+      if (ev.target === cartaoAD) { cartaoAD.close(); return; } // clique no fundo escuro
+      var b = ev.target.closest("[data-ad]");
+      if (!b) return;
+      var acao = b.getAttribute("data-ad");
+      if (acao === "fechar") cartaoAD.close();
+      else if (acao === "ouvir") falarCartao(false);
+      else if (acao === "proxima") mostrarCrianca(cartaoADIndice + 1, true);
+      else if (acao === "anterior") mostrarCrianca(cartaoADIndice - 1, true);
+    });
+    cartaoAD.addEventListener("close", function () {
+      destacar(null);
+      if (cartaoADOrigem && document.contains(cartaoADOrigem)) cartaoADOrigem.focus({ preventScroll: false });
+      var ondeVoltou = cartaoADOrigem && cartaoADOrigem.classList.contains("roda-rosto") ? "para a roda das crianças" : "para a turma";
+      falar(["Cartão fechado. Você voltou " + ondeVoltou + "."]);
+    });
+    return cartaoAD;
+  }
+
+  function falarCartao(trocou) {
+    var d = dadosCrianca(cartoesCriancas[cartaoADIndice]);
+    var toque = ultimoPonteiro === "touch";
+    var frases = [
+      (trocou ? "" : "Cartão de audiodescrição. ") + d.nome + ", " + d.idade + ".",
+      d.texto,
+      "Na ilustração: " + d.visual,
+      "Criança " + (cartaoADIndice + 1) + " de " + cartoesCriancas.length + ".",
+      toque ? "Embaixo estão os botões Anterior, Ouvir de novo, Próxima e Fechar."
+            : "Botões: Anterior, Ouvir de novo, Próxima e Fechar. Aperte Esc para voltar."
+    ];
+    falar(frases.filter(Boolean));
+  }
+
+  function mostrarCrianca(indice, trocou) {
+    var total = cartoesCriancas.length;
+    cartaoADIndice = (indice + total) % total;
+    var d = dadosCrianca(cartoesCriancas[cartaoADIndice]);
+    var c = criarCartaoAD();
+    c.querySelector(".cartao-ad-foto").src = d.src;
+    c.querySelector("#cartao-ad-titulo").textContent = d.nome + ", " + d.idade;
+    c.querySelector(".cartao-ad-texto").textContent = d.texto;
+    c.querySelector(".cartao-ad-visual span").textContent = d.visual;
+    c.querySelector(".cartao-ad-posicao").textContent = "Criança " + (cartaoADIndice + 1) + " de " + total;
+    c.className = "cartao-ad " + (cartoesCriancas[cartaoADIndice].className.match(/cor-\w+/) || ["cor-roxo"])[0];
+    if (!c.open) c.showModal();
+    c.querySelector("#cartao-ad-titulo").focus({ preventScroll: true });
+    falarCartao(trocou);
+  }
+
+  function abrirCartaoAD(slug, origem) {
+    var i = cartoesCriancas.findIndex(function (c) { return c.id === "personagem-" + slug; });
+    if (i < 0) return false;
+    cartaoADOrigem = origem;
+    mostrarCrianca(i, false);
+    return true;
+  }
+
+  // Clicar no cartão da criança em "Conheça a turma" (com a audiodescrição ligada)
+  document.addEventListener("click", function (ev) {
+    if (!vozSite.ligada || ev.defaultPrevented) return;
+    var cartao = ev.target.closest && ev.target.closest(".personagem[id]");
+    if (!cartao || (cartaoAD && cartaoAD.contains(cartao))) return;
+    abrirCartaoAD(cartao.id.replace("personagem-", ""), cartao);
+  });
+
+  /* ---------- Roda das crianças: clicar num rosto leva à criança ---------- */
   document.addEventListener("click", function (ev) {
     var link = ev.target.closest && ev.target.closest(".roda-rosto");
     if (!link || ev.defaultPrevented) return;
@@ -1056,6 +1177,8 @@
     var cartao = document.getElementById(hash.slice(1));
     if (!cartao) return;
     ev.preventDefault();
+    // Audiodescrição ligada: abre o cartão de audiodescrição, que já fala quem é
+    if (vozSite.ligada && abrirCartaoAD(hash.replace("#personagem-", ""), link)) return;
     var suave = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     if (history.pushState) history.pushState(null, "", hash);
     cartao.scrollIntoView({ behavior: suave ? "smooth" : "auto", block: "start" });
