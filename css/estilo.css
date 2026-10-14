@@ -343,19 +343,66 @@ html:not(.js) .sem-js-oculto { display: none !important; }
   box-shadow: 0 0 0 6px var(--superficie), 0 0 0 9px var(--sol-forte);
 }
 .roda-centro .roda-lupa { width: 62%; height: 62%; }
+.roda-fotos ul { list-style: none; margin: 0; padding: 0; }
 .roda-rosto {
   position: absolute;
   left: 39.5%; top: 39.5%;
   width: 21%; height: 21%;
+  display: block;
   border-radius: 50%;
-  object-fit: cover;
   border: 5px solid var(--cor);
   background: var(--cor-claro);
   transform: rotate(var(--a)) translateY(-185%) rotate(calc(-1 * var(--a)));
-  animation: entrar-foto 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation: entrar-foto 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
   animation-delay: calc(var(--i) * 0.08s + 0.15s);
+  transition: scale 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
 }
+.roda-rosto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.roda-rosto:hover, .roda-rosto:focus-visible {
+  scale: 1.12;
+  z-index: 2;
+  box-shadow: 0 0 0 5px var(--sol), 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+.roda-rosto:focus-visible { outline: none; }
+.roda-nome {
+  position: absolute;
+  left: 50%;
+  bottom: -0.6rem;
+  transform: translate(-50%, 50%);
+  padding: 0.1rem 0.65rem;
+  border-radius: 999px;
+  background: var(--superficie);
+  border: 3px solid var(--cor);
+  color: var(--tinta);
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.roda-rosto:hover .roda-nome, .roda-rosto:focus-visible .roda-nome { opacity: 1; }
 @keyframes entrar-foto { from { scale: 0; opacity: 0; } }
+
+/* Cartão da criança escolhida na roda */
+.personagem { scroll-margin-top: 1.5rem; }
+.personagem:target, .personagem.chegou {
+  outline: 6px solid var(--sol);
+  outline-offset: 4px;
+  animation: piscar-cartao 0.6s ease-in-out 3;
+}
+.personagem:focus { outline: 6px solid var(--sol); outline-offset: 4px; }
+@keyframes piscar-cartao { 50% { outline-color: transparent; } }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 
 /* ===== Escolhas (Libras junto, seguir ouvindo) ===== */
 .escolhas {

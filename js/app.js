@@ -1033,6 +1033,30 @@
     if (ev.key === "Escape" && vozSite.ligada) { pararFala(); destacar(null); }
   });
 
+  /* ---------- Roda das crianças: clicar num rosto leva ao cartão dela ---------- */
+  document.addEventListener("click", function (ev) {
+    var link = ev.target.closest && ev.target.closest(".roda-rosto");
+    if (!link || ev.defaultPrevented) return;
+    var hash = link.getAttribute("href");
+    var cartao = document.getElementById(hash.slice(1));
+    if (!cartao) return;
+    ev.preventDefault();
+    var suave = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    if (history.pushState) history.pushState(null, "", hash);
+    cartao.scrollIntoView({ behavior: suave ? "smooth" : "auto", block: "start" });
+    // Faz o cartão piscar de novo, mesmo se já estiver selecionado
+    Array.prototype.forEach.call(document.querySelectorAll(".personagem.chegou"), function (c) { c.classList.remove("chegou"); });
+    void cartao.offsetWidth;
+    cartao.classList.add("chegou");
+    // O foco vai para o cartão depois da rolagem (o leitor de tela lê a criança).
+    // Se a rolagem suave não andar (ex.: aba em segundo plano), pula direto.
+    window.setTimeout(function () {
+      var r = cartao.getBoundingClientRect();
+      if (r.top < -10 || r.top > window.innerHeight * 0.5) cartao.scrollIntoView({ behavior: "instant", block: "start" });
+      cartao.focus({ preventScroll: true });
+    }, suave ? 900 : 0);
+  });
+
   /* ---------- Ferramentas para as outras páginas (quiz, criar) ---------- */
   window.Circulo = {
     ler: ler,
